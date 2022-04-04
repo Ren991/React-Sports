@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          React sports Bootcamp mindhub
+          React sports Bootcamp mindhub commit 2 
         </a>
       </header>
     </div>
