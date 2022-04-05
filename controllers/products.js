@@ -1,4 +1,4 @@
-const Productos = require('../models/products')
+const Products = require('../models/products')
 
 const productosControladores = {
     consultarProductos: async (require, response) => {
@@ -6,7 +6,7 @@ const productosControladores = {
         var error = null
 
         try {
-            ciudades = await Productos.find()
+            ciudades = await Products.find()
         } catch (err) {
             error = err
             console.log(error);
@@ -21,9 +21,9 @@ const productosControladores = {
     },
     agregarProducto: async (required, response) => {
 
-        const { tipo, descripcion, color, marca, talle, stock, deporte } = required.body
-        new Productos({
-            tipo, descripcion, color, marca, talle, stock, deporte
+        const { type, description, color, brand, size, stock, sportType, genre, sale, image } = required.body
+        new Products({
+            type, description, color, brand, size, stock, sportType, genre, sale, image
         }).save()
             .then((respuesta) => response.json({ respuesta }))
             .catch(error => response.json({ error }))
@@ -33,7 +33,7 @@ const productosControladores = {
         const ciudad = req.body
 
         var ciudadb
-        ciudadb = await Productos.findOneAndUpdate({ _id: id }, ciudad, { new: true })
+        ciudadb = await Products.findOneAndUpdate({ _id: id }, ciudad, { new: true })
             .then((response) => res.json({ paso: "listo", respuesta: response }))
             .catch(error => res.json({ error }))
     },
@@ -42,7 +42,7 @@ const productosControladores = {
 
         var ciudadEliminada
 
-        ciudadEliminada = await Productos.findOneAndDelete({ _id: id })
+        ciudadEliminada = await Products.findOneAndDelete({ _id: id })
             .then((res) => response.json({ paso: "listo", respuesta: res }))
             .catch(error => response.json({ error }))
     },
@@ -52,7 +52,7 @@ const productosControladores = {
 
 
 
-        ProductosLocal = await Productos.findOne({ _id: id })
+        ProductosLocal = await Products.findOne({ _id: id })
             .then((res) => response.json({ paso: "listo", respuesta: res }))
             .catch(error => response.json({ error }))
     },
