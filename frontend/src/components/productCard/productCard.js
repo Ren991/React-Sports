@@ -7,7 +7,7 @@ function ProductCard() {
       <div class="container">
         <div class="card">
           <div class="imgBx">
-            <img src="https://assets.codepen.io/4164355/shoes.png" />
+            <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
           </div>
           <div class="contentBx">
             <h2>Nike Shoes</h2>
