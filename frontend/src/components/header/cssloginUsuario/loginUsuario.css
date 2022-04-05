@@ -1,6 +1,91 @@
-
+.firstNavbar{
+    background-color:grey !important;
+}
+body {
+    background-color: rgb(255, 255, 255) !important;
+    font-size:1rem;
+}
+.logo{
+    width: 5rem;
+    border-radius:360px;
+}
+.container-fluid{
+    padding: 0 8rem;
+    background-color: white;
+   
+}
 .bg-light{
-    background-color: blueviolet!important;
+    background-color: white !important;
+}
+.carritoUser{
+    transform:scale(1.4)
+}
+a{
+    font-size: 1rem;
+    color: white;
+}
+.containerNavbar{
+    color: white
+}
+
+.form-inputs {
+    position: relative
+}
+
+.form-inputs .form-control {
+    height: 45px
+}
+
+.form-inputs .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #000
+}
+
+.form-inputs i {
+    position: absolute;
+    right: 10px;
+    top: 15px
+}
+
+.shop-bag {
+    background-color: #000;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    font-size: 0.5rem;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center
+}
+
+.qty {
+    font-size: 1.2rem
+}
+.containerInput{
+    display: flex;
+    justify-content: center;
+    background-color: #ff6f00;
+}
+.inputNavbar{
+  text-align: center;
+  height: 3rem;
+  width:20rem;
+   
+   
+
+}
+
+
+
+
+
+
+
+
+/**/
+.bg-light{
+    background-color: rgb(255, 255, 255)!important;
 }
 
 .factorLogoCarrito{

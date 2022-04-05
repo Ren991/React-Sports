@@ -3,9 +3,9 @@ import '../../styles/footer.css'
 
 const Footer = () => {
     return ( 
-     <>
-     <div className="container-fluid mt-5">
-    <div className="card mx-5">
+     <div>
+     <div className="container-fluid mt-5 containerFooter">
+    <div className="card mx-12 containerFooter">
         <div className="row mb-4 ">
             <div className="col-md-4 col-sm-11 col-xs-11">
                 <div className="footer-text pull-left">
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
     </div>
 </div>
-     </>
+     </div>
 
 
      );
