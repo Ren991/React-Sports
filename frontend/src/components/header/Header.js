@@ -24,6 +24,18 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item btn-group">
+                            <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                CATEGORIAS
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li>CALZADO</li>
+                                <li>INDUMENTARIA</li>
+                                <li>ACCESORIOS</li>
+                                <li>TECNOLOGIA</li>
+                                
+                            </ul>
+                        </li>
                         <li className="nav-item btn-group ">
                             <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 GENERO
@@ -56,6 +68,7 @@ const Header = () => {
                                 <li>FILA</li>
                             </ul>
                         </li>
+
                         <li className="nav-item">
                             <a className="nav-link" href="/#">OFERTAS</a>
                         </li>
