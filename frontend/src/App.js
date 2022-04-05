@@ -1,5 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
+import DetalleProducto from './components/detalleProducto/detalleProducto';
+import './styles/detalleProducto.css';
+
 
 function App() {
   return (
