@@ -1,9 +1,8 @@
 
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-import ProductsView from './components/productsView/productsView'
-import './styles/productsView.css'
 import './styles/detalleProducto.css';
+import SportsView from './components/pages/sportsView'
 
 
 function App() {
@@ -14,7 +13,9 @@ function App() {
       <div className='mainHtml'>
         <DetalleProducto/>
       </div> */}
-      <ProductsView />
+        {/* <SportsView/>
+        <ProductsView/> */}
+        <SportsView/>
       <Footer/>
     </>
   );
