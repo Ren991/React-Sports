@@ -5,7 +5,7 @@ const ProductsActions = {
         return async (dispatch, getState) => {
             const res = await axios.get()
             console.log(res);
-            dispatch({ type: 'get', payload: res.data.respuesta.ciudades })
+            dispatch({ type: 'get', payload: res.data.respuesta.products })
         }
 
     },
