@@ -1,11 +1,11 @@
 const goodsRouter = require('express').Router();
 
-const productsControllers = require('../controllers/products')
+const productsControllers = require('../controllers/productsControllers')
 
-const { consProducts, addProduct, modifyProduct, deleteProduct, seeProductForId } = productsControllers
+const { getAllProducts, addProduct, modifyProduct, deleteProduct, seeProductForId } = productsControllers
 
 goodsRouter.route('/allGoods')
-    .get(consProducts)
+    .get(getAllProducts)
     .post(addProduct)
 
 goodsRouter.route('/allGoodsId/:id')
