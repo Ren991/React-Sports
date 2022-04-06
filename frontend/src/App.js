@@ -6,10 +6,11 @@ import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/pages/home';
 import ProductsView from './components/pages/productsView'
+import SignIn from '../src/components/login/signIn';
 
 
 function App() {
-/*   const usuario = useSelector(state => state.usuarioMain.usuario) */
+
   return (
     
     <>
@@ -17,11 +18,9 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* {!usuario && <Route path="/signUp" element={ <SignUp/>}/>}
-          {!usuario && <Route path="/signIn" element={ <SignIn/>}/>} */}
+         
+          <Route path="/signIn" element={<SignIn/>}/> 
         </Routes>
-        {/* <DetalleProducto/> */}
-        <ProductsView/>
        
 
         <Footer />
