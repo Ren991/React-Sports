@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import './cssloginUsuario/Login.css'
-import LogoLog from './logoImagen/login.png'
+/* import './cssloginUsuario/Login.css'
+ */import LogoLog from './logoImagen/login.png'
 /* import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux' */
 //importaciones internas

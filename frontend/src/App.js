@@ -1,9 +1,9 @@
-import Header from './components/header/Header'
+
+import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
-import DetalleProducto from './components/detalleProducto/detalleProducto';
-import './styles/detalleProducto.css';
+import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './components/home/home';
+import Home from './components/pages/home';
 
 
 function App() {
@@ -12,12 +12,10 @@ function App() {
     <>
      <BrowserRouter>
         <Header/>
-        <Home/>
         <Routes>
-         {/* <Route path="/" element={<Home />} />
-          <Route path="/signUp" element={ <SignUp/>}/>
-          <Route path="/signIn" element={ <SignIn/>}/> */}
-
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/signUp" element={ <SignUp/>}/>
+          <Route path="/signIn" element={ <SignIn/>}/>  */}
         </Routes>
         {/* <DetalleProducto/> */}
         <Footer />

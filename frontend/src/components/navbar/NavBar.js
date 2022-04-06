@@ -1,6 +1,6 @@
 import React from "react";
-import "./cssloginUsuario/loginUsuario.css";
-import * as mdb from "mdb-ui-kit"; // lib
+import '../../styles/navBar.css'
+import * as mdb from "mdb-ui-kit"; 
 import Login from "./Login";
 import logoCarrito from "./logoImagen/carrito4.png";
 const Header = () => {
