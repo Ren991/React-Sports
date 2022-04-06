@@ -4,21 +4,21 @@ import "../../styles/productCard.css";
 function ProductCard() {
   return (
     <div className="cardBody">
-      <div class="container">
-        <div class="card">
-          <div class="imgBx">
+      <div className="container">
+        <div className="card">
+          <div className="imgBx">
             <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
           </div>
-          <div class="contentBx">
+          <div className="contentBx">
             <h2>Nike Shoes</h2>
-            <div class="size">
+            <div className="size">
               <h3>Sizes :</h3>
               <span>7</span>
               <span>8</span>
               <span>9</span>
               <span>10</span>
             </div>
-            <div class="color">
+            <div className="color">
               <h3>Color :</h3>
               <span></span>
               <span></span>
