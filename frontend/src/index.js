@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import mainReducer from './redux/reducers/mainReducer';
+/* import {Provider} from 'react-redux'; */
+/* import {createStore, applyMiddleware} from 'redux'; */
+/* import thunk from 'redux-thunk';
+import mainReducer from './redux/reducers/mainReducer'; */
+//import externo
+import generateStore from './redux/store'
+import {Provider} from 'react-redux'
 
-const reduxStore = createStore(mainReducer, applyMiddleware(thunk))
-
+const store = generateStore()
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={reduxStore}>
+    <Provider store={store}>
     <App />
     </Provider>
   </React.StrictMode>,

@@ -1,0 +1,166 @@
+.firstNavbar{
+    background-color:grey !important;
+}
+body {
+    background-color: rgb(255, 255, 255) !important;
+    font-size:1rem;
+}
+.logo{
+    width: 5rem;
+    border-radius:360px;
+}
+.container-fluid{
+    padding: 0 8rem;
+    background-color: white;
+   
+}
+.bg-light{
+    background-color: white !important;
+}
+.carritoUser{
+    transform:scale(1.4)
+}
+a{
+    font-size: 1rem;
+    color: white;
+}
+.containerNavbar{
+    color: white
+}
+
+.form-inputs {
+    position: relative
+}
+
+.form-inputs .form-control {
+    height: 45px
+}
+
+.form-inputs .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #000
+}
+
+.form-inputs i {
+    position: absolute;
+    right: 10px;
+    top: 15px
+}
+
+.shop-bag {
+    background-color: #000;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    font-size: 0.5rem;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center
+}
+
+.qty {
+    font-size: 1.2rem
+}
+.containerInput{
+    display: flex;
+    justify-content: center;
+    background-color: #ff6f00;
+}
+.inputNavbar{
+  text-align: center;
+  height: 3rem;
+  width:20rem;
+   
+   
+
+}
+
+
+
+
+
+
+
+
+/**/
+.bg-light{
+    background-color: rgb(255, 255, 255)!important;
+}
+
+.factorLogoCarrito{
+    /* background-color: rgb(19, 183, 183); */
+    width: 125px;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    
+}
+.logoApp{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: red;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.loginUsuario{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50px;  
+}
+
+.carrito{
+    width: 50px;
+    height: 50px;
+    /* background-color: green; */
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.imagenCarrito{
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    /* background-color: red!important; */
+    background-attachment: fixed;
+    
+
+}
+.eliminar993{
+    display: none;
+}
+.dropdown-toggle{
+    background-color: transparent;
+    border: 0px;
+    margin-left: 5px;
+}
+.mb-lg-0{
+    /* background-color: rebeccapurple; */
+    width: 200px;
+}
+.dropdown-toggle{
+    /* background-color: red; */
+    text-align: start;
+}
+.btn-group{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 992px) {
+    .factorLogoCarrito{
+        width: 200px;
+    }
+    .eliminar992{
+        display: none;
+    }
+    .eliminar993{
+        display: flex;
+    }
+    
+}

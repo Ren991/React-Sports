@@ -1,19 +1,28 @@
 
-import Header from './components/header/Header'
+import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
-import DetalleProducto from './components/detalleProducto/detalleProducto';
-import './styles/detalleProducto.css';
+import './styles/cardsView.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './components/pages/home';
 
 
 function App() {
   return (
+
     <>
-      <Header />
-      {/* A modo de ejemplo! */}
-      <div className='mainHtml'>
-        <DetalleProducto />
-      </div>
-      <Footer />
+     <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/signUp" element={ <SignUp/>}/>
+          <Route path="/signIn" element={ <SignIn/>}/>  */}
+        </Routes>
+        {/* <DetalleProducto/> */}
+        <Footer />
+
+      </BrowserRouter>
+      
+      
     </>
   );
 }
