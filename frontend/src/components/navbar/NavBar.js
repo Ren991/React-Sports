@@ -2,8 +2,11 @@ import React from "react";
 import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
 import Login from "./Login";
+import {Link as LinkRouter} from 'react-router-dom';
 import logoCarrito from "./logoImagen/carrito4.png";
+
 const Header = () => {
+
   return (
     <div className="containerNavbar ">
     {/*   CONTADOR QATAR 2022 */}
@@ -101,6 +104,7 @@ const Header = () => {
 
               {/*   BRAND */}
               <li class="nav-item dropdown">
+              <LinkRouter to="/brands">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -111,6 +115,7 @@ const Header = () => {
                 >
                   Brand
                 </a>
+              </LinkRouter>
                 <ul
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
@@ -144,6 +149,7 @@ const Header = () => {
               </li>
               {/*  SPORTS */}
               <li class="nav-item dropdown">
+              <LinkRouter to="/sports">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -154,6 +160,7 @@ const Header = () => {
                 >
                   Sports
                 </a>
+              </LinkRouter>
                 <ul
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
