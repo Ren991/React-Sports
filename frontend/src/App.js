@@ -1,4 +1,5 @@
 
+import React,{useSelector} from 'react';
 import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
@@ -7,15 +8,16 @@ import Home from './components/pages/home';
 
 
 function App() {
+/*   const usuario = useSelector(state => state.usuarioMain.usuario) */
   return (
-
+    
     <>
      <BrowserRouter>
         <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/signUp" element={ <SignUp/>}/>
-          <Route path="/signIn" element={ <SignIn/>}/>  */}
+          {/* {!usuario && <Route path="/signUp" element={ <SignUp/>}/>}
+          {!usuario && <Route path="/signIn" element={ <SignIn/>}/>} */}
         </Routes>
         {/* <DetalleProducto/> */}
         <Footer />
