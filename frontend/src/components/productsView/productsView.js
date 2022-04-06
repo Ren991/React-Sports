@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '../../styles/productsView.css'
+import '../../styles/cardView.css'
 import ProductCard from '../productCard/productCard'
 
 import {getAllProducts} from '../../redux/productos/productos'

@@ -1,8 +1,7 @@
 
 import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
-import './styles/productsView.css'
-import './styles/detalleProducto.css';
+import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/pages/home';
 
