@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react'
 import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
@@ -10,10 +11,19 @@ import SportsView from './components/pages/sportsView'
 import ProductsView from './components/pages/productsView'
 import SignIn from './components/login/signIn';
 import SignUp from './components/login/signUp'
+import userAction from './redux/actions/userAction';
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    if(localStorage.getItem('token')!==null){
+      const token = localStorage.getItem('token')
+      props.verifyToken(token)
+    }
+  }, [])
+  
+
   return (
-
     <>
      <BrowserRouter>
         <Header/>
@@ -23,8 +33,8 @@ function App() {
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>
           <Route path="/brands/:brand" element={<ProductsView />}/>
-          <Route path="/signUp" element={ <SignUp/>}/>
-          <Route path="/signIn" element={ <SignIn/>}/>  
+          {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
+          {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
         </Routes>
         <Footer />
       </BrowserRouter>
@@ -34,4 +44,14 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    user: state.userReducer.user
+  }
+}
+
+const mapDispatchToProps = {
+  verifyToken: userAction.verifyToken,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

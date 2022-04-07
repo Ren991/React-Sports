@@ -18,12 +18,13 @@ const SignIn = (props) => {
       from: "signIn",
     }
     props.signInUser(userData)
+    console.log(userData)
   }
 
 
   return (
     <div className="containerSignIn">
-      <h2><span className="nombreLogin">Log in MyTinerary</span></h2>
+      <h2><span className="nombreLogin">React Sports Sign In</span></h2>
         <p>¿Don't have an account? <LinkRouter to={"/signUp"} className="signUpButton">Create a new account!</LinkRouter></p>
         <div className="containerGoogle">
         <GoogleSignIn />

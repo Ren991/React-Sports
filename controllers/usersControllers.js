@@ -1,27 +1,26 @@
-const Users = require('../models/users')
-const bcryptjs = require ('bcryptjs')
-const crypto = require('crypto')
-const nodemailer = require('nodemailer')
-const jwt = require('jsonwebtoken')
+const Users = require("../models/users");
+const bcryptjs = require("bcryptjs");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
 
 const sendEmail = async (email, uniqueString) => {
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "reactsports2022@gmail.com",
+      pass: "reactsports26",
+    },
+  });
 
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth:{
-            user: "reactsports2022@gmail.com",
-            pass: "reactsports26",
-        }
-    })
-
-    let sender = "reactsports2022@gmail.com"
-    let mailOptions = {
-        from: sender,
-        to: email, 
-        subject: "User email verification for registration in React Sports ",
-        html: ` 
+  let sender = "reactsports2022@gmail.com";
+  let mailOptions = {
+    from: sender,
+    to: email,
+    subject: "User email verification for registration in React Sports ",
+    html: ` 
         <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
         <head>
@@ -241,242 +240,255 @@ const sendEmail = async (email, uniqueString) => {
         
         </html>
         `,
-    };
-    await transporter.sendMail(mailOptions, function (error, response) {
-        if(error){
-            console.log(error)
-        }else {
-            console.log("Message sent")
-        }
-
-    })
+  };
+  await transporter.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Message sent");
+    }
+  });
 };
 
 const userController = {
+  verifyEmail: async (req, res) => {
+    const { uniqueString } = req.params;
 
-    verifyEmail: async (req, res) => {
-
-        const {uniqueString} = req.params; 
-
-        const user = await Users.findOne({uniqueString: uniqueString})
-        if (user) {
-            user.verifiedEmail = true 
-            await user.save()
-            res.redirect("http://localhost:3000/") 
-        }
-        else { res.json({
-            success: false,
-            response: "Your email has not been verified" 
-            }) 
-        }
-    },
-    
-    signUpUser: async (req, res)=>{
-        console.log(req.body)
-        let {firstName, lastName, email, password, image, country, city, adress, from} = req.body
-
-        try{
-
-            const userExist = await Users.findOne({email})
-            
-            if(userExist){
-                if(userExist.from.indexOf(from) !== -1){
-                    res.json({
-                        success: false,
-                        from:"signUp",
-                        message:"There is already an account associated with the email entered"
-                    })
-                } else{
-                    const hashedPassword = bcryptjs.hashSync(password, 10)
-                    userExist.from.push(from)
-                    userExist.password.push(hashedPassword)
-                    if(from === "signUp"){
-                        userExist.uniqueString = crypto.randomBytes(15).toString('hex')
-                        await userExist.save()
-                        await sendEmail(email, userExist.uniqueString)
-
-                    res.json({
-                        success: true, 
-                        from: "singUp",
-                        message:"We send you an email to validate your registration. Please check your mailbox to confirm",
-                    })    
-
-                    }else {
-                        userExist.save()
-
-                        res.json({
-                            success: true,
-                            from: "signUp",
-                            message: "We add "+from+" to your means to login"
-                        })
-                    }
-
-                }
-            } else{
-
-                const hashedPassword = bcryptjs.hashSync(password, 10)
-                const newUser = await new Users({
-                    firstName,
-                    lastName,
-                    email,
-                    password:[hashedPassword],
-                    image,
-                    country,
-                    city,
-                    adress,
-                    uniqueString: crypto.randomBytes(15).toString('hex'),
-                    verifiedEmail:false,
-                    from:[from],
-                })
-                if(from !== "signUp"){
-                    await newUser.save()
-                    res.json({
-                        success:true,
-                        from:"singUp",
-                        message:"Congratulations, your user has been created with "+from
-                    })
-
-                } else {
-                    await newUser.save()
-                    await sendEmail(email, newUser.uniqueString)
-
-                    res.json({
-                        success:true,
-                        from:"signUp",
-                        message:"We send you an email to validate your registration. Please check your mailbox to confirm"
-                    })
-                }
-            }
-            
-            
-        } catch(error){
-            console.log(error)
-        res.json({
-            success: false,
-            message:"Oops, an error occurred, please try again",
-        })
+    const user = await Users.findOne({ uniqueString: uniqueString });
+    if (user) {
+      user.emailVerify = true;
+      await user.save();
+      res.redirect("http://localhost:3000/");
+    } else {
+      res.json({
+        success: false,
+        response: "Your email has not been verified",
+      });
     }
-},
+  },
 
-    signInUser: async (req, res)=>{
-        const {email, password, from} = req.body.userData
+  signUpUser: async (req, res) => {
+    console.log(req.body.userData);
+    let {
+      firstName,
+      lastName,
+      email,
+      password,
+      image,
+      adress,
+      city,
+      country,
+      from,
+    } = req.body.userData;
 
-        try{
-            const userExist = await Users.findOne({email})
+    try {
+      const userExist = await Users.findOne({ email });
 
-            if(!userExist){
-                res.json({
-                    success:false,
-                    message:"We have not found an account associated with that email address. Please sign up",
-                })
-            } else {
-                if(from !== "signIn"){
-                    let passwordMatches = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
+      if (userExist) {
+        if (userExist.from.indexOf(from) !== -1) {
+          res.json({
+            success: false,
+            from: "signUp",
+            message:
+              "There is already an account associated with the email entered",
+          });
+        } else {
+          const hashedPassword = bcryptjs.hashSync(password, 10);
+          userExist.from.push(from);
+          userExist.password.push(hashedPassword);
+          if (from === "signUp") {
+            userExist.uniqueString = crypto.randomBytes(15).toString("hex");
+            await userExist.save();
+            await sendEmail(email, userExist.uniqueString);
 
-                    if(passwordMatches.length > 0){
-
-                        const userData = {
-                            id: userExist._id,
-                            firstName: userExist.firstName,
-                            lastName: userExist.lastName,
-                            email: userExist.email,
-                            image: userExist.image,
-                            from: userExist.from,
-                        }
-                        await userExist.save()
-
-                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60 * 60 *24})
-
-                        res.json({
-                            success:true,
-                            from: from,
-                            response: {token, userData},
-                            message:"Welcome again "+userData.firstName, 
-                        })
-
-                    }else {
-                        res.json({
-                            success:false,
-                            from:from,
-                            message:"You have not registered with "+from+". If you want to enter with that means please signUp with "+from,
-                        })
-                        
-                        } 
-                    } else {
-                        if(userExist.verifiedEmail){
-                            let passwordMatches = userExist.password.filter(pass => bcryptjs.compareSync(password, pass))
-                            if(passwordMatches.length > 0){
-
-                            const userData = {
-                                id: userExist._id,
-                                firstName: userExist.firstName,
-                                lastName: userExist.lastName,
-                                email: userExist.email,
-                                image: userExist.image,
-                                from: userExist.from,
-                            }
-                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60 * 60 *24})
-                            res.json({
-                                success: true,
-                                from: from,
-                                response: {token, userData},
-                                message:"Welcome again "+userData.firstName,
-                            })
-                        } else{
-                            res.json({
-                                success: false,
-                                from: from,
-                                message:"Your email or password is incorrect",
-                            })
-                        }
-                        } else{
-                            res.json({
-                                success: false,
-                                from: from,
-                                message:"You have not verified your email. Please check your mailbox to continue",
-                            })
-                        }
-                    }
-                }
-            }
-            catch(error){
-                console.log(error)
             res.json({
-                success: false,
-                message:"Oops, an error occurred, please try again",
-            })
+              success: true,
+              from: "singUp",
+              message:
+                "We send you an email to validate your registration. Please check your mailbox to confirm",
+            });
+          } else {
+            userExist.save();
+
+            res.json({
+              success: true,
+              from: "signUp",
+              message: "We add " + from + " to your means to login",
+            });
+          }
         }
-        },
+      } else {
+        const hashedPassword = bcryptjs.hashSync(password, 10);
+        const newUser = await new Users({
+          firstName,
+          lastName,
+          email,
+          password: [hashedPassword],
+          image,
+          adress,
+          city,
+          country,
+          uniqueString: crypto.randomBytes(15).toString("hex"),
+          emailVerify: false,
+          from: [from],
+        });
+        if (from !== "signUp") {
+          await newUser.save();
+          res.json({
+            success: true,
+            from: "singUp",
+            message: "Congratulations, your user has been created with " + from,
+          });
+        } else {
+          await newUser.save();
+          await sendEmail(email, newUser.uniqueString);
 
-        signOutUser: async (req, res) => {
-            const email = req.body.userData
-            const user = await Users.findOne({email})
-            await user.save()
-            res.json(
-                console.log("Closed session " + email)
-            )
-        },
-
-        verifyToken:(req, res) => {
-            if(!req.err){
-            res.json({success:true,
-                      response:{id:req.user.id, 
-                      firstName:req.user.firstName,
-                      lastName:req.user.lastName,
-                      email:req.user.email, 
-                      image: req.user.image,
-                      country:req.user.country,
-                      city:req.user.city,
-                      adress:req.user.adress,
-                      contry: req.user.country,
-                      from:"token"},
-                      message:"Welcome again "+req.user.firstName}) 
-            }else{
-                res.json({success:false,
-                message:"Please signIn again"}) 
-            }
-        },
-
+          res.json({
+            success: true,
+            from: "signUp",
+            message:
+              "We send you an email to validate your registration. Please check your mailbox to confirm",
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({
+        success: false,
+        message: "Oops, an error occurred, please try again",
+      });
     }
+  },
 
-module.exports = userController
+  signInUser: async (req, res) => {
+    const { email, password, from } = req.body.userData;
+
+    try {
+      const userExist = await Users.findOne({ email });
+
+      if (!userExist) {
+        res.json({
+          success: false,
+          message:
+            "We have not found an account associated with that email address. Please sign up",
+        });
+      } else {
+        if (from !== "signIn") {
+          let passwordMatches = userExist.password.filter((pass) =>
+            bcryptjs.compareSync(password, pass)
+          );
+
+          if (passwordMatches.length > 0) {
+            const userData = {
+              id: userExist._id,
+              firstName: userExist.firstName,
+              lastName: userExist.lastName,
+              email: userExist.email,
+              image: userExist.image,
+              from: userExist.from,
+            };
+            await userExist.save();
+
+            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
+              expiresIn: 60 * 60 * 24,
+            });
+
+            res.json({
+              success: true,
+              from: from,
+              response: { token, userData },
+              message: "Welcome again " + userData.firstName,
+            });
+          } else {
+            res.json({
+              success: false,
+              from: from,
+              message:
+                "You have not registered with " +
+                from +
+                ". If you want to enter with that means please signUp with " +
+                from,
+            });
+          }
+        } else {
+          console.log("usuario logueado");
+          if (userExist.emailVerify) {
+            let passwordMatches = userExist.password.filter((pass) =>
+              bcryptjs.compareSync(password, pass)
+            );
+            if (passwordMatches.length > 0) {
+              const userData = {
+                id: userExist._id,
+                firstName: userExist.firstName,
+                lastName: userExist.lastName,
+                email: userExist.email,
+                image: userExist.image,
+                from: userExist.from,
+              };
+              const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
+                expiresIn: 60 * 60 * 24,
+              });
+              res.json({
+                success: true,
+                from: from,
+                response: { token, userData },
+                message: "Welcome again " + userData.firstName,
+              });
+            } else {
+              res.json({
+                success: false,
+                from: from,
+                message: "Your email or password is incorrect",
+              });
+            }
+          } else {
+            res.json({
+              success: false,
+              from: from,
+              message:
+                "You have not verified your email. Please check your mailbox to continue",
+            });
+          }
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({
+        success: false,
+        message: "Oops, an error occurred, please try again",
+      });
+    }
+  },
+
+  signOutUser: async (req, res) => {
+    console.log("usuario deslogueado")
+    const email = req.body.userData;
+    const user = await Users.findOne({ email });
+    await user.save();
+    res.json(console.log("Closed session " + email));
+  },
+
+  verifyToken: (req, res) => {
+    if (!req.err) {
+      res.json({
+        success: true,
+        response: {
+          id: req.user.id,
+          firstName: req.user.firstName,
+          lastName: req.user.lastName,
+          email: req.user.email,
+          image: req.user.image,
+          adress: req.user.adress,
+          city: req.user.city,
+          country: req.user.country,
+          from: "token",
+        },
+        message: "Welcome again " + req.user.firstName,
+      });
+    } else {
+      res.json({ success: false, message: "Please signIn again" });
+    }
+  },
+};
+
+module.exports = userController;
