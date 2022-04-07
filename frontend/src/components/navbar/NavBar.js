@@ -2,8 +2,11 @@ import React from "react";
 import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
 import Login from "./Login";
+import {Link as LinkRouter} from 'react-router-dom';
 import logoCarrito from "./logoImagen/carrito4.png";
+
 const Header = () => {
+
   return (
     <div className="containerNavbar ">
     {/*   CONTADOR QATAR 2022 */}
@@ -32,9 +35,9 @@ const Header = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <a className="navbar-brand mt-2 mt-lg-0" href="#">
-            <img className="logo" src= {process.env.PUBLIC_URL+ `../img/logo-react-sport.png`} /> 
-            </a>
+            <LinkRouter to={`/`} className="navbar-brand mt-2 mt-lg-0">
+              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/logo-react-sport.png`} /> 
+            </LinkRouter> 
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* CATEGORY */}
@@ -116,29 +119,29 @@ const Header = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <LinkRouter to={`/brands/Adidas`} className="dropdown-item">
                       Adidas
-                    </a>
+                    </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/brands/Nike`} className="dropdown-item">
                       Nike
-                    </a>
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
                       Umbro
-                    </a>
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/brands/Puma`} className="dropdown-item">
                       Puma
-                    </a>
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/brands/Fila`} className="dropdown-item">
                       Fila
-                    </a>
+                  </LinkRouter> 
                   </li>
                 </ul>
               </li>
@@ -159,24 +162,24 @@ const Header = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Football
-                    </a>
+                  <LinkRouter to={`/sports/Futbol`} className="dropdown-item">
+                      Futbol
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/sports/Running`} className="dropdown-item">
                       Running
-                    </a>
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                  <LinkRouter to={`/sports/Tennis`} className="dropdown-item">
                       Tennis
-                    </a>
+                  </LinkRouter> 
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Trainign and fitness
-                    </a>
+                  <LinkRouter to={`/sports/Training&Fitness`} className="dropdown-item">
+                      Training & Fitness
+                  </LinkRouter> 
                   </li>
                 </ul>
               </li>

@@ -2,10 +2,12 @@ import React, {useState}from 'react'
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link as LinkRouter } from "react-router-dom";
-import userAction from "../../redux/actions/usersActions";
+import userAction from '../../redux/actions/userAction';
 import { connect } from "react-redux";
 import GoogleSignUp from "./googleSignUp";
 import "../../styles/login.css";
+
+
 const SignUp = (props) => {
   const country = ["Choose...", "Argentina", "Brazil", "Colombia", "Chile", "Uruguay", "United States", "Spain", "China"]
 
@@ -18,12 +20,14 @@ const SignUp = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
-      fullName: event.target[0].value,
-      email: event.target[1].value,
-      password: event.target[2].value,
-      confirmPassword: event.target[3].value,
-      urlImage: event.target[4].value,
+      firstName: event.target[0].value,
+      lastName: event.target[1].value,
+      email: event.target[2].value,
+      password: event.target[3].value,
+      image: event.target[4].value,
       country: selectCountry,
+      city: event.target[5].value,
+      adress: event.target[6].value,
       from: "signUp",
     }
     props.signUpUser(userData)
@@ -43,8 +47,12 @@ const SignUp = (props) => {
         </div>
       <Form className="formSignUp" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Full Name</Form.Label>
-          <Form.Control type="text" placeholder="Full Name" name="fullName" />
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="text" placeholder="First Name" name="firstName" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" placeholder="Last Name" name="lastName" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -62,17 +70,9 @@ const SignUp = (props) => {
             name="password"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm Password"
-            name="confirmPassword"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>URL Picture Profile </Form.Label>
-          <Form.Control type="text" placeholder="URL image" name="urlImage" />
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Url Image</Form.Label>
+          <Form.Control type="text" placeholder="URL Image" name="urlImage" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Country</Form.Label>
@@ -81,6 +81,14 @@ const SignUp = (props) => {
             <option >{country}</option>
             )}
           </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" placeholder="City" name="city" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Adress</Form.Label>
+          <Form.Control type="text" placeholder="Adress" name="adress" />
         </Form.Group>
         <div className="submitContainer">
           <Button variant="primary" type="submit" className="submitButton">

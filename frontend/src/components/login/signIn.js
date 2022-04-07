@@ -3,7 +3,7 @@ import {Form} from 'react-bootstrap'
 import { Button } from "react-bootstrap";
 import "../../styles/login.css";
 import {Link as LinkRouter} from "react-router-dom"
-import userAction from "../../redux/actions/usersActions";
+import userAction from '../../redux/actions/userAction';
 import { connect } from "react-redux";
 import GoogleSignIn from './googleSignIn'
 
