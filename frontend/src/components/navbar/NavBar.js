@@ -1,13 +1,13 @@
 import React from "react";
 import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
-import Login from "./Login";
 import {Link as LinkRouter} from 'react-router-dom';
 import logoCarrito from "./logoImagen/carrito.png";
-import userPhoto from "./logoImagen/login.png";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
+
+import Counter from '../counterWorldCup/counter'
 
 const Header = (props) => {
 let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
@@ -19,13 +19,11 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
     <div className="containerNavbar ">
     {/*   CONTADOR QATAR 2022 */}
       
-      <nav className="navbar navbar-light bg-light ">
-        <div className="container-fluid firstNavbar">
-          <span className="navbar-text">xx days left to Qatar World Cup</span>
+      <div className="containerCounter">
+        <div className="boxCounter">
+          <Counter 
+          countDownTimestampMs={1669086060000}/>
         </div>
-      </nav>
-      <div className="containerInput">
-          <input className="inputNavbar" placeholder="Search a product"/>
       </div>
       {/*Second Nav*/}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,14 +38,14 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-    {/*         <img  
+           {/*  <img  
             src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
             style={{width:40}} /> */}
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <LinkRouter to={`/`} className="navbar-brand mt-2 mt-lg-0">
-              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/logo-react-sport.png`} /> 
+              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/REACT_LOGO.png`} /> 
             </LinkRouter> 
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -61,7 +59,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Category
+                  CATEGORY
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -94,7 +92,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Genre
+                  GENRE
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -123,7 +121,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Brand
+                  BRAND
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -166,7 +164,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Sports
+                  SPORTS
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -293,8 +291,10 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             </div>
           </div>
         </div>
-       
       </nav>
+      <div className="containerInput">
+          <input className="inputNavbar" placeholder="Search a product"/>
+      </div>
      
           
       
