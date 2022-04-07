@@ -9,7 +9,7 @@ import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
 
 const Header = (props) => {
-
+let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
   function SignOut(){
     props.signOutUser(props.user.email)
   }
@@ -28,9 +28,10 @@ const Header = (props) => {
       </div>
       {/*Second Nav*/}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+        <div className="container-fluid  ">
           <button
-            className="navbar-toggler"
+            
+            className="navbar-toggler menuHamburguesa"
             type="button"
             data-mdb-toggle="collapse"
             data-mdb-target="#navbarSupportedContent"
@@ -38,7 +39,9 @@ const Header = (props) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <i className="fas fa-bars"></i>
+    {/*         <img  
+            src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
+            style={{width:40}} /> */}
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -240,7 +243,7 @@ const Header = (props) => {
                 </li>
               </ul>
             </div>
-
+            {/*   USER ACCOUNT */}
             <div className="dropdown">
               <a
                 className="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -250,13 +253,16 @@ const Header = (props) => {
                 data-mdb-toggle="dropdown"
                 aria-expanded="false"
               >
+                {props.user? <img className="userImg" src={props.user.image}/> : 
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  className="rounded-circle carritoUser"
+                  src="https://img2.freepng.es/20181205/ppu/kisspng-vector-graphics-computer-icons-user-profile-portab-writer-recommend-svg-png-icon-free-download-9768-5c0851b175d215.4257304515440490734826.jpg"
+                  className="rounded-circle userImg"
                   height="25"
                   alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
+                }
+                
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-end"
@@ -266,19 +272,19 @@ const Header = (props) => {
                   <>
                 <li>
                   <a className="dropdown-item" href="#">
-                  <LinkRouter to="signIn" className="linkResponsive">Sign In</LinkRouter>
+                  <LinkRouter to="signIn" className="linkResponsive userButton">Sign In</LinkRouter>
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                  <LinkRouter to="signUp" className="linkResponsive">Sign Up</LinkRouter>
+                  <LinkRouter to="signUp" className="linkResponsive userButton">Sign Up</LinkRouter>
                   </a>
                 </li>
                 </>
                   :
                 <li>
                   <a className="dropdown-item" href="#">
-                  <LinkRouter to="signOut" className="linkResponsive" onClick={SignOut}>Sign Out</LinkRouter>
+                  <LinkRouter to="signOut" className="linkResponsive userButton" onClick={SignOut}>Sign Out</LinkRouter>
                   </a>
                 </li>
               }
