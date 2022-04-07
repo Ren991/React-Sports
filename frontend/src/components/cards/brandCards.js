@@ -4,12 +4,12 @@ import "../../styles/brandCard.css";
 function BrandCard() {
   return (
     <div className="cardBody">
-      <div class="container">
-        <div class="card">
-          <div class="imgBx">
+      <div className="container">
+        <div className="card">
+          <div className="imgBx">
             <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c4f3.png" />
           </div>
-          <div class="contentBx">           
+          <div className="contentBx">           
             <a href="#">View more..</a>
           </div>
         </div>
