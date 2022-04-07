@@ -25,12 +25,13 @@ const SignUp = (props) => {
       email: event.target[2].value,
       password: event.target[3].value,
       image: event.target[4].value,
+      adress: event.target[5].value,
+      city: event.target[6].value,
       country: selectCountry,
-      city: event.target[5].value,
-      adress: event.target[6].value,
       from: "signUp",
     }
     props.signUpUser(userData)
+    console.log(userData)
   }
 
   return (
@@ -46,14 +47,17 @@ const SignUp = (props) => {
         <GoogleSignUp/>
         </div>
       <Form className="formSignUp" onSubmit={handleSubmit}>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" placeholder="First Name" name="firstName" />
         </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Last Name</Form.Label>
           <Form.Control type="text" placeholder="Last Name" name="lastName" />
         </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Email" name="email" />
@@ -70,10 +74,22 @@ const SignUp = (props) => {
             name="password"
           />
         </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Url Image</Form.Label>
-          <Form.Control type="text" placeholder="URL Image" name="urlImage" />
+          <Form.Control type="text" placeholder="URL Image" name="image" />
         </Form.Group>
+        
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Adress</Form.Label>
+          <Form.Control type="text" placeholder="Adress" name="adress" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" placeholder="City" name="city" />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Country</Form.Label>
           <Form.Select aria-label="Default select example" name="country" onChange={selected}>
@@ -82,14 +98,7 @@ const SignUp = (props) => {
             )}
           </Form.Select>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="City" name="city" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Adress</Form.Label>
-          <Form.Control type="text" placeholder="Adress" name="adress" />
-        </Form.Group>
+
         <div className="submitContainer">
           <Button variant="primary" type="submit" className="submitButton">
             Sign Up
