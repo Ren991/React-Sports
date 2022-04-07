@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Home from './components/pages/home';
 import DetalleProducto from './components/detalleProducto/detalleProducto'
 import BrandsView from './components/pages/brandsView'
@@ -12,21 +12,22 @@ import ProductsView from './components/pages/productsView'
 import SignIn from './components/login/signIn';
 import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
+import CheckOut from './components/carry/checkOut';
 
 function App(props) {
 
   useEffect(() => {
-    if(localStorage.getItem('token')!==null){
+    if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem('token')
       props.verifyToken(token)
     }
   }, [])
-  
+
 
   return (
     <>
-     <BrowserRouter>
-        <Header/>
+      <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="*"  element={<Home />}/> 
           <Route path="/DETALLEPRODUCTO"  element={<DetalleProducto />}/>
@@ -35,19 +36,20 @@ function App(props) {
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>
           <Route path="/brands/:brand" element={<ProductsView />}/>
+          <Route path="/checkout" element={<CheckOut />} />
           {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
           {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
         </Routes>
         <Footer />
       </BrowserRouter>
-      
-      
+
+
     </>
   );
 }
 
 const mapStateToProps = (state) => {
-  return{
+  return {
     user: state.userReducer.user
   }
 }

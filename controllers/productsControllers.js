@@ -33,10 +33,10 @@ const productsControllers = {
     },
     modifyProduct: async (req, res) => {
         const id = req.params.id
-        const ciudad = req.body
+        const ProductsLocal = req.body
 
         var productLocal
-        productLocal = await Products.findOneAndUpdate({ _id: id }, ciudad, { new: true })
+        productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
             .then((response) => res.json({ paso: "listo", respuesta: response }))
             .catch(error => res.json({ error }))
     },
