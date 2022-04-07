@@ -5,7 +5,14 @@ import Login from "./Login";
 import {Link as LinkRouter} from 'react-router-dom';
 import logoCarrito from "./logoImagen/carrito4.png";
 
-const Header = () => {
+import userAction from "../../redux/actions/userAction";
+import { connect } from "react-redux";
+
+const Header = (props) => {
+
+  function SignOut(){
+    props.signOutUser(props.user.email)
+  }
 
   return (
     <div className="containerNavbar ">
@@ -254,22 +261,27 @@ const Header = () => {
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
-              >
+                >
+                {!props.user ?
+                  <>
                 <li>
                   <a className="dropdown-item" href="#">
-                    My profile
+                  <LinkRouter to="signIn" className="linkResponsive">Sign In</LinkRouter>
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Settings
+                  <LinkRouter to="signUp" className="linkResponsive">Sign Up</LinkRouter>
                   </a>
                 </li>
+                </>
+                  :
                 <li>
                   <a className="dropdown-item" href="#">
-                    Logout
+                  <LinkRouter to="signOut" className="linkResponsive" onClick={SignOut}>Sign Out</LinkRouter>
                   </a>
                 </li>
+              }
               </ul>
             </div>
           </div>
@@ -283,7 +295,17 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return{
+    user: state.userReducer.user
+  }
+}
+
+const mapDispatchToProps = {
+  signOutUser: userAction.signOutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 {
   /* <nav classNameNameNameName="navbar navbar-expand-lg navbar-light bg-light">
