@@ -1,19 +1,18 @@
+//import externo
 import React, { useRef, useState } from "react";
-// Import Swiper React components
+import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+// Import Swiper styles interno
 import "swiper/css";
 import "swiper/css/navigation";
-
 import "../../styles/home.css";
+// import interno Componentes
+import ProductsView from './productsView'
 
-// import required modules
-import { Navigation } from "swiper";
-
-export default function Home() {
+export default function Home() { //rompe carta y header
   return (
-    <>
+    <> 
     <div className="carouselContainer">
       <Swiper  navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide>
@@ -36,6 +35,12 @@ export default function Home() {
         
       </Swiper>
       </div>
+      <div ></div>
+      <h3 style={{textAlign:"center"}}>Top deals</h3>
+      <ProductsView/>
+      <h3 style={{textAlign:"center"}}>What's news</h3>
+      <ProductsView/>
+      
     </>
   );
 }

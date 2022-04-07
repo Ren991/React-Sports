@@ -3,20 +3,21 @@ import "../../styles/productCard.css";
 import { useParams } from 'react-router-dom';
 
 
-function ProductCard() {
+function ProductCard(props) {
 
   let {id} = useParams() 
   console.log(id)
 
   return (
     <div className="cardBody">
-      <div className="container">
+      <div className="container" >
         <div className="card">
+            <h1 className="marcaZapatilla">{props.product.brand}</h1>
           <div className="imgBx">
             <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
           </div>
           <div className="contentBx">
-            <h2>Nike Shoes</h2>
+            <h2>{props.product.color}</h2>
             <div className="size">
               <h3>Sizes :</h3>
               <span>7</span>
