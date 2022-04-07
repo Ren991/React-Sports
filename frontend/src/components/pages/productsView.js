@@ -17,8 +17,8 @@ function ProductsView() {
   return (
     <main>
         <section> 
-            {products.map(element=>
-              <ProductCard dataFromParent={this.element} />
+            {products?.map(element=>
+              <ProductCard product={element} />
             )}
         </section>
     </main>

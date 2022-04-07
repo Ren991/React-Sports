@@ -7,17 +7,18 @@ function ProductCard(props) {
 
   let {id} = useParams() 
   console.log(id)
-
+  const prod = props.product
+  
   return (
     <div className="cardBody">
       <div className="container" >
         <div className="card">
-            <h1 className="marcaZapatilla">{props.product.brand}</h1>
+            <h1 className="marcaZapatilla">{prod.brand}</h1>
           <div className="imgBx">
             <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
           </div>
           <div className="contentBx">
-            <h2>{props.product.color}</h2>
+            <h2>{prod.description}</h2>
             <div className="size">
               <h3>Sizes :</h3>
               <span>7</span>
