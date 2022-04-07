@@ -111,7 +111,22 @@ a{
     background-color: green;
     border-radius: 50px;  
 }
-
+.userImg{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+}
+.menuHamburguesa{
+    background-image: url("https://images.vexels.com/media/users/3/202461/isolated/lists/aecd98dae53ed535bee20c25babbfbb0-hamburguesa-americana-negra.png");
+    background-size: cover;
+    width: 2rem;
+    height:2rem;
+}
+.userButton{
+    text-decoration: none;
+    color: black;
+}
 .carrito{
     width: 50px;
     height: 50px;

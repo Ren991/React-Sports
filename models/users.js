@@ -6,12 +6,12 @@ const usersSchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: [{ type: String, required: true }],
     uniqueString: { type: String, required: true },
-    emailVerify: { type: Boolean },
+    emailVerify: { type: Boolean, required: true },
     isAdmin: { type: Boolean },
     image: { type: String },
-    country: { type: String },
-    city: { type: String },
     adress: { type: String },
+    city: { type: String },
+    country: { type: String },
     from: { type: Array },
 })
 

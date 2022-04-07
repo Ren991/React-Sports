@@ -1,14 +1,8 @@
 import axios from 'axios'
+
 //constantes
 const dataInicial = {
-    usuario: null,
-    sucedio: false,
-    mensaje:[],
-    unPais: null,
-    paisesDisponibles: 
-    ["Select Country","Argentina", "Brasil", "Spain", "Germany", "Italy", "Japan", "England", "France"],
-    /* mensajeLogIn: "" */
-    
+    usuario: null
 }
 
 //types
@@ -26,29 +20,7 @@ export default function usuarioReducer(state=dataInicial, action){
                 ...state,
                usuario: action.payload
             } 
-        case MENSAJE:
-            /* console.log(typeof action.payload.message == 'string') */
-            return {
-                ...state,
-                mensaje:
-                typeof action.payload.message !== 'string'
-                ? 
-                action.payload.message?.map(mensaje => mensaje.message)
-                :
-                [action.payload.message],
-
-                sucedio: action.payload.success
-            }
-        case SELECCIONAR_PAIS:
-            return{
-                ...state,
-                unPais:action.payload
-            }
-        /* case MENSAJE_LOGIN:
-            return {
-                ...state,
-                mensajeLogIn:action.payload
-            } */
+    
         default:
             return state
     }
@@ -112,8 +84,3 @@ export const seleccionarUnPais= (unPais) => (dispatch, getState) => {
         
     
 } 
-
-
-  /*   unMensaje.split(" ")[0] === ? camposInvalidos.nombre= unMensaje.substring(2) :  camposInvalidos.nombre= unMensaje */
-        
-  
