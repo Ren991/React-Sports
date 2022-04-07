@@ -219,7 +219,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   loading="lazy"
                 />
                 <span className="badge rounded-pill badge-notification bg-danger">
-                  1
+                  TO_DO__CANT_CARRITO
                 </span>
               </a>
               <ul
