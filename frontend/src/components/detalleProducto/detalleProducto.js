@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../../styles/detalleProducto.css';
 import {useDispatch, useSelector} from 'react-redux';
-import {connect} from 'react-redux';
 import {getAllProducts} from '../../redux/productos/productos'
 
 

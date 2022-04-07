@@ -29,7 +29,8 @@ function App(props) {
         <Header/>
         <Routes>
           <Route path="*"  element={<Home />}/> 
-          <Route path="/DETALLEPRODUCTO"  element={<DetalleProducto />}/> 
+          <Route path="/DETALLEPRODUCTO"  element={<DetalleProducto />}/>
+          <Route path="/PRODUCTSVIEW"  element={<ProductsView />}/> 
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>

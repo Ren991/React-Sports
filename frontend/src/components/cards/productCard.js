@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "../../styles/productCard.css";
+import { useParams } from 'react-router-dom';
+
 
 function ProductCard() {
+
+  let {id} = useParams() 
+  console.log(id)
+
   return (
     <div className="cardBody">
       <div className="container">
