@@ -6,17 +6,17 @@ import userAction from '../../redux/actions/userAction';
 function GoogleSignUp(props) {
 
     const responseGoogle = async (res) => {
-    console.log(props)
         const userData = {
-            fullName: res.profileObj.givenName + " " + res.profileObj.familyName,
+            firstName: res.profileObj.firstName + " " + res.profileObj.familyName,
+            lastName: res.profileObj.lastName + " " + res.profileObj.familyName,
             email: res.profileObj.email,
             password: res.profileObj.googleId,
-            confirmPassword: res.profileObj.googleId,
-            urlImage: res.profileObj.imageUrl,
+            image: res.profileObj.imageUrl,
+            adress: "undefined",
+            city: "undefined",
             country: "undefined",
             from: "google",
         }
-        console.log(res.profileObj)
         await props.signUpUser (userData)
     }
 

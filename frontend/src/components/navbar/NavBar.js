@@ -3,7 +3,8 @@ import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
 import Login from "./Login";
 import {Link as LinkRouter} from 'react-router-dom';
-import logoCarrito from "./logoImagen/carrito4.png";
+import logoCarrito from "./logoImagen/carrito.png";
+import userPhoto from "./logoImagen/login.png";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
@@ -255,7 +256,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
               >
                 {props.user? <img className="userImg" src={props.user.image}/> : 
                 <img
-                  src="https://img2.freepng.es/20181205/ppu/kisspng-vector-graphics-computer-icons-user-profile-portab-writer-recommend-svg-png-icon-free-download-9768-5c0851b175d215.4257304515440490734826.jpg"
+                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
                   className="rounded-circle userImg"
                   height="25"
                   alt="Black and White Portrait of a Man"
