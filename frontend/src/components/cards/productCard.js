@@ -6,9 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 function ProductCard(props) {
 
   let {id} = useParams() 
-  console.log(id)
   const prod = props.product
-  console.log(prod)
   
   return (
     <div className="cardBody">
@@ -33,7 +31,7 @@ function ProductCard(props) {
               <span></span>
               <span></span>
             </div>
-            <Link to={`/DETALLEPRODUCTO/${prod._id}`}>
+            <Link to={`/DETALLEPRODUCTO/${prod._id}`} productInfo={prod}>
               View product
             </Link>
           </div>
