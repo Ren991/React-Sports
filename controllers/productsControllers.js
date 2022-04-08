@@ -21,17 +21,36 @@ const productsControllers = {
         })
 
     },
+    getAllProductsBrand: async (require, response) => {
+        const brandId = require.params.id
+        var error = null
+
+        try {
+            brands = await Products.find({brand: brandId})
+        } catch (err) {
+            error = err
+            console.log(error);
+        }
+        response.json({
+
+            respuesta: error ? 'ERROR' : { brands },
+            success: error ? false : true,
+            error: error
+        })
+
+    },
     addProduct: async (required, response) => {
 
-        const { tipo, description, image, price, brand, color, size, stock, sportType, genre, sale
-        } = required.body
-        new Products({
-            tipo, description, image, price, brand, color, size, stock, sportType, genre, sale
-        }).save()
+        const { type, description, image, price, size, stock,sport,productName, genre, brand} = required.body
+        console.log(required.body)
+        new Products({ type, description, image, price, size, stock, sport,productName,genre, brand}).save()
             .then((respuesta) => response.json({ respuesta }))
             .catch(error => response.json({ error }))
-    },
-    modifyProduct: async (req, res) => {
+    }
+    
+    
+        // tipo un string o arraY?,
+/*     modifyProduct: async (req, res) => {
         const id = req.params.id
         const ProductsLocal = req.body
 
@@ -58,7 +77,7 @@ const productsControllers = {
         ProductsLocal = await Products.findOne({ _id: id })
             .then((res) => response.json({ paso: "listo", respuesta: res }))
             .catch(error => response.json({ error }))
-    },
+    }, */
 }
 
 module.exports = productsControllers
