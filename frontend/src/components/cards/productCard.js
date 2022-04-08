@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/productCard.css";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 function ProductCard(props) {
@@ -8,6 +8,7 @@ function ProductCard(props) {
   let {id} = useParams() 
   console.log(id)
   const prod = props.product
+  console.log(prod)
   
   return (
     <div className="cardBody">
@@ -32,7 +33,9 @@ function ProductCard(props) {
               <span></span>
               <span></span>
             </div>
-            <a href="#">View product</a>
+            <Link to={`/DETALLEPRODUCTO/${prod._id}`}>
+              View product
+            </Link>
           </div>
         </div>
       </div>
