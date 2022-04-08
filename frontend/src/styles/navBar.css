@@ -1,16 +1,34 @@
-.firstNavbar{
-    background-color:grey !important;
+.containerCounter{
+    width: 100%;
+    height: 2rem;
+    background-color:#d7d7d7 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxCounter{
+    position: absolute;
+    height: 3.5rem;
+    background-color: #1c749a;
+    z-index: 1;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar{
+    padding: 0 !important;
 }
 body {
     background-color: rgb(255, 255, 255) !important;
     font-size:1rem;
 }
 .logo{
-    width: 5rem;
-    border-radius:360px;
+    width: 7rem;
+
 }
 .container-fluid{
-    padding: 0 8rem;
+    padding: .5rem 19rem;
     background-color: white;
    
 }
@@ -19,6 +37,9 @@ body {
 }
 .carritoUser{
     transform:scale(1.4)
+}
+.rounded-circle{
+    border-radius: 0 !important;
 }
 a{
     font-size: 1rem;
@@ -65,7 +86,8 @@ a{
 .containerInput{
     display: flex;
     justify-content: center;
-    background-color: #ff6f00;
+    background-color: #1c749a;
+    padding: .5rem 0;
 }
 .inputNavbar{
   text-align: center;
@@ -75,12 +97,6 @@ a{
    
 
 }
-
-
-
-
-
-
 
 
 /**/
@@ -114,8 +130,8 @@ a{
 .userImg{
     border-radius: 50%;
     object-fit: cover;
-    height: 60px;
-    width: 60px;
+    height: 38px;
+    width: 38px;
 }
 .menuHamburguesa{
     background-image: url("https://images.vexels.com/media/users/3/202461/isolated/lists/aecd98dae53ed535bee20c25babbfbb0-hamburguesa-americana-negra.png");
@@ -131,7 +147,6 @@ a{
     width: 50px;
     height: 50px;
     /* background-color: green; */
-    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
