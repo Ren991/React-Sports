@@ -1,8 +1,9 @@
 import axios from "axios"
 
 const dataInicial = {
-    products: []
-
+    products: [],
+   
+    
 }
 
 export default function productosReducer(state = dataInicial, action) {

@@ -23,8 +23,8 @@ const brandControllers = {
     },
     addbrand: async (required, response) => {
 
-        const { brand
-        } = required.body
+        const { brand } = required.body
+        /*         console.log(brand) */
         new Brand({
             brand
         }).save()
@@ -45,3 +45,4 @@ const brandControllers = {
 }
 
 module.exports = brandControllers
+

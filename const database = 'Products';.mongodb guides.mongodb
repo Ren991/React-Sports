@@ -1,0 +1,234 @@
+const database = 'SportsStore';
+
+use(database);
+
+db.products.drop();
+db.products.insertMany([
+
+{description:"Football shoes",
+brand:"Nike",
+type:"footwear",
+gender:"male",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"black",
+price:60,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"footbalshoesb.png",
+},
+
+
+
+{description:"Football shoes Mercurial",
+brand:"Nike",
+type:"footwear",
+gender:"male",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"white",
+price:60,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"footbalshoesw.png"
+},
+ 
+{description:"Football shoes Mercurial",
+brand:"Nike",
+type:"footwear",
+gender:"male",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"blue",
+price:60,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"footbalshoesblu.png"
+},
+
+{description:"Football shoes",
+brand:"Nike",
+type:"footwear",
+gender:"male",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"gold",
+price:60,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"footbalshoesg.png"
+},
+
+{description:"Football shoes",
+brand:"Nike",
+type:"footwear",
+gender:"female",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"silver",
+price:50,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"footbalshoess.png"
+},
+
+{description:"Shoes lemon limited edition",
+brand:"Adidas",
+type:"footwear",
+gender:"male",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"yellow",
+price:50,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"adidasshoesyellow.png"
+},
+
+{description:"Shoes Riana limited edition",
+brand:"Adidas",
+type:"footwear",
+gender:"female",
+size:[35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+color:"red",
+price:50,
+stock:[3, 5, 10, 20, 20, 20, 15, 10, 5, 5],
+image:"redshoes.png"
+},
+
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"white",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtwf.png"
+},
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"white",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtwm.png"
+},
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"blue",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtbf.png"
+},
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"blue",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtbm.png"
+},
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"red",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtrf.png"
+},
+
+{description:"T-shirt spring season",
+brand:"Adidas",
+type:"t-shirt",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"red",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtrm.png"
+},
+
+{description:"T-shirt Eminem edition",
+brand:"Nike",
+type:"t-shirt",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"orange",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtEminemo.png"
+},
+
+{description:"T-shirt Eminem edition",
+brand:"Nike",
+type:"t-shirt",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"black",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"t-shirtEminemp.png"
+},
+
+
+{description:"Embroidery joggers",
+brand:"Adidas",
+type:"pants",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"red",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"pantsrf.png"
+},
+
+{description:"Joggers solid color",
+brand:"Adidas",
+type:"pants",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"red",
+price:20,
+stock:[5, 10, 15, 15, 10, 5],
+image:"pantsrm.png"
+},
+
+{description:"Joggers aqua model",
+brand:"Adidas",
+type:"pants",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"grey",
+price:30,
+stock:[5, 10, 15, 15, 10, 5],
+image:"pantsgf.png"
+},
+
+{description:"Joggers solid color",
+brand:"Adidas",
+type:"pants",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"grey",
+price:35,
+stock:[5, 10, 15, 15, 10, 5],
+image:"pantsgm.png"
+},
+
+{description:"Joggers special rap collection",
+brand:"Nike",
+type:"pants",
+gender:"male",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"purple",
+price:40,
+stock:[5, 10, 15, 15, 10, 5],
+image:"pantsrmp.png"
+},
+
+
+
+])

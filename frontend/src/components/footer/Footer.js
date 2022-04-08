@@ -13,36 +13,37 @@ const Footer = () => {
                         <h1 className="font-weight-bold mr-2 px-3" style={{color:"#16151a", backgroundColor:"#957bda"}}> T </h1>
                         <h1 style={{color: "#957bda"}}>Devs</h1>
                     </div>
-                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi non pariatur numquam animi nam at impedit odit nisi.</p>
+                    <p className="card-text">React sports sportwear and shoes.</p>
                     <div className="social mt-2 mb-3"> <i className="fa fa-facebook-official fa-lg"></i> <i className="fa fa-instagram fa-lg"></i> <i className="fa fa-twitter fa-lg"></i> <i className="fa fa-linkedin-square fa-lg"></i> <i className="fa fa-facebook"></i> </div>
                 </div>
             </div>
             <div className="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Services</h5>
+                <h5 className="heading">Category</h5>
                 <ul>
-                    <li>IT Consulting -</li>
-                    <li>Development</li>
-                    <li>Cloud</li>
-                    <li>DevOps / Support</li>
+                    <li>Sportwear</li>
+                    <li>Shoes</li>
+                   
                 </ul>
             </div>
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Industries</h5>
+                <h5 className="heading">Brand</h5>
                 <ul className="card-text">
-                    <li>Finance</li>
-                    <li>Public Sector</li>
-                    <li>Smart Office</li>
-                    <li>Retail</li>
+                    <li>Adidas</li>
+                    <li>Nike</li>
+                    <li>Umbro</li>
+                    <li>Puma</li>
+                    <li>Fila</li>
                 </ul>
             </div>
+           
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Company</h5>
+                <h5 className="heading">Sport</h5>
                 <ul className="card-text">
-                    <li>About Us</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
-                    <li>Join Us</li>
+                    <li>Footbal</li>
+                    <li>Running</li>
+                    <li>Tennis</li>
+                    <li>Training and Fitness</li>
                 </ul>
             </div>
         </div>
@@ -50,7 +51,7 @@ const Footer = () => {
         <div className="row" style={{fontSize:10}}>
             <div className="col-md-6 col-sm-6 col-xs-6">
                 <div className="pull-left">
-                    <p><i className="fa fa-copyright"></i> 2020 thezpdesign</p>
+                    <p><i className="fa fa-copyright"></i> 2022 React Sports</p>
                 </div>
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6">

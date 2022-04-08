@@ -1,7 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../styles/detalleProducto.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {getAllProducts} from '../../redux/productos/productos'
+
+
 
 function DetalleProducto() {
+
+  const [reload, setReload] = useState(false)
+  const products = useSelector(state => state.productosMain.products)
+  const dispatch = useDispatch()
+  console.log(products)
+
+  var cartProducts = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  useEffect(()=>{
+    dispatch(getAllProducts())
+  },[]);
+
+  function getProductId (event){
+    cartProducts.push(event)
+    const uniqueCartProduct = new Set(cartProducts)
+    var clearCartProduct = [...uniqueCartProduct]
+    localStorage.setItem("cartItems", JSON.stringify(clearCartProduct))
+
+    // var badge = ""
+    // if (clearCartProduct.length > 0){
+    //   badge = clearCartProduct.length
+    // }
+
+    setReload(!reload)
+  }
+
   return (
     <div className='contenedorDetalleProducto'>
         <div className="detalleProductoIzquierda">
@@ -36,12 +66,24 @@ function DetalleProducto() {
           </div>
           <div className='detalleProductoCarrito'>
             <input type='number' defaultValue='1'></input>
-            <button>Añadir al carrito</button>
+            <button onClick={getProductId}>Añadir al carrito</button>
           </div>
-            
         </div>
     </div>
   )
 }
+
+// const mapDispatchToProps = {
+//   getAllProducts: itinerariesActions.getAllProducts,
+
+// }
+// const mapStateToProps = (state) => {
+//   return {
+//     oneCity: state.citiesReducer.oneCity,
+
+//   }
+// }
+
+// export default connect(mapStateToProps,mapDispatchToProps)(DetalleProducto)
 
 export default DetalleProducto

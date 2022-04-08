@@ -1,0 +1,20 @@
+.adminContainer{
+    display:flex;
+    background-color:green;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:2rem;
+    padding-bottom: 2rem;
+}
+.accordionContainer{
+    width: 80%;
+    margin-left:auto;
+    margin-right: auto;
+}
+.titleAdmin{
+    text-align:center;
+}
