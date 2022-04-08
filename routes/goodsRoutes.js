@@ -9,7 +9,7 @@ goodsRouter.route('/allGoods')
     .post(addProduct)
 goodsRouter.route('/allGoods/brand/:id')
     .get(getAllProductsBrand)
-
+    
 
 goodsRouter.route('/allGoodsId/:id')
 .get(seeProductForId)

@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
 import {Link as LinkRouter} from 'react-router-dom';
 import logoCarrito from "./logoImagen/carrito.png";
-
 import userAction from "../../redux/actions/userAction";
-import { connect } from "react-redux";
-
+import { connect, useDispatch, useSelector } from "react-redux";
 import Counter from '../counterWorldCup/counter'
+// importaciones internas
+import {getAllbrand} from '../../redux/brand/brand'
 
 const Header = (props) => {
 let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
   function SignOut(){
     props.signOutUser(props.user.email)
   }
-
+  //funcionalidades redux
+  const dispatch =useDispatch()
+  const brand = useSelector(state=> state.brandMain.brand)
+ 
+  //////////////
+  useEffect(()=>{
+    dispatch(getAllbrand())
+  },[])
   return (
     <div className="containerNavbar ">
     {/*   CONTADOR QATAR 2022 */}
@@ -49,7 +56,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             </LinkRouter> 
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {/* CATEGORY */}
+              {/* CATEGORY
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -81,9 +88,9 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               {/*   GENERO */}
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -109,10 +116,10 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
 
               {/*   BRAND */}
-              <li className="nav-item dropdown">
+               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -121,41 +128,26 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  BRAND
+                  Shoes
                 </a>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li>
-                    <LinkRouter to={`/brands/Adidas`} className="dropdown-item">
-                      Adidas
-                    </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Nike`} className="dropdown-item">
-                      Nike
-                  </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
-                      Umbro
-                  </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Puma`} className="dropdown-item">
-                      Puma
-                  </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Fila`} className="dropdown-item">
-                      Fila
-                  </LinkRouter> 
-                  </li>
+                  {brand?.map(oneBrand =>{
+                    return(
+                      <li key={oneBrand._id}>
+                        <LinkRouter to={`/brands/${oneBrand._id}`} className="dropdown-item">
+                        {oneBrand.brand}
+                        </LinkRouter> 
+                      </li>
+                    )
+                  })}
+                  
                 </ul>
-              </li>
+              </li> 
               {/*  SPORTS */}
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -191,7 +183,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   </LinkRouter> 
                   </li>
                 </ul>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -200,7 +192,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
               <i className="fas fa-shopping-cart"></i>
             </a>
 
-            <div className="dropdown">
+           {/*  <div className="dropdown">
               <a
                 className="text-reset me-3 dropdown-toggle hidden-arrow"
                 href="#"
@@ -241,9 +233,9 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             {/*   USER ACCOUNT */}
-            <div className="dropdown">
+            {/* <div className="dropdown">
               <a
                 className="dropdown-toggle d-flex align-items-center hidden-arrow"
                 href="#"
@@ -288,7 +280,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                 </li>
               }
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

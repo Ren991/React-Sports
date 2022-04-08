@@ -2,7 +2,7 @@ import axios from "axios"
 
 const dataInicial = {
     products: [],
-   
+    marca:[],
     
 }
 
@@ -15,6 +15,11 @@ export default function productosReducer(state = dataInicial, action) {
                 ...state,
                 products: action.payload
             }
+        case MARCA:
+            return {
+                ...state,
+                marca: action.payload
+            }
         default:
             return state
     }
@@ -24,11 +29,12 @@ export default function productosReducer(state = dataInicial, action) {
 const URLProductos = "http://localhost:4000/api"
 //aciones
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
+const MARCA = "MARCA"
 
 export const getAllProducts = () => async (dispatch, getState) => {
 
     const res = await axios.get(URLProductos + "/allGoods")
-    console.log(res);
+    /* console.log(res); */
     const productosTotales = res.data.respuesta.products
     dispatch({ type: GET_ALL_PRODUCTS, payload: productosTotales })
 }
@@ -53,13 +59,13 @@ export const modificarStock = (id) => {
     }
 }
 
-export const buscarCiudadesPorID = (id) => {
-    console.log(id);
+export const seachProductsMarca = (id) => {
+
     return async (dispatch, getState) => {
 
-        const res = await axios.get(URLProductos + "/allGoods/" + id)
-
-        dispatch({ type: 'TRAER_UNA', payload: res.data.respuesta })
+        const res = await axios.get(URLProductos + "/allGoods/brand/" + id)
+        
+        dispatch({ type: MARCA, payload: res.data.respuesta.brands })
 
     }
 }

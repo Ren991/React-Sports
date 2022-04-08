@@ -5,21 +5,19 @@ import { Link, useParams } from 'react-router-dom';
 
 function ProductCard(props) {
 
-  let {id} = useParams() 
-  console.log(id)
   const prod = props.product
-  console.log(prod)
+ /*  console.log(prod) */
   
   return (
     <div className="cardBody">
       <div className="container" >
         <div className="card">
-            <h1 className="marcaZapatilla">{prod.brand}</h1>
+            <h1 className="marcaZapatilla">{prod.productName}</h1>
           <div className="imgBx">
             <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
           </div>
           <div className="contentBx">
-            <h2>{prod.description}</h2>
+            <h2>{prod.productName}</h2>
             <div className="size">
               <h3>Sizes :</h3>
               <span>7</span>
