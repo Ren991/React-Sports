@@ -23,20 +23,20 @@ const productsControllers = {
     },
     addProduct: async (required, response) => {
 
-        const { tipo, description, image, price, brand, color, size, stock, sportType, genre, sale
+        const { type, description, image, price, size, stock, color, model
         } = required.body
         new Products({
-            tipo, description, image, price, brand, color, size, stock, sportType, genre, sale
+            type, description, image, price, size, stock, color, model
         }).save()
             .then((respuesta) => response.json({ respuesta }))
             .catch(error => response.json({ error }))
     },
     modifyProduct: async (req, res) => {
         const id = req.params.id
-        const ProductsLocal = req.body
+        const ProductForModify = req.body
 
         var productLocal
-        productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
+        productLocal = await Products.findOneAndUpdate({ _id: id }, ProductForModify, { new: true })
             .then((response) => res.json({ paso: "listo", respuesta: response }))
             .catch(error => res.json({ error }))
     },
