@@ -1,0 +1,16 @@
+const adidas = "625057970111b78ea9c270ff"
+const nike = "6250579e0111b78ea9c27101"
+
+
+const unProducts = {
+    "type": "botin",
+    "description": "joksañdlkas",
+    "image": "https://images-ext-1.discordapp.net/external/IHuETSN-ENsVaIKjGGu2_u_VROH1n6dOF29eiiFElJc/https/w7.pngwing.com/pngs/672/282/png-transparent-sneakers-new-balance-shoe-sportswear-clothing-cloth-shoes-blue-outdoor-shoe-sneakers.png",
+    "price": 50,
+    "size": 40,
+    "stock": 10,
+    "sport": "basquet",
+    "productName": "daws",
+    "genre": "asdas",
+    "brand":   "625057970111b78ea9c270ff"
+}

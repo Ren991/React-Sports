@@ -31,7 +31,7 @@ function App(props) {
         <Header />
         <Routes>
           <Route path="*"  element={<Home />}/> 
-          <Route path="/DETALLEPRODUCTO"  element={<DetalleProducto />}/>
+          <Route path="/DETALLEPRODUCTO/:id"  element={<DetalleProducto />}/>
           <Route path="/PRODUCTSVIEW"  element={<ProductsView />}/> 
           <Route path="/adminView"  element={<AdminView />}/> 
           <Route path="/brands" element={<BrandsView />}/>
