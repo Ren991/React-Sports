@@ -17,15 +17,9 @@ function ProductsView() {
   return (
     <main>
         <section> 
-<<<<<<< HEAD
             {/* {products.map(element=>
               <ProductCard dataFromParent={this.element} />
             )} */}
-=======
-            {products?.map(element=>
-              <ProductCard product={element} />
-            )}
->>>>>>> 199670bf5872b64ff332780dfad61925ef765a50
         </section>
     </main>
   )
