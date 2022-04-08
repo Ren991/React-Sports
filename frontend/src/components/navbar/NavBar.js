@@ -1,12 +1,13 @@
 import React from "react";
 import '../../styles/navBar.css'
 import * as mdb from "mdb-ui-kit"; 
-import Login from "./Login";
 import {Link as LinkRouter} from 'react-router-dom';
-import logoCarrito from "./logoImagen/carrito4.png";
+import logoCarrito from "./logoImagen/carrito.png";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
+
+import Counter from '../counterWorldCup/counter'
 
 const Header = (props) => {
 let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
@@ -18,13 +19,11 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
     <div className="containerNavbar ">
     {/*   CONTADOR QATAR 2022 */}
       
-      <nav className="navbar navbar-light bg-light ">
-        <div className="container-fluid firstNavbar">
-          <span className="navbar-text">xx days left to Qatar World Cup</span>
+      <div className="containerCounter">
+        <div className="boxCounter">
+          <Counter 
+          countDownTimestampMs={1669086060000}/>
         </div>
-      </nav>
-      <div className="containerInput">
-          <input className="inputNavbar" placeholder="Search a product"/>
       </div>
       {/*Second Nav*/}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,14 +38,14 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-    {/*         <img  
+           {/*  <img  
             src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
             style={{width:40}} /> */}
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <LinkRouter to={`/`} className="navbar-brand mt-2 mt-lg-0">
-              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/logo-react-sport.png`} /> 
+              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/REACT_LOGO.png`} /> 
             </LinkRouter> 
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -60,7 +59,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Category
+                  CATEGORY
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -93,7 +92,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Genre
+                  GENRE
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -122,7 +121,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Brand
+                  BRAND
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -165,7 +164,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Sports
+                  SPORTS
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -255,7 +254,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
               >
                 {props.user? <img className="userImg" src={props.user.image}/> : 
                 <img
-                  src="https://img2.freepng.es/20181205/ppu/kisspng-vector-graphics-computer-icons-user-profile-portab-writer-recommend-svg-png-icon-free-download-9768-5c0851b175d215.4257304515440490734826.jpg"
+                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
                   className="rounded-circle userImg"
                   height="25"
                   alt="Black and White Portrait of a Man"
@@ -292,8 +291,10 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             </div>
           </div>
         </div>
-       
       </nav>
+      <div className="containerInput">
+          <input className="inputNavbar" placeholder="Search a product"/>
+      </div>
      
           
       
