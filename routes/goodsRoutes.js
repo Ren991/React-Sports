@@ -7,14 +7,14 @@ const { getAllProducts, getAllProductsBrand, addProduct, modifyProduct, deletePr
 goodsRouter.route('/allGoods')
     .get(getAllProducts)
     .post(addProduct)
-
 goodsRouter.route('/allGoods/brand/:id')
     .get(getAllProductsBrand)
 
 
-/* goodsRouter.route('/allGoodsId/:id')
-    .delete(deleteProduct)
-    .put(modifyProduct)
-    .get(seeProductForId) */
+goodsRouter.route('/allGoodsId/:id')
+.get(seeProductForId)
+.delete(deleteProduct)
+/* .put(modifyProduct) */
 
 module.exports = goodsRouter
+
