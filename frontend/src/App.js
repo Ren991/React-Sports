@@ -13,6 +13,7 @@ import SignIn from './components/login/signIn';
 import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
+import AdminView from './components/pages/admin'
 
 function App(props) {
 
@@ -32,6 +33,7 @@ function App(props) {
           <Route path="*"  element={<Home />}/> 
           <Route path="/DETALLEPRODUCTO"  element={<DetalleProducto />}/>
           <Route path="/PRODUCTSVIEW"  element={<ProductsView />}/> 
+          <Route path="/adminView"  element={<AdminView />}/> 
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>
