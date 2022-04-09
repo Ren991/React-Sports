@@ -14,24 +14,20 @@ function ProductCard(props) {
     <div className="cardBody">
       <div className="container" >
         <div className="card">
-            <h1 className="marcaZapatilla">{prod.brand}</h1>
+            <h1 className="marcaZapatilla">{prod.sport}</h1>
           <div className="imgBx">
-            <img src="https://cdn.discordapp.com/attachments/959958122384994367/960974493076045844/pngwing.com.png" />
+            <img src={process.env.PUBLIC_URL +`/img/productImages/${prod.image}`} />
           </div>
           <div className="contentBx">
-            <h2>{prod.description}</h2>
+            <h2>$ {prod.price}</h2>
+            <h2>{prod.productName}</h2>
             <div className="size">
-              <h3>Sizes :</h3>
-              <span>7</span>
-              <span>8</span>
-              <span>9</span>
-              <span>10</span>
+              <h3>Size : {prod.size}</h3>
             </div>
             <div className="color">
               <h3>Color :</h3>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span> {/* style={{backgroundColor:`${prod.color}`}  COMPLETAR CARGA DE DATOS CON COLOR*/}
+              
             </div>
             <Link to={`/DETALLEPRODUCTO/${prod._id}`}>
               View product

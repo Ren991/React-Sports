@@ -137,7 +137,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                       Nike
                   </LinkRouter> 
                   </li>
-                  <li>
+                 {/*  <li>
                   <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
                       Umbro
                   </LinkRouter> 
@@ -151,7 +151,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   <LinkRouter to={`/brands/Fila`} className="dropdown-item">
                       Fila
                   </LinkRouter> 
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               {/*  SPORTS */}
