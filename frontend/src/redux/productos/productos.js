@@ -28,14 +28,12 @@ const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 export const getAllProducts = () => async (dispatch, getState) => {
 
     const res = await axios.get(URLProductos + "/allGoods")
-    console.log(res);
     const productosTotales = res.data.respuesta.products
     dispatch({ type: GET_ALL_PRODUCTS, payload: productosTotales })
 }
 
 export const modificarStock = (id) => {
     const token = localStorage.getItem('token')
-    console.log(id);
     return async (dispatch, getState) => {
         try {
             let response = await axios.put(URLProductos + "/allGoods/" + id, {},
@@ -44,7 +42,6 @@ export const modificarStock = (id) => {
                         Authorization: "Bearer " + token
                     }
                 })
-            console.log(response);
             dispatch({ type: 'GET_ALL_PRODUCTS', payload: response.data.respuesta })
 
         } catch (error) {
@@ -54,7 +51,6 @@ export const modificarStock = (id) => {
 }
 
 export const buscarCiudadesPorID = (id) => {
-    console.log(id);
     return async (dispatch, getState) => {
 
         const res = await axios.get(URLProductos + "/allGoods/" + id)
