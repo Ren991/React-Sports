@@ -78,6 +78,23 @@ const productsControllers = {
                 .catch(error => res.json({ error }))
         },
         }, */
+
+    filterBrandProduct: (city) => {
+        console.log(city);
+        return async (dispatch, getState) => {
+            try {
+                var response = await axios.get(`http://localhost:4000/api/itinerarios/${city}`)
+                console.log(response);
+
+                dispatch({ type: "ItiByCiudad", payload: response.data.respuesta })
+
+            } catch (error) {
+                return {
+                    success: false, response: error
+                }
+            }
+        }
+    },
 }
 
 module.exports = productsControllers
