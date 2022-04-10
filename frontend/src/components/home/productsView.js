@@ -8,8 +8,6 @@ function ProductsView() {
   const products = useSelector(state => state.productosMain.products)
   const usuario = useSelector(state => state.usersMain.usuario)
   const dispatch = useDispatch()
-  console.log(usuario)
-  console.log(products)
   useEffect(()=>{
     dispatch(getAllProducts())
   },[])

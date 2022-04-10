@@ -18,7 +18,6 @@ function AdminView() {
       
     }
     /* props.signUpUser(userData) */
-    console.log(uploadProduct)
   }
   return (
     <div className="adminContainer">

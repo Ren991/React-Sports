@@ -18,7 +18,6 @@ const SignIn = (props) => {
       from: "signIn",
     }
     props.signInUser(userData)
-    console.log(userData)
   }
 
 
