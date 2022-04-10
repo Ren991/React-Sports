@@ -13,7 +13,7 @@ goodsRouter.route('/allGoodsFor/brand/:id')
 
 goodsRouter.route('/allGoodsId/:id')
     .get(seeProductForId)
-    .delete(deleteProduct)
+/*     .delete(deleteProduct) */
 /* .put(modifyProduct) */
 
 module.exports = goodsRouter

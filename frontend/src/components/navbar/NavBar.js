@@ -121,7 +121,7 @@ const Header = (props) => {
                   {genders?.map(oneGender => {
                     return (
                       <li key={oneGender}>
-                        <LinkRouter to={`/brands/${oneGender}`} className="dropdown-item">
+                        <LinkRouter to={`/gender/${oneGender}`} className="dropdown-item">
                           {oneGender}
                         </LinkRouter>
                       </li>
