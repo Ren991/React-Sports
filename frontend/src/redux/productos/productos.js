@@ -2,8 +2,9 @@ import axios from "axios";
 
 const dataInicial = {
   products: [],
-  filteredProducts: []
-};
+  marca: [],
+
+}
 
 export default function productosReducer(state = dataInicial, action) {
   switch (action.type) {
@@ -13,61 +14,78 @@ export default function productosReducer(state = dataInicial, action) {
         products: action.payload,
       };
     case "filt":
-        console.log(action.payload)
-        const filtered = state.products.filter((product) =>
+      console.log(action.payload)
+      const filtered = state.products.filter((product) =>
         product.productName.toLowerCase().startsWith(action.payload.toLowerCase().trim())
       );
 
-      return {
-        ...state,
-        filteredProducts: filtered,
-      };
-    default:
-      return state;
-  }
-}
-//ruta api
-const URLProductos = "http://localhost:4000/api";
-//aciones
-const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
+      switch (action.type) {
 
-export const getAllProducts = () => async (dispatch, getState) => {
-  const res = await axios.get(URLProductos + "/allGoods");
-  const productosTotales = res.data.respuesta.products;
-  dispatch({ type: GET_ALL_PRODUCTS, payload: productosTotales });
-};
+        case GET_ALL_PRODUCTS:
+          return {
+            ...state,
+            products: action.payload
+          }
+        case MARCA:
+          return {
+            ...state,
+            marca: action.payload
+          }
+        default:
+          return state
+      }
 
-export const modificarStock = (id) => {
-  const token = localStorage.getItem("token");
-  return async (dispatch, getState) => {
-    try {
-      let response = await axios.put(
-        URLProductos + "/allGoods/" + id,
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
-      dispatch({ type: "GET_ALL_PRODUCTS", payload: response.data.respuesta });
-    } catch (error) {
-      console.log(error);
-    }
+  },
+  //ruta api
+  const URLProductos = "http://localhost:4000/api";
+  //aciones
+  const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
+  const MARCA = "MARCA"
+
+  export const getAllProducts = () => async (dispatch, getState) => {
+
+    const res = await axios.get(URLProductos + "/allGoods")
+    /* console.log(res); */
+    const productosTotales = res.data.respuesta.products
+    dispatch({ type: GET_ALL_PRODUCTS, payload: productosTotales })
+  },
+
+  export const modificarStock = (id) => {
+    const token = localStorage.getItem("token");
+    return async (dispatch, getState) => {
+      try {
+        let response = await axios.put(
+          URLProductos + "/allGoods/" + id,
+          {},
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        dispatch({ type: "GET_ALL_PRODUCTS", payload: response.data.respuesta });
+      } catch (error) {
+        console.log(error);
+      }
+    };
   };
-};
 
-export const filterProducts = (value)=>{
+  export const filterProducts = (value) => {
     console.log(value)
-    return (dispatch, getState)=>{
-        dispatch({type: 'filt', payload: value })
+    return (dispatch, getState) => {
+      dispatch({ type: 'filt', payload: value })
     }
+  },
+
+  export const seachProductsMarca = (id) => {
+
+    return async (dispatch, getState) => {
+
+      const res = await axios.get(URLProductos + "/allGoods/brand/" + id)
+
+      dispatch({ type: MARCA, payload: res.data.respuesta.brands })
+
+    }
+  }
+
 }
-
-export const buscarCiudadesPorID = (id) => {   //Cambiar nombre por products by brand 
-  return async (dispatch, getState) => {
-    const res = await axios.get(URLProductos + "/allGoods/" + id);
-
-    dispatch({ type: "TRAER_UNA", payload: res.data.respuesta });
-  };
-};
