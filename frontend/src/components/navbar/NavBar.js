@@ -8,6 +8,8 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import Counter from '../counterWorldCup/counter'
 // importaciones internas
 import { getAllbrand } from '../../redux/brand/brand'
+import { getAllProducts } from '../../redux/productos/productos'
+import { x } from "joi";
 
 const Header = (props) => {
   let hambur = "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
@@ -17,11 +19,21 @@ const Header = (props) => {
   //funcionalidades redux
   const dispatch = useDispatch()
   const brand = useSelector(state => state.brandMain.brand)
+  const goods = useSelector(state => state.productosMain.products)
+  console.log(goods);
+  console.log(brand);
 
   //////////////
   useEffect(() => {
     dispatch(getAllbrand())
+    dispatch(getAllProducts())
   }, [])
+
+  var arrayOfGender = goods?.map(oneGender => oneGender.gender)
+  const ArrayGender = new Set(arrayOfGender);
+  var genders = [...ArrayGender]
+
+  console.log(genders);
   return (
     <div className="containerNavbar ">
       {/*   CONTADOR QATAR 2022 */}
@@ -89,8 +101,8 @@ const Header = (props) => {
                   </li>
                 </ul>
               </li> */}
-              {/*   GENERO */}
-              {/* <li className="nav-item dropdown">
+              GENERO
+              * <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -105,18 +117,18 @@ const Header = (props) => {
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Female
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Male
-                    </a>
-                  </li>
+
+                  {genders?.map(oneGender => {
+                    return (
+                      <li key={oneGender}>
+                        <LinkRouter to={`/brands/${oneGender}`} className="dropdown-item">
+                          {oneGender}
+                        </LinkRouter>
+                      </li>
+                    )
+                  })}
                 </ul>
-              </li> */}
+              </li>
 
               {/*   BRAND */}
               <li className="nav-item dropdown">

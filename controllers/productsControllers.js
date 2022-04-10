@@ -23,12 +23,13 @@ const productsControllers = {
     },
     getAllProductsBrand: async (require, response) => {
         const brandId = require.params.id
-
+        console.log(brandId);
         var error = null
+        var brands
 
         try {
             brands = await Products.find({ brand: brandId })
-
+            console.log(brands);
         } catch (err) {
             error = err
             console.log(error);
@@ -81,22 +82,6 @@ const productsControllers = {
         },
         }, */
 
-    filterBrandProduct: (city) => {
-        console.log(city);
-        return async (dispatch, getState) => {
-            try {
-                var response = await axios.get(`http://localhost:4000/api/itinerarios/${city}`)
-                console.log(response);
-
-                dispatch({ type: "ItiByCiudad", payload: response.data.respuesta })
-
-            } catch (error) {
-                return {
-                    success: false, response: error
-                }
-            }
-        }
-    },
 }
 
 module.exports = productsControllers

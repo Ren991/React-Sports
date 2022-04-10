@@ -7,10 +7,12 @@ import ProductCard from '../cards/productCard'
 //importaciones redux
 import { seachProductsMarca } from '../../redux/productos/productos'
 function ProductsView() {
-  const marca = useSelector(state => state.productosMain.marca)
+  const marca = useSelector(state => state.productosMain.products)
   const dispatch = useDispatch()
 
   const { brand } = useParams()
+  console.log(brand);
+  console.log(marca);
   useEffect(() => {
     dispatch(seachProductsMarca(brand))
   }, [])

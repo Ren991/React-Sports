@@ -60,10 +60,10 @@ export const modificarStock = (id) => {
 }
 
 export const seachProductsMarca = (id) => {
-
+    console.log(id);
     return async (dispatch, getState) => {
 
-        const res = await axios.get(URLProductos + "/allGoods/brand/" + id)
+        const res = await axios.get(URLProductos + "/allGoodsFor/brand/" + id)
 
         dispatch({ type: MARCA, payload: res.data.respuesta.brands })
 
