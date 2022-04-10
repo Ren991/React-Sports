@@ -25,18 +25,18 @@ const productsControllers = {
         const brandId = require.params.id
         console.log(brandId);
         var error = null
-        var brands
+        var brandsLocal
 
         try {
-            brands = await Products.find({ brand: brandId })
-            console.log(brands);
+            brandsLocal = await Products.find({ brand: brandId })
+            console.log(brandsLocal);
         } catch (err) {
             error = err
             console.log(error);
         }
         response.json({
 
-            respuesta: error ? 'ERROR' : { brands },
+            respuesta: error ? 'ERROR' : { brandsLocal },
             success: error ? false : true,
             error: error
         })
@@ -70,6 +70,19 @@ const productsControllers = {
             .then((res) => response.json({ paso: "eliminado", respuesta: res }))
             .catch(error => response.json({ paso: "porfavor vuelva a intentarlo mas tarde", error }))
     },
+    seeProductForGender: async (require, response) => {
+        const gender = require.params.gender
+        var ProductsLocal
+        console.log(typeof (gender));
+        console.log(gender);
+
+
+        ProductsLocal = await Products.find({ "genre": gender })
+            .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
+            .then(console.log(ProductsLocal))
+            .catch(error => response.json({ paso: "no existe", error }))
+    },
+
     // tipo un string o arraY?,
     /*     modifyProduct: async (req, res) => {
             const id = req.params.id
