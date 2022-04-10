@@ -1,4 +1,4 @@
-import axios from "axios"
+/* import axios from "axios"
 
 
 
@@ -33,4 +33,4 @@ export const getAllbrand = () => async (dispatch, getState) => {
     console.log(res);
     const BrandAll = res.data.respuesta
     dispatch({ type: GET_ALL_BRAND, payload: brandAll })
-}
+} */
