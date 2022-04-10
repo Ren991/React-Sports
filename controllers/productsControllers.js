@@ -23,10 +23,12 @@ const productsControllers = {
     },
     getAllProductsBrand: async (require, response) => {
         const brandId = require.params.id
+
         var error = null
 
         try {
             brands = await Products.find({ brand: brandId })
+
         } catch (err) {
             error = err
             console.log(error);
@@ -42,7 +44,7 @@ const productsControllers = {
     addProduct: async (required, response) => {
 
         const { type, description, image, price, size, stock, sport, productName, genre, brand } = required.body
-        console.log(required.body)
+
         new Products({ type, description, image, price, size, stock, sport, productName, genre, brand }).save()
             .then((respuesta) => response.json({ respuesta }))
             .catch(error => response.json({ error }))
