@@ -15,8 +15,7 @@ function GoogleSignUp(props) {
             adress: "undefined",
             city: "undefined",
             country: "undefined",
-            from: "google",
-        }
+            from: "google"        }
         await props.signUpUser (userData)
     }
 
