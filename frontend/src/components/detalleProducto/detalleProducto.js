@@ -17,15 +17,15 @@ function DetalleProducto(props) {
   console.log(productId)
   const [reload, setReload] = useState(false)
   
-
+  
   useEffect(() => {
     
-    searchProductById(productId)
-  
+    searchProductById(productId).then(res=>console.log(res))
+    
   }, [])
-
-  console.log(props)
   
+  
+  console.log(props)
 
 
 
@@ -60,7 +60,7 @@ function DetalleProducto(props) {
  const mapStateToProps = (state) => {
    return {
     cart: state.cartReducer.cart,
-    product: state.productosMain.product,
+    productId: state.productosMain.productId,
     
 
   }

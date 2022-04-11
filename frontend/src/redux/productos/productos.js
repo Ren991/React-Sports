@@ -2,7 +2,7 @@ import axios from "axios";
 
 const dataInicial = {
   products: [],
-  product:[],
+  productId:[],
   marca:[],
   filteredProducts: []
 };
@@ -19,7 +19,7 @@ export default function productosReducer(state = dataInicial, action) {
       console.log("Holas")
       return{
         ...state,
-        product: action.payload,
+        productId: action.payload,
       };
 
     /* case "filt":
@@ -80,10 +80,11 @@ export const filterProducts = (value)=>{
 }
 
 export const searchProductById = async (id) => {   
+  
   const res = await axios.get(URLProductos + "/allGoodsId/" + id);
-  console.log(res)
-  return  (dispatch, getState) => {
-    dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
+  console.log(res.data.respuesta)
+  return  {
+    response: res.data.respuesta,
   };
 };
 
