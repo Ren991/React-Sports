@@ -3,25 +3,30 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../../styles/cardsView.css'
 import ProductCard from '../cards/productCard'
 import './cssMain/main.css'
-import {getAllProducts} from '../../redux/productos/productos'
+import { getAllProducts } from '../../redux/productos/productos'
+import { useParams } from 'react-router-dom'
 function ProductsView() {
   const products = useSelector(state => state.productosMain.products)
   const usuario = useSelector(state => state.usersMain.usuario)
   const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(getAllProducts())
-  },[])
-  //
+
+
+
+  const id = useParams()
+  useEffect(() => {
+    dispatch(seachProductsMarca(id))
+  }, [])
+  console.log(products);
   return (
     <main>
-      
-      {products.map(oneProducts=>{
-        return(
-          
-          <ProductCard key={oneProducts._id} product={oneProducts}/> 
+
+      {products.map(oneProducts => {
+        return (
+
+          <ProductCard key={oneProducts._id} product={oneProducts} />
         )
       })}
-            
+
     </main>
   )
 }

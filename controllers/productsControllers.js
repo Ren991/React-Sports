@@ -23,13 +23,16 @@ const productsControllers = {
     },
     getAllProductsBrand: async (require, response) => {
         const brandId = require.params.id
-        console.log(brandId);
+        /*        console.log(require.params.value); */
+
+
+
         var error = null
         var brandsLocal
 
         try {
             brandsLocal = await Products.find({ brand: brandId })
-            console.log(brandsLocal);
+
         } catch (err) {
             error = err
             console.log(error);
@@ -77,7 +80,7 @@ const productsControllers = {
         console.log(gender);
 
 
-        ProductsLocal = await Products.find({ "genre": gender })
+        ProductsLocal = await Products.find({ genre: gender })
             .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
             .then(console.log(ProductsLocal))
             .catch(error => response.json({ paso: "no existe", error }))

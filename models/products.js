@@ -13,7 +13,7 @@ const ProductsSchema = new mongoose.Schema({
     productName: { type: String, required: true },
     genre: { type: String, required: true },
     //otraColeccion de marcas
-    brand: { type: mongoose.Types.ObjectId, ref: 'brand' }
+    brand: { type: mongoose.Schema.Types.String, ref: 'brand' }
 
 });
 

@@ -7,7 +7,7 @@ import ProductCard from '../cards/productCard'
 //importaciones redux
 import { seachProductsMarca } from '../../redux/productos/productos'
 function ProductsView() {
-  const marca = useSelector(state => state.productosMain.products)
+  const marca = useSelector(state => state.productosMain.marca)
   const dispatch = useDispatch()
 
   const { brand } = useParams()

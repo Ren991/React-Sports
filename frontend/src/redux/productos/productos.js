@@ -64,8 +64,8 @@ export const seachProductsMarca = (id) => {
     return async (dispatch, getState) => {
 
         const res = await axios.get(URLProductos + '/allGoodsFor/brand/' + id)
-
-        dispatch({ type: MARCA, payload: res.data.respuesta.brands })
+        console.log(res);
+        dispatch({ type: MARCA, payload: res.data.respuesta.brandsLocal })
 
     }
 }
