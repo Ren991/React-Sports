@@ -1,11 +1,11 @@
 import React from "react";
 import "../../styles/sportCard.css";
 
-function SportCard() {
+function SportCard(props) {
   return (
     <div className="cardBody">
       <div className="container">
-        <div className="card">
+        <div className="card" style={{content:"Hola cmt"}}>
           <div className="imgBx">
             <img src="https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" />
           </div>

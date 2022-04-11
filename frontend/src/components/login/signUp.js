@@ -31,7 +31,6 @@ const SignUp = (props) => {
       from: "signUp",
     }
     props.signUpUser(userData)
-    console.log(userData)
   }
 
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import {Form} from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 import "../../styles/login.css";
 import {Link as LinkRouter} from "react-router-dom"
 import userAction from '../../redux/actions/userAction';
@@ -19,7 +20,6 @@ const SignIn = (props) => {
       from: "signIn",
     }
     props.signInUser(userData)
-    console.log(userData)
   }
 
 
