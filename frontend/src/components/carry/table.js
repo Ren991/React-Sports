@@ -3,17 +3,23 @@ import '../../styles/checkOut.css'
 
 
 export default function Table(props) {
+    console.log(props.productos);
+    const productos = props.productos
+
+
+
+
 
     return (
         <tbody id='cuerpo'>
             <tr>
                 <td id='nombreProducto'>
                     <div >
-                        <img id='imagenProducto' src='https://w7.pngwing.com/pngs/323/773/png-transparent-sneakers-basketball-shoe-sportswear-nike-shoe-outdoor-shoe-running-sneakers.png' />
+                        <img id='imagenProducto' src={process.env.PUBLIC_URL + `/img/productImages/${productos.image}`} />
                     </div>
                     <div>
-                        <h6>Nombre de Producto</h6>
-                        <h5 id="id">$ 000</h5>
+                        <h6>{productos.productName}</h6>
+                        <h5 id="id">$ {productos.price}</h5>
                     </div>
                 </td>
                 <td >

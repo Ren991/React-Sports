@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/navBar.css";
 import * as mdb from "mdb-ui-kit";
-import {Link as LinkRouter } from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
@@ -14,7 +14,24 @@ const Header = (props) => {
   function SignOut() {
     props.signOutUser(props.user.email);
   }
+  //funcionalidades redux
+  const dispatch = useDispatch()
+  const brand = useSelector(state => state.brandMain.brand)
+  const goods = useSelector(state => state.productosMain.products)
+  console.log(goods);
+  console.log(brand);
 
+  //////////////
+  useEffect(() => {
+    dispatch(getAllbrand())
+    dispatch(getAllProducts())
+  }, [])
+
+  var arrayOfGender = goods?.map(oneGender => oneGender.gender)
+  const ArrayGender = new Set(arrayOfGender);
+  var genders = [...ArrayGender]
+
+  console.log(genders);
   return (
     <div className="containerNavbar ">
       {/*   CONTADOR QATAR 2022 */}
@@ -50,7 +67,7 @@ const Header = (props) => {
             </LinkRouter>
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {/* CATEGORY */}
+              {/* CATEGORY
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -82,9 +99,9 @@ const Header = (props) => {
                     </a>
                   </li>
                 </ul>
-              </li>
-              {/*   GENERO */}
-              <li className="nav-item dropdown">
+              </li> */}
+              GENERO
+              * <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -99,16 +116,16 @@ const Header = (props) => {
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Female
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Male
-                    </a>
-                  </li>
+
+                  {genders?.map(oneGender => {
+                    return (
+                      <li key={oneGender}>
+                        <LinkRouter to={`/gender/${oneGender}`} className="dropdown-item">
+                          {oneGender}
+                        </LinkRouter>
+                      </li>
+                    )
+                  })}
                 </ul>
               </li>
 
@@ -122,41 +139,25 @@ const Header = (props) => {
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  BRAND
+                  Shoes
                 </a>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li>
-                    <LinkRouter to={`/brands/Adidas`} className="dropdown-item">
-                      Adidas
-                    </LinkRouter>
-                  </li>
-                  <li>
-                    <LinkRouter to={`/brands/Nike`} className="dropdown-item">
-                      Nike
-                    </LinkRouter>
-                  </li>
-                  {/*  <li>
-                  <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
-                      Umbro
-                  </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Puma`} className="dropdown-item">
-                      Puma
-                  </LinkRouter> 
-                  </li>
-                  <li>
-                  <LinkRouter to={`/brands/Fila`} className="dropdown-item">
-                      Fila
-                  </LinkRouter> 
-                  </li> */}
+
+                  {brand?.map(oneBrand => {
+                    return (
+                      <li key={oneBrand._id}>
+                        <LinkRouter to={`/brands/${oneBrand._id}`} className="dropdown-item">
+                          {oneBrand.brand}
+                        </LinkRouter>
+                      </li>)
+                  })}
                 </ul>
               </li>
               {/*  SPORTS */}
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -198,7 +199,7 @@ const Header = (props) => {
                     </LinkRouter>
                   </li>
                 </ul>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -207,7 +208,7 @@ const Header = (props) => {
               <i className="fas fa-shopping-cart"></i>
             </a>
 
-            <div className="dropdown">
+            {/*  <div className="dropdown">
               <a
                 className="text-reset me-3 dropdown-toggle hidden-arrow"
                 href="#"
@@ -245,9 +246,9 @@ const Header = (props) => {
                   <LinkRouter to={'/checkout'}>CheckOut</LinkRouter>
                 </li>
               </ul>
-            </div>
+            </div> */}
             {/*   USER ACCOUNT */}
-            <div className="dropdown">
+            {/* <div className="dropdown">
               <a
                 className="dropdown-toggle d-flex align-items-center hidden-arrow"
                 href="#"
@@ -309,14 +310,14 @@ const Header = (props) => {
                   </li>
                 )}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
       <div className="containerInput">
         <input className="inputNavbar" placeholder="Search a product" />
       </div>
-    </div>
+    </div >
   );
 };
 

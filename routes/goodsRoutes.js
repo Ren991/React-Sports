@@ -11,9 +11,13 @@ goodsRouter.route('/allGoodsFor/brand/:id')
     .get(getAllProductsBrand)
 
 
+goodsRouter.route('/allGoodsForGender/gender/:gender')
+    .get(seeProductForGender)
+
+
 goodsRouter.route('/allGoodsId/:id')
-.get(seeProductForId)
-.delete(deleteProduct)
+    .get(seeProductForId)
+/*     .delete(deleteProduct) */
 /* .put(modifyProduct) */
 
 goodsRouter.route('/allGoodsForGender/gender/:gender')
