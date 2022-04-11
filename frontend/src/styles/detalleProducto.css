@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     background-color: grey;
+    border-radius: 5px;
 }
 .detalleProductoDerecha{
     border-style: none none none solid;
@@ -78,6 +79,9 @@
 }
 .outOfStock{
     color: red;
+}
+.fewUnitsRemaining{
+    color:yellow;
 }
 .detallesProducto{
     margin-top: 1rem;
