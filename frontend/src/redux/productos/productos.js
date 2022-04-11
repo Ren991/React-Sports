@@ -75,21 +75,23 @@ export const modificarStock = (id) => {
     }
 }
 
-export const searchProductById = async (id) => {
-    const res = await axios.get(URLProductos + "/allGoodsId/" + id);
-    console.log(res)
-    return (dispatch, getState) => {
+export const searchProductById = (id) => {
+    console.log(id);
+    return async (dispatch, getState) => {
+        console.log(id);
+        const res = await axios.get(URLProductos + "/allGoodsId/" + id);
         dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
+        console.log(res)
     };
 };
 
 export const seachProductsMarca = (id) => {
-    console.log(id);
-    return async (dispatch, getState) => {
 
+    return async (dispatch, getState) => {
+        console.log(id);
         const res = await axios.get(URLProductos + '/allGoodsFor/brand/' + id)
         console.log(res);
-        dispatch({ type: "marca", payload: res.data.respuesta.brands })
+        dispatch({ type: "marca", payload: res.data.respuesta.brandsLocal })
 
     }
 }

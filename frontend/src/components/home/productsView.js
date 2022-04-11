@@ -6,13 +6,14 @@ import './cssMain/main.css'
 import { getAllProducts } from '../../redux/productos/productos'
 import { useParams } from 'react-router-dom'
 function ProductsView() {
-  const products = useSelector(state => state.productosMain.products)
+  const products = useSelector(state => state.productosMain.marca)
   const usuario = useSelector(state => state.usersMain.usuario)
   const dispatch = useDispatch()
 
 
 
   const id = useParams()
+
   useEffect(() => {
     dispatch(seachProductsMarca(id))
   }, [])
@@ -20,7 +21,7 @@ function ProductsView() {
   return (
     <main>
 
-      {products.map(oneProducts => {
+      {products?.map(oneProducts => {
         return (
 
           <ProductCard key={oneProducts._id} product={oneProducts} />

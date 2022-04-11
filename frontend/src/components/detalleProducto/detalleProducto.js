@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/detalleProducto.css';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { searchProductById } from '../../redux/productos/productos'
 import { Link, useParams } from 'react-router-dom';
 import cartAction from '../../redux/actions/cartAction';
@@ -14,13 +14,14 @@ function DetalleProducto(props) {
 
   const { id } = useParams()
   const productId = id
-  console.log(productId)
+  console.log(id)
   const [reload, setReload] = useState(false)
+  const dispatch = useDispatch()
 
 
   useEffect(() => {
 
-    searchProductById(productId)
+    dispatch(searchProductById(id))
 
   }, [])
 
@@ -52,7 +53,7 @@ function DetalleProducto(props) {
       </div>
       <div className='detalleProductoCarrito'>
         <input type='number' defaultValue='1'></input>
-        <button onClick={getProductId}>Añadir al carrito</button>
+        {/*   <button onClick={getProductId}>Añadir al carrito</button> */}
       </div>
     </div>
 
@@ -62,6 +63,7 @@ function DetalleProducto(props) {
 const mapDispatchToProps = {
   addToCart: cartAction.addToCart,
 }
+
 const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.cart,
