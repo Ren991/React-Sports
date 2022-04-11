@@ -1,3 +1,4 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' //Fix nodemailer error
 const Users = require("../models/users");
 const bcryptjs = require("bcryptjs");
 const crypto = require("crypto");
@@ -10,12 +11,12 @@ const sendEmail = async (email, uniqueString) => {
     port: 465,
     secure: true,
     auth: {
-      user: "reactsports2022@gmail.com",
-      pass: "reactsports26",
+      user: "react.sports.verify@gmail.com",
+      pass: "Hola1234",
     },
   });
 
-  let sender = "reactsports2022@gmail.com";
+  let sender = "react.sports.verify@gmail.com";
   let mailOptions = {
     from: sender,
     to: email,
@@ -243,6 +244,7 @@ const sendEmail = async (email, uniqueString) => {
   };
   await transporter.sendMail(mailOptions, function (error, response) {
     if (error) {
+      console.log("ERROOOOOOOOOOOOOOOOOOOOOOR")
       console.log(error);
     } else {
       console.log("Message sent");
