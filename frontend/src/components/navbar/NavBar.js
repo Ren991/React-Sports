@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/navBar.css";
 import * as mdb from "mdb-ui-kit";
 import {Link as LinkRouter } from "react-router-dom";
-import logoCarrito from "./logoImagen/carrito.png";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
@@ -218,13 +217,7 @@ const Header = (props) => {
                 aria-expanded="false"
               >
                 <i className="fas fa-bell"></i>
-                <img
-                  src={logoCarrito}
-                  className="rounded-circle carritoUser"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
+                
                 <span className="badge rounded-pill badge-notification bg-danger">
                   TO_DO__CANT_CARRITO
                 </span>
@@ -337,94 +330,7 @@ const mapDispatchToProps = {
   signOutUser: userAction.signOutUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
 
-{
-  /* <nav classNameNameNameName="navbar navbar-expand-lg navbar-light bg-light">
-            <div classNameNameNameName="container-fluid">
-                <button classNameNameNameName="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span classNameNameNameName="navbar-toggler-icon"></span>
-                </button>
-                
-                <div classNameNameNameName="navbar-brand logoApp" style={{ backgroundImage: `url(${process.env.PUBLIC_URL+ `/logo-react-sport.png`})` }}> 
-                    
-                </div>
-                <div classNameNameNameName='factorLogoCarrito eliminar992'>
-                    <div classNameNameNameName='carrito'>
-                    <img   classNameNameNameName='imagenCarrito' src ={logoCarrito} alt="logoIniciar" ></img>
-                    </div>
-                    
-                    <Login classNameNameNameName="loginUsuario"/>
-                </div>
-                <div classNameNameNameName="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    
-                    <ul classNameNameNameName="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                CATEGORIAS
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>CALZADO</li>
-                                <li>INDUMENTARIA</li>
-                                <li>ACCESORIOS</li>
-                                <li>TECNOLOGIA</li>
-                                
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group ">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                GENERO
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>HOMBRE</li>
-                                <li>MUJER</li>
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                DEPORTES
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>FUTBOL</li>
-                                <li>RUNNING</li>
-                                <li>TENIS</li>
-                                <li>TRAINING Y FITNESS</li>
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MARCAS
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>NIKE</li>
-                                <li>ADIDAS</li>
-                                <li>PUMA</li>
-                                <li>REEBOK</li>
-                                <li>FILA</li>
-                            </ul>
-                        </li>
 
-                        <li classNameNameNameName="nav-item">
-                            <a classNameNameNameName="nav-link" href="/#">OFERTAS</a>
-                        </li>
-                        
-                        
-                    </ul>
-                    <div classNameNameNameName='factorLogoCarrito eliminar993'>
-                        
-                            <div classNameNameNameName='carrito'>
-                                <img   classNameNameNameName='imagenCarrito' src ={logoCarrito} alt="logoIniciar" ></img>
-                            </div>
-                        
-                            <Login classNameNameNameName="loginUsuario"/>
-                      
-                        
-                    </div>
-                </div>
-                
-      
-            </div>
-           
-        </nav>
- */
-}
+

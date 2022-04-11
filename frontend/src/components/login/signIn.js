@@ -6,6 +6,8 @@ import {Link as LinkRouter} from "react-router-dom"
 import userAction from '../../redux/actions/userAction';
 import { connect } from "react-redux";
 import GoogleSignIn from './googleSignIn'
+import Swal from 'sweetalert2'
+import Sweetalert from '../login/sweetalert'
 
 
 const SignIn = (props) => {
@@ -45,17 +47,22 @@ const SignIn = (props) => {
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
         <div className="submitContainer">
-        <Button variant="primary" type="submit" className="submitButton">
-          Log In
-        </Button>
+        <input type="submit" className="submitButton" placeholder="Log In"/>
         </div>
       </Form>
-    </div>
+      </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+      user: state.userReducer.user,
+      
+  }
+}
 
 const mapDispatchToProps = {
   signInUser: userAction.signInUser,
 };
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
