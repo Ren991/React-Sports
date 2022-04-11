@@ -26,7 +26,7 @@ function DetalleProducto(props) {
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
             <Link to="/checkout">
-             <a href="#">Inicio</a>
+              <a href="#">Inicio</a>
             </Link>
             <p> / </p>
             <p>{currentProduct.productName}</p>
@@ -54,7 +54,7 @@ function DetalleProducto(props) {
               {currentProduct.stock <= 5 ? (
                 <>
                   {currentProduct.stock == 0 ? (
-                    <h3>Out of stock!</h3>
+                    <h3 className="outOfStock">Out of stock!</h3>
                   ) : (
                     <h3>Last units!</h3>
                   )}
@@ -74,21 +74,27 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-              <input type="number" defaultValue="1"></input>
+              {/* <input type="number" defaultValue="1"></input> */}
               <button id={productId} onClick={addCart}>
                 Añadir al carrito
               </button>
             </div>
             <div className="divGoToCartOrContinueShopping">
-              <Link
-                to="/checkout"
-                // className="linkResponsive userButton"
-                // onClick={SignOut}
-              >
-                <button>Go to check out</button>
-              </Link>
-              <p>or</p>
-              <button onClick={() => window.history.back()}>Go Back</button>
+              {currentProduct.stock !== 0 ? (
+                <>
+                  <Link
+                    to="/checkout"
+                    // className="linkResponsive userButton"
+                    // onClick={SignOut}
+                  >
+                    <button>Go to check out</button>
+                  </Link>
+                  <p>or</p>
+                  <button onClick={() => window.history.back()}>Go Back</button>
+                </>
+              ) : (
+                <button onClick={() => window.history.back()}>Go Back</button>
+                )}
             </div>
           </div>
         </div>

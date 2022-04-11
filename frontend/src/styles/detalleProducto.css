@@ -76,6 +76,9 @@
 .detalleProductoContenedorDescripcion>p{
     padding: 0 3rem 0 3rem;
 }
+.outOfStock{
+    color: red;
+}
 .detallesProducto{
     margin-top: 1rem;
 }
@@ -95,9 +98,19 @@
     height: 2rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
     .text {
       font-size: 16px;
+    }
+    .contenedorDetalleProducto{
+        flex-direction: column;
+    }
+    .detalleProductoIzquierda{
+        width: 100%;
+    }
+    .detalleProductoDerecha{
+        width: 100%;
+        border-style: dashed none none none;
     }
   }
 
