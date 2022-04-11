@@ -22,7 +22,7 @@ function ProductsView() {
 
   return (
     <main>
-      <div className="input-group mb-3" >
+      {/* <div className="input-group mb-3" >
         <div className="form-outline">
           <input type="search" id="form1" onChange={filtProducts} className="form-control" />
           <label className="form-label" for="form1">
@@ -32,7 +32,7 @@ function ProductsView() {
         <button type="button"  className="btn btn-primary">
           <i className="fas fa-search"></i>
         </button>
-      </div>
+      </div> */}
       <section>
         {products?.map((element, index) => (
           <ProductCard key={index} product={element} />

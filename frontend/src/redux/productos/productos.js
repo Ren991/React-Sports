@@ -2,6 +2,7 @@ import axios from "axios";
 
 const dataInicial = {
   products: [],
+  product:[],
   filteredProducts: []
 };
 
@@ -12,6 +13,14 @@ export default function productosReducer(state = dataInicial, action) {
         ...state,
         products: action.payload,
       };
+     
+    case "GET_PRODUCT":
+      console.log("Holas")
+      return{
+        ...state,
+        product: action.payload,
+      };
+
     case "filt":
         console.log(action.payload)
         const filtered = state.products.filter((product) =>
@@ -64,10 +73,10 @@ export const filterProducts = (value)=>{
     }
 }
 
-export const buscarCiudadesPorID = (id) => {   //Cambiar nombre por products by brand 
-  return async (dispatch, getState) => {
-    const res = await axios.get(URLProductos + "/allGoods/" + id);
-
-    dispatch({ type: "TRAER_UNA", payload: res.data.respuesta });
+export const searchProductById = async (id) => {   
+  const res = await axios.get(URLProductos + "/allGoodsId/" + id);
+  console.log(res)
+  return  (dispatch, getState) => {
+    dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
   };
 };

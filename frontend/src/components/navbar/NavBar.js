@@ -1,35 +1,34 @@
 import React from "react";
-import '../../styles/navBar.css'
-import * as mdb from "mdb-ui-kit"; 
-import {Link as LinkRouter} from 'react-router-dom';
+import "../../styles/navBar.css";
+import * as mdb from "mdb-ui-kit";
+import {Link as LinkRouter } from "react-router-dom";
 import logoCarrito from "./logoImagen/carrito.png";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
 
-import Counter from '../counterWorldCup/counter'
+import Counter from "../counterWorldCup/counter";
 
 const Header = (props) => {
-let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
-  function SignOut(){
-    props.signOutUser(props.user.email)
+  let hambur =
+    "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png";
+  function SignOut() {
+    props.signOutUser(props.user.email);
   }
 
   return (
     <div className="containerNavbar ">
-    {/*   CONTADOR QATAR 2022 */}
-      
+      {/*   CONTADOR QATAR 2022 */}
+
       <div className="containerCounter">
         <div className="boxCounter">
-          <Counter 
-          countDownTimestampMs={1669086060000}/>
+          <Counter countDownTimestampMs={1669086060000} />
         </div>
       </div>
       {/*Second Nav*/}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid  ">
           <button
-            
             className="navbar-toggler menuHamburguesa"
             type="button"
             data-mdb-toggle="collapse"
@@ -38,15 +37,18 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-           {/*  <img  
+            {/*  <img  
             src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
             style={{width:40}} /> */}
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <LinkRouter to={`/`} className="navbar-brand mt-2 mt-lg-0">
-              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/REACT_LOGO.png`} /> 
-            </LinkRouter> 
+              <img
+                className="logo"
+                src={process.env.PUBLIC_URL + `../img/REACT_LOGO.png`}
+              />
+            </LinkRouter>
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* CATEGORY */}
@@ -130,14 +132,14 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   <li>
                     <LinkRouter to={`/brands/Adidas`} className="dropdown-item">
                       Adidas
-                    </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/brands/Nike`} className="dropdown-item">
+                    <LinkRouter to={`/brands/Nike`} className="dropdown-item">
                       Nike
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
-                 {/*  <li>
+                  {/*  <li>
                   <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
                       Umbro
                   </LinkRouter> 
@@ -171,24 +173,30 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                  <LinkRouter to={`/sports/Futbol`} className="dropdown-item">
+                    <LinkRouter to={`/sports/Futbol`} className="dropdown-item">
                       Futbol
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Running`} className="dropdown-item">
+                    <LinkRouter
+                      to={`/sports/Running`}
+                      className="dropdown-item"
+                    >
                       Running
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Tennis`} className="dropdown-item">
+                    <LinkRouter to={`/sports/Tennis`} className="dropdown-item">
                       Tennis
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Training&Fitness`} className="dropdown-item">
+                    <LinkRouter
+                      to={`/sports/Training&Fitness`}
+                      className="dropdown-item"
+                    >
                       Training & Fitness
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                 </ul>
               </li>
@@ -240,6 +248,9 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                     Something else here
                   </a>
                 </li>
+                <li>
+                  <LinkRouter to={'/checkout'}>CheckOut</LinkRouter>
+                </li>
               </ul>
             </div>
             {/*   USER ACCOUNT */}
@@ -252,65 +263,79 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                 data-mdb-toggle="dropdown"
                 aria-expanded="false"
               >
-                {props.user? <img className="userImg" src={props.user.image}/> : 
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
-                  className="rounded-circle userImg"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-                }
-                
+                {props.user ? (
+                  <img className="userImg" src={props.user.image} />
+                ) : (
+                  <img
+                    src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
+                    className="rounded-circle userImg"
+                    height="25"
+                    alt="Black and White Portrait of a Man"
+                    loading="lazy"
+                  />
+                )}
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
-                >
-                {!props.user ?
+              >
+                {!props.user ? (
                   <>
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signIn" className="linkResponsive userButton">Sign In</LinkRouter>
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signUp" className="linkResponsive userButton">Sign Up</LinkRouter>
-                  </a>
-                </li>
-                </>
-                  :
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signOut" className="linkResponsive userButton" onClick={SignOut}>Sign Out</LinkRouter>
-                  </a>
-                </li>
-              }
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <LinkRouter
+                          to="signIn"
+                          className="linkResponsive userButton"
+                        >
+                          Sign In
+                        </LinkRouter>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <LinkRouter
+                          to="signUp"
+                          className="linkResponsive userButton"
+                        >
+                          Sign Up
+                        </LinkRouter>
+                      </a>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      <LinkRouter
+                        to="signOut"
+                        className="linkResponsive userButton"
+                        onClick={SignOut}
+                      >
+                        Sign Out
+                      </LinkRouter>
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
         </div>
       </nav>
       <div className="containerInput">
-          <input className="inputNavbar" placeholder="Search a product"/>
+        <input className="inputNavbar" placeholder="Search a product" />
       </div>
-     
-          
-      
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  return{
-    user: state.userReducer.user
-  }
-}
+  return {
+    user: state.userReducer.user,
+  };
+};
 
 const mapDispatchToProps = {
-  signOutUser: userAction.signOutUser
-}
+  signOutUser: userAction.signOutUser,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
