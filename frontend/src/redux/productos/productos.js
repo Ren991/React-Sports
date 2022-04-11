@@ -3,6 +3,7 @@ import axios from "axios";
 const dataInicial = {
   products: [],
   product:[],
+  marca:[],
   filteredProducts: []
 };
 
@@ -21,16 +22,21 @@ export default function productosReducer(state = dataInicial, action) {
         product: action.payload,
       };
 
-    case "filt":
-        console.log(action.payload)
+    /* case "filt":
+        console.log(action.payload)s
         const filtered = state.products.filter((product) =>
         product.productName.toLowerCase().startsWith(action.payload.toLowerCase().trim())
-      );
+        );
+        return {
+          ...state,
+          filteredProducts: filtered,
+        }; */
+      case "marca":
+            return {
+                ...state,
+                marca: action.payload
+            };
 
-      return {
-        ...state,
-        filteredProducts: filtered,
-      };
     default:
       return state;
   }
@@ -80,3 +86,14 @@ export const searchProductById = async (id) => {
     dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
   };
 };
+
+export const seachProductsMarca = (id) => {
+  console.log(id);
+  return async (dispatch, getState) => {
+
+      const res = await axios.get(URLProductos + '/allGoodsFor/brand/' + id)
+      console.log(res);
+      dispatch({ type: "marca", payload: res.data.respuesta.brands })
+
+  }
+}
