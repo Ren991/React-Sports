@@ -5,8 +5,10 @@ import '../../styles/checkOut.css'
 export default function Table(props) {
     console.log(props.productos);
     const productos = props.productos
-
-
+    console.log(typeof productos);
+    var cantidad = []
+    cantidad.unshift(productos)
+    console.log(cantidad);
 
 
 
@@ -25,7 +27,7 @@ export default function Table(props) {
                 <td >
                     <div >
                         <div >
-                            <input id='input' type="number" value={1} />
+                            <input id='input' type="number" value={productos.price} />
                         </div>
                     </div>
                 </td>
@@ -36,7 +38,7 @@ export default function Table(props) {
                     </button>
                 </td>
                 <td className='botonera2'>
-                    $ 000
+                    {cantidad.length}
                 </td>
                 <td className='botonera2'>
                     <button className='restaSuma'>
