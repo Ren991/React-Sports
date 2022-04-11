@@ -7,13 +7,12 @@ import thunk from 'redux-thunk'
 //import usuarioReducer from './usuarios/usuarios'
 import productosReducer from './productos/productos'
 import userReducer from './reducers/userReducer'
-import brandReducer from './brand/brand'
+import cartReducer from './reducers/cartReducer'
 
 const rootReducer = combineReducers({
     productosMain: productosReducer,
-    brandMain: brandReducer,
-    userReducer
-
+    userReducer,
+    cartReducer,
     /* usuarioMain:usuarioReducer, */
 
 })

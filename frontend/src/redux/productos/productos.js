@@ -2,28 +2,44 @@ import axios from "axios"
 
 const dataInicial = {
     products: [],
+    product: [],
     marca: [],
-
-}
+    filteredProducts: []
+};
 
 export default function productosReducer(state = dataInicial, action) {
-
     switch (action.type) {
-
         case GET_ALL_PRODUCTS:
             return {
                 ...state,
-                products: action.payload
-            }
-        case MARCA:
+                products: action.payload,
+            };
+
+        case "GET_PRODUCT":
+            console.log("Holas")
+            return {
+                ...state,
+                product: action.payload,
+            };
+
+        /* case "filt":
+            console.log(action.payload)s
+            const filtered = state.products.filter((product) =>
+            product.productName.toLowerCase().startsWith(action.payload.toLowerCase().trim())
+            );
+            return {
+              ...state,
+              filteredProducts: filtered,
+            }; */
+        case "marca":
             return {
                 ...state,
                 marca: action.payload
-            }
-        default:
-            return state
-    }
+            };
 
+        default:
+            return state;
+    }
 }
 //ruta api      
 const URLProductos = "http://localhost:4000/api"
@@ -59,14 +75,21 @@ export const modificarStock = (id) => {
     }
 }
 
+export const searchProductById = async (id) => {
+    const res = await axios.get(URLProductos + "/allGoodsId/" + id);
+    console.log(res)
+    return (dispatch, getState) => {
+        dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
+    };
+};
+
 export const seachProductsMarca = (id) => {
     console.log(id);
     return async (dispatch, getState) => {
 
         const res = await axios.get(URLProductos + '/allGoodsFor/brand/' + id)
         console.log(res);
-        dispatch({ type: MARCA, payload: res.data.respuesta.brandsLocal })
+        dispatch({ type: "marca", payload: res.data.respuesta.brands })
 
     }
 }
-

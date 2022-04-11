@@ -20,5 +20,8 @@ goodsRouter.route('/allGoodsId/:id')
 /*     .delete(deleteProduct) */
 /* .put(modifyProduct) */
 
+goodsRouter.route('/allGoodsForGender/gender/:gender')
+.get(seeProductForGender)
+
 module.exports = goodsRouter
 
