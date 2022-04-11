@@ -11,7 +11,7 @@ const cartAction = {
         var clearProducts = [...uniqueProducts];
         
 
-        return async(dispatch,getState) => {
+        return async() => {
 
             console.log(clearProducts)
 
