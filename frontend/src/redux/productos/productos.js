@@ -82,12 +82,7 @@ export const filterProducts = (value)=>{
 export const searchProductById = async (id) => {   
   
   const res = await axios.get(URLProductos + "/allGoodsId/" + id);
-<<<<<<< HEAD
-  console.log(res.data.respuesta)
-  return  {
-=======
   return {  
->>>>>>> 0e4f75d3c394fc8f2adb076da2e5216b65b9c4d5
     response: res.data.respuesta,
   };
 };

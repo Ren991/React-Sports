@@ -6,33 +6,6 @@ import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 
 function DetalleProducto(props) {
-<<<<<<< HEAD
-
-  // TO_DO__crashea con F5
-
-  const {id} = useParams()
-  const productId = id
-  console.log(productId)
-  const [reload, setReload] = useState(false)
-  
-  
-  useEffect(() => {
-    
-    searchProductById(productId).then(res=>console.log(res))
-    
-  }, [])
-  
-  
-  console.log(props)
-
-
-
-
-  async function addCart (event){
-
-    props.addToCart(event.target.id)
-
-=======
   const { id } = useParams();
   const productId = id;
   const [reload, setReload] = useState(false);
@@ -42,7 +15,6 @@ function DetalleProducto(props) {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
   console.log(currentProduct);
->>>>>>> 0e4f75d3c394fc8f2adb076da2e5216b65b9c4d5
 
   async function addCart(event) {
     props.addToCart(event.target.id);
@@ -136,20 +108,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.cart,
-<<<<<<< HEAD
-    productId: state.productosMain.productId,
-    
-
-  }
-}
-
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(DetalleProducto)
-=======
     product: state.productosMain.product,
   };
 };
->>>>>>> 0e4f75d3c394fc8f2adb076da2e5216b65b9c4d5
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetalleProducto);
