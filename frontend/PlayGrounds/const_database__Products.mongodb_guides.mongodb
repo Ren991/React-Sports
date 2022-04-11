@@ -1,0 +1,282 @@
+const database = 'ReactSports';
+
+use(database);
+
+db.products.drop();
+db.products.insertMany([
+
+{
+productName:"Excellent football shoes",
+description:"Football shoes",
+brand:"6250579e0111b78ea9c27101",
+type:"footwear",
+gender:"male",
+size: 38,
+price:60,
+stock: 8,
+sport: "football",
+image:"footbalshoesb.png",
+},
+
+{
+productName:"Football shoes Mercurial",
+description:"Wonderfull football shoes Mercurial",
+brand:"6250579e0111b78ea9c27101",
+type:"footwear",
+gender:"male",
+size:42,
+color:"white",
+price:60,
+stock:20,
+sport:"football",
+image:"footbalshoesw.png"
+},
+ 
+{
+productName:"Blue Football shoes Mercurial",  
+description:"Gorgeos Football shoes Mercurial",
+brand:"6250579e0111b78ea9c27101",
+type:"footwear",
+gender:"male",
+size:43,
+color:"blue",
+price:60,
+stock:15,
+sport: "football",
+image:"footbalshoesblu.png"
+},
+
+{
+productName:"Gold Football shoes",
+description:"All the fancy style that only gold color can give to you in the football field",
+brand:"6250579e0111b78ea9c27101",
+type:"footwear",
+gender:"male",
+size:39,
+color:"gold",
+price:60,
+stock:3,
+sport: "football",
+image:"footbalshoesg.png"
+},
+
+{
+productName:"Silver football shoes",
+description:"Bring some silver to your traning whit this awesome football shoes",
+brand:"6250579e0111b78ea9c27101",
+type:"footwear",
+gender:"female",
+size:38,
+color:"silver",
+price:50,
+stock:20,
+sport:"football",
+image:"footbalshoess.png"
+},
+
+{
+productName:"Shoes lemon limited edition",
+description:"If you want to give a good impressio, don't think it twice, the momeent it's now, so let's get ready to recibe the lemon limited edition",
+brand:"625057970111b78ea9c270ff",
+type:"footwear",
+gender:"male",
+size:44,
+color:"yellow",
+price:50,
+stock:5,
+sport:"football",
+image:"625057970111b78ea9c270ffshoesyellow.png"
+},
+
+{
+productName:"Riana Shoes limited edition",
+description:"Get use to wear the shoes of your favorite pop star",
+brand:"625057970111b78ea9c270ff",
+type:"footwear",
+gender:"female",
+size:37,
+color:"red",
+price:50,
+stock:15,
+sport:"football",
+image:"redshoes.png"
+},
+
+
+{
+productName:"T-shirt spring season",
+description:"T-shirt spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"female",
+size:["XS", "S", "M", "L", "XL", "XXL"],
+color:"white",
+price:20,
+stock:5,
+sport: "basquetball",
+image:"t-shirtwf.png"
+},
+
+{
+productName:"T-shirt spring season",
+description:"Most selled T-shirt in 2022 spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"male",
+size:"XL",
+color:"white",
+price:20,
+stock:5,
+sport: "basquetball",
+image:"t-shirtwm.png"
+},
+
+{
+productName:"T-shirt spring season",
+description:"Terrific blue T-shirt spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"female",
+size:"XS",
+color:"blue",
+price:20,
+stock:10,
+sport: "basquetball",
+image:"t-shirtbf.png"
+},
+
+{
+productName:"Blue T-shirt spring season",    
+description:"Genial Blue T-shirt spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"male",
+size:"S",
+color:"blue",
+price:20,
+stock:5,
+sport: "running",
+image:"t-shirtbm.png"
+},
+
+{
+productName:"Red T-shirt spring season",
+description:"Unic female T-shirt spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"female",
+size:"M",
+color:"red",
+price:20,
+stock:10,
+sport: "running",
+image:"t-shirtrf.png"
+},
+
+{
+productName:"Unic male red T-shirt spring season",
+description:"T-shirt spring season",
+brand:"625057970111b78ea9c270ff",
+type:"t-shirt",
+gender:"male",
+size:"XL",
+color:"red",
+price:20,
+stock:15,
+sport: "running",
+image:"t-shirtrm.png"
+},
+
+{
+productName:"Terrific T-shirt Eminem orange edition",
+description:"T-shirt Eminem edition",
+brand:"6250579e0111b78ea9c27101",
+type:"t-shirt",
+gender:"male",
+size:"L",
+color:"orange",
+price:20,
+stock:5,
+sport: "basquetball",
+image:"t-shirtEminemo.png"
+},
+
+{
+productName:"T-shirt Eminem black edition",
+description:"Marvelous T-shirt Eminem edition",
+brand:"6250579e0111b78ea9c27101",
+type:"t-shirt",
+gender:"female",
+size:"XL",
+color:"black",
+price:20,
+stock:10,
+sport: "running",
+image:"t-shirtEminemp.png"
+},
+
+
+{
+productName:"Embroidery joggers",
+description:"Great embroidery joggers",
+brand:"625057970111b78ea9c270ff",
+type:"pants",
+gender:"female",
+size:"S",
+color:"red",
+price:20,
+stock:15,
+sport: "football",
+image:"pantsrf.png"
+},
+
+{
+productName:"Joggers solid color",
+description:"Super joggers solid color",
+brand:"625057970111b78ea9c270ff",
+type:"pants",
+gender:"male",
+size: "XXL",
+color:"red",
+price:20,
+stock:10,
+sport:"basquetball",
+image:"pantsrm.png"
+},
+
+{description:"Joggers aqua model",
+brand:"625057970111b78ea9c270ff",
+type:"pants",
+gender:"female",
+size:"L",
+color:"grey",
+price:30,
+stock:5,
+sport: "running",
+image:"pantsgf.png"
+},
+
+{description:"Joggers solid color",
+brand:"625057970111b78ea9c270ff",
+type:"pants",
+gender:"male",
+size:"XS",
+color:"grey",
+price:35,
+stock:10,
+sport: "football",
+image:"pantsgm.png"
+},
+
+{description:"Joggers special rap collection",
+brand:"6250579e0111b78ea9c27101",
+type:"pants",
+gender:"male",
+size:"M",
+color:"purple",
+price:40,
+stock:5,
+sport:"basquetball",
+image:"pantsrmp.png"
+},
+])

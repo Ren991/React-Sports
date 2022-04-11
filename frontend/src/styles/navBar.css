@@ -1,31 +1,9 @@
-.containerCounter{
-    width: 100%;
-    height: 2rem;
-    background-color:#d7d7d7 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.boxCounter{
-    position: absolute;
-    height: 3.5rem;
-    background-color: #1c749a;
-    z-index: 1;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .navbar{
     padding: 0 !important;
 }
 body {
     background-color: rgb(255, 255, 255) !important;
     font-size:1rem;
-}
-.logo{
-    width: 7rem;
-
 }
 .container-fluid{
     padding: .5rem 19rem;
@@ -86,16 +64,13 @@ a{
 .containerInput{
     display: flex;
     justify-content: center;
-    background-color: #1c749a;
     padding: .5rem 0;
 }
+
 .inputNavbar{
   text-align: center;
   height: 3rem;
   width:20rem;
-   
-   
-
 }
 
 
@@ -104,66 +79,6 @@ a{
     background-color: rgb(255, 255, 255)!important;
 }
 
-.factorLogoCarrito{
-    /* background-color: rgb(19, 183, 183); */
-    width: 125px;
-    display: flex;
-    height: 50px;
-    justify-content: space-around;
-    
-}
-.logoApp{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-color: red;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.loginUsuario{
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    border-radius: 50px;  
-}
-.userImg{
-    border-radius: 50%;
-    object-fit: cover;
-    height: 38px;
-    width: 38px;
-}
-.menuHamburguesa{
-    background-image: url("https://images.vexels.com/media/users/3/202461/isolated/lists/aecd98dae53ed535bee20c25babbfbb0-hamburguesa-americana-negra.png");
-    background-size: cover;
-    width: 2rem;
-    height:2rem;
-}
-.userButton{
-    text-decoration: none;
-    color: black;
-}
-.carrito{
-    width: 50px;
-    height: 50px;
-    /* background-color: green; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.imagenCarrito{
-    width: 50px;
-    height: 50px;
-    border: 0px;
-    /* background-color: red!important; */
-    background-attachment: fixed;
-    
-
-}
-.eliminar993{
-    display: none;
-}
 .dropdown-toggle{
     background-color: transparent;
     border: 0px;
@@ -181,16 +96,4 @@ a{
     /* background-color: red; */
     display: flex;
     flex-direction: column;
-}
-@media (min-width: 992px) {
-    .factorLogoCarrito{
-        width: 200px;
-    }
-    .eliminar992{
-        display: none;
-    }
-    .eliminar993{
-        display: flex;
-    }
-    
 }

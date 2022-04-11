@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import Header from './components/navbar/NavBar'
+import NavBar2 from './components/navbar/navBar2'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -26,7 +26,7 @@ function App(props) {
   return (
     <>
      <BrowserRouter>
-        <Header/>
+        <NavBar2/>
         <Routes>
           <Route path="*"  element={<Home />}/> 
           <Route path="/brands" element={<BrandsView />}/>

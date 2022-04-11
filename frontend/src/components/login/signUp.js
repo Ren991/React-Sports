@@ -100,9 +100,9 @@ const SignUp = (props) => {
         </Form.Group>
 
         <div className="submitContainer">
-          <Button variant="primary" type="submit" className="submitButton">
+          <div variant="primary" type="submit" className="submitButton">
             Sign Up
-          </Button>
+          </div>
         </div>
       </Form>
     </div>

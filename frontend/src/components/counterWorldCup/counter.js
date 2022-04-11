@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {getRemainingTimeUntilMsTimestamp} from './countDownTimerUtils'
+import '../../styles/stylesNavBar2.css'
  
 const defaultRemainingTime = {
     seconds: '00',
@@ -24,7 +25,7 @@ const Counter = ({countDownTimestampMs}) => {
         setRemainingTime(getRemainingTimeUntilMsTimestamp(countDown))
     }
   return (
-    <>
+    <div className='counterMargin'>
     <span>{remainingTime.days}</span>
     <span>Days</span>
     <span>{remainingTime.hours}</span>
@@ -33,7 +34,7 @@ const Counter = ({countDownTimestampMs}) => {
     <span>Minutes</span>
     <span>{remainingTime.seconds}</span>
     <span>Seconds</span>
-    </>
+    </div>
   );
 };
 
