@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const Products = require('../models/products')
 
 
@@ -23,7 +24,8 @@ const productsControllers = {
     },
     getAllProductsBrand: async (require, response) => {
         const brandId = require.params.id
-        /*        console.log(require.params.value); */
+        /*         const Brand = ObjectId(brandId) */
+        console.log(brandId);
 
 
 
@@ -32,7 +34,7 @@ const productsControllers = {
 
         try {
             brandsLocal = await Products.find({ brand: brandId })
-
+            /*       console.log(brandsLocal); */
         } catch (err) {
             error = err
             console.log(error);
@@ -81,6 +83,7 @@ const productsControllers = {
 
 
         ProductsLocal = await Products.find({ genre: gender })
+
             .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
             .then(console.log(ProductsLocal))
             .catch(error => response.json({ paso: "no existe", error }))
