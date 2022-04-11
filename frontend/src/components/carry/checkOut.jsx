@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/checkOut.css'
 import Table from './table'
+import { connect } from 'react-redux'
 
 function CheckOut(props) {
 
@@ -44,4 +45,10 @@ function CheckOut(props) {
 
 }
 
-export default CheckOut
+const mapStateToProps= (state)=>{
+    return{
+        cart: state.cartReducer.cart
+    }
+}
+
+export default connect(mapStateToProps,null)(CheckOut)

@@ -1,35 +1,33 @@
 import React from "react";
-import '../../styles/navBar.css'
-import * as mdb from "mdb-ui-kit"; 
-import {Link as LinkRouter} from 'react-router-dom';
-import logoCarrito from "./logoImagen/carrito.png";
+import "../../styles/navBar.css";
+import * as mdb from "mdb-ui-kit";
+import {Link as LinkRouter } from "react-router-dom";
 
 import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
 
-import Counter from '../counterWorldCup/counter'
+import Counter from "../counterWorldCup/counter";
 
 const Header = (props) => {
-let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
-  function SignOut(){
-    props.signOutUser(props.user.email)
+  let hambur =
+    "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png";
+  function SignOut() {
+    props.signOutUser(props.user.email);
   }
 
   return (
     <div className="containerNavbar ">
-    {/*   CONTADOR QATAR 2022 */}
-      
+      {/*   CONTADOR QATAR 2022 */}
+
       <div className="containerCounter">
         <div className="boxCounter">
-          <Counter 
-          countDownTimestampMs={1669086060000}/>
+          <Counter countDownTimestampMs={1669086060000} />
         </div>
       </div>
       {/*Second Nav*/}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid  ">
           <button
-            
             className="navbar-toggler menuHamburguesa"
             type="button"
             data-mdb-toggle="collapse"
@@ -38,15 +36,18 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-           {/*  <img  
+            {/*  <img  
             src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
             style={{width:40}} /> */}
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <LinkRouter to={`/`} className="navbar-brand mt-2 mt-lg-0">
-              <img className="logo" src= {process.env.PUBLIC_URL+ `../img/REACT_LOGO.png`} /> 
-            </LinkRouter> 
+              <img
+                className="logo"
+                src={process.env.PUBLIC_URL + `../img/REACT_LOGO.png`}
+              />
+            </LinkRouter>
 
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {/* CATEGORY */}
@@ -130,14 +131,14 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   <li>
                     <LinkRouter to={`/brands/Adidas`} className="dropdown-item">
                       Adidas
-                    </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/brands/Nike`} className="dropdown-item">
+                    <LinkRouter to={`/brands/Nike`} className="dropdown-item">
                       Nike
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
-                  <li>
+                  {/*  <li>
                   <LinkRouter to={`/brands/Umbro`} className="dropdown-item">
                       Umbro
                   </LinkRouter> 
@@ -151,7 +152,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   <LinkRouter to={`/brands/Fila`} className="dropdown-item">
                       Fila
                   </LinkRouter> 
-                  </li>
+                  </li> */}
                 </ul>
               </li>
               {/*  SPORTS */}
@@ -171,24 +172,30 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                  <LinkRouter to={`/sports/Futbol`} className="dropdown-item">
+                    <LinkRouter to={`/sports/Futbol`} className="dropdown-item">
                       Futbol
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Running`} className="dropdown-item">
+                    <LinkRouter
+                      to={`/sports/Running`}
+                      className="dropdown-item"
+                    >
                       Running
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Tennis`} className="dropdown-item">
+                    <LinkRouter to={`/sports/Tennis`} className="dropdown-item">
                       Tennis
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                   <li>
-                  <LinkRouter to={`/sports/Training&Fitness`} className="dropdown-item">
+                    <LinkRouter
+                      to={`/sports/Training&Fitness`}
+                      className="dropdown-item"
+                    >
                       Training & Fitness
-                  </LinkRouter> 
+                    </LinkRouter>
                   </li>
                 </ul>
               </li>
@@ -210,13 +217,7 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                 aria-expanded="false"
               >
                 <i className="fas fa-bell"></i>
-                <img
-                  src={logoCarrito}
-                  className="rounded-circle carritoUser"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
+                
                 <span className="badge rounded-pill badge-notification bg-danger">
                   TO_DO__CANT_CARRITO
                 </span>
@@ -240,6 +241,9 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                     Something else here
                   </a>
                 </li>
+                <li>
+                  <LinkRouter to={'/checkout'}>CheckOut</LinkRouter>
+                </li>
               </ul>
             </div>
             {/*   USER ACCOUNT */}
@@ -252,154 +256,81 @@ let hambur= "https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-ic
                 data-mdb-toggle="dropdown"
                 aria-expanded="false"
               >
-                {props.user? <img className="userImg" src={props.user.image}/> : 
-                <img
-                  src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
-                  className="rounded-circle userImg"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-                }
-                
+                {props.user ? (
+                  <img className="userImg" src={props.user.image} />
+                ) : (
+                  <img
+                    src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1649341453~hmac=d683c2d497b0a64e9ed8bbdb1aa280a1"
+                    className="rounded-circle userImg"
+                    height="25"
+                    alt="Black and White Portrait of a Man"
+                    loading="lazy"
+                  />
+                )}
               </a>
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
-                >
-                {!props.user ?
+              >
+                {!props.user ? (
                   <>
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signIn" className="linkResponsive userButton">Sign In</LinkRouter>
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signUp" className="linkResponsive userButton">Sign Up</LinkRouter>
-                  </a>
-                </li>
-                </>
-                  :
-                <li>
-                  <a className="dropdown-item" href="#">
-                  <LinkRouter to="signOut" className="linkResponsive userButton" onClick={SignOut}>Sign Out</LinkRouter>
-                  </a>
-                </li>
-              }
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <LinkRouter
+                          to="signIn"
+                          className="linkResponsive userButton"
+                        >
+                          Sign In
+                        </LinkRouter>
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        <LinkRouter
+                          to="signUp"
+                          className="linkResponsive userButton"
+                        >
+                          Sign Up
+                        </LinkRouter>
+                      </a>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      <LinkRouter
+                        to="signOut"
+                        className="linkResponsive userButton"
+                        onClick={SignOut}
+                      >
+                        Sign Out
+                      </LinkRouter>
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
         </div>
       </nav>
       <div className="containerInput">
-          <input className="inputNavbar" placeholder="Search a product"/>
+        <input className="inputNavbar" placeholder="Search a product" />
       </div>
-     
-          
-      
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  return{
-    user: state.userReducer.user
-  }
-}
+  return {
+    user: state.userReducer.user,
+  };
+};
 
 const mapDispatchToProps = {
-  signOutUser: userAction.signOutUser
-}
+  signOutUser: userAction.signOutUser,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
 
-{
-  /* <nav classNameNameNameName="navbar navbar-expand-lg navbar-light bg-light">
-            <div classNameNameNameName="container-fluid">
-                <button classNameNameNameName="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span classNameNameNameName="navbar-toggler-icon"></span>
-                </button>
-                
-                <div classNameNameNameName="navbar-brand logoApp" style={{ backgroundImage: `url(${process.env.PUBLIC_URL+ `/logo-react-sport.png`})` }}> 
-                    
-                </div>
-                <div classNameNameNameName='factorLogoCarrito eliminar992'>
-                    <div classNameNameNameName='carrito'>
-                    <img   classNameNameNameName='imagenCarrito' src ={logoCarrito} alt="logoIniciar" ></img>
-                    </div>
-                    
-                    <Login classNameNameNameName="loginUsuario"/>
-                </div>
-                <div classNameNameNameName="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    
-                    <ul classNameNameNameName="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                CATEGORIAS
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>CALZADO</li>
-                                <li>INDUMENTARIA</li>
-                                <li>ACCESORIOS</li>
-                                <li>TECNOLOGIA</li>
-                                
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group ">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                GENERO
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>HOMBRE</li>
-                                <li>MUJER</li>
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                DEPORTES
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>FUTBOL</li>
-                                <li>RUNNING</li>
-                                <li>TENIS</li>
-                                <li>TRAINING Y FITNESS</li>
-                            </ul>
-                        </li>
-                        <li classNameNameNameName="nav-item btn-group">
-                            <button classNameNameNameName="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MARCAS
-                            </button>
-                            <ul classNameNameNameName="dropdown-menu">
-                                <li>NIKE</li>
-                                <li>ADIDAS</li>
-                                <li>PUMA</li>
-                                <li>REEBOK</li>
-                                <li>FILA</li>
-                            </ul>
-                        </li>
 
-                        <li classNameNameNameName="nav-item">
-                            <a classNameNameNameName="nav-link" href="/#">OFERTAS</a>
-                        </li>
-                        
-                        
-                    </ul>
-                    <div classNameNameNameName='factorLogoCarrito eliminar993'>
-                        
-                            <div classNameNameNameName='carrito'>
-                                <img   classNameNameNameName='imagenCarrito' src ={logoCarrito} alt="logoIniciar" ></img>
-                            </div>
-                        
-                            <Login classNameNameNameName="loginUsuario"/>
-                      
-                        
-                    </div>
-                </div>
-                
-      
-            </div>
-           
-        </nav>
- */
-}
+
