@@ -21,7 +21,7 @@ function CheckOut(props) {
 
     /*     console.log(todosLosProductos); */
 
-    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart")))
+    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState([])
 
     useEffect(() => {
         setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
@@ -53,8 +53,8 @@ function CheckOut(props) {
                         <thead id='encabezado'>
                             <tr>
                                 <th>Producto</th>
+                                <th>Precio</th>
                                 <th>Cantidad</th>
-                                <th>Total</th>
                             </tr>
                         </thead>
                         {productosAMostar?.map((productos) =>

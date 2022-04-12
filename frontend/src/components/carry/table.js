@@ -97,7 +97,7 @@ export default function Table(props) {
                 <td >
                     <div >
                         <div >
-                            <input id='input' type="number" value={productos.price} />
+                            <input id='input' type="string" value={(productos.price * contador)} />
                         </div>
                     </div>
                 </td>
