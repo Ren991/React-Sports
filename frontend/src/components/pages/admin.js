@@ -129,7 +129,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.productName}
+                    placeholder={currentProduct?.productName}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -142,7 +142,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.sport}
+                    placeholder={currentProduct?.sport}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -155,7 +155,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.description}
+                    placeholder={currentProduct?.description}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -168,7 +168,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.color}
+                    placeholder={currentProduct?.color}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -181,7 +181,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.stock}
+                    placeholder={currentProduct?.stock}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -194,7 +194,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.image}
+                    placeholder={currentProduct?.image}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -207,7 +207,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.price}
+                    placeholder={currentProduct?.price}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -220,7 +220,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.gender}
+                    placeholder={currentProduct?.gender}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -233,7 +233,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.brand}
+                    placeholder={currentProduct?.brand}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
