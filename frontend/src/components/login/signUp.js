@@ -99,9 +99,7 @@ const SignUp = (props) => {
         </Form.Group>
 
         <div className="submitContainer">
-          <div variant="primary" type="submit" className="submitButton">
-            Sign Up
-          </div>
+        <input type="submit" className="submitButton" placeholder="Log Up"/>
         </div>
       </Form>
     </div>

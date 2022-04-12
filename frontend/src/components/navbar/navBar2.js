@@ -23,6 +23,7 @@ const NavBar2 = (props) => {
   function SignOut() {
 		props.signOutUser(props.user.email)
 	}
+  console.log(props.user)
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -109,6 +110,7 @@ const NavBar2 = (props) => {
                 display: { xs: 'block', md: 'none'},
               }}
             >
+            
               <MenuItem>
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown">
@@ -186,7 +188,7 @@ const NavBar2 = (props) => {
                   role="button"
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
-                >
+                  >
                   BRAND
                 </a>
                 <ul
@@ -306,7 +308,7 @@ const NavBar2 = (props) => {
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
-                >
+                  >
                   <li>
                     <a className="dropdown-item" href="#">
                       Male
@@ -471,6 +473,9 @@ const NavBar2 = (props) => {
               <>
               <MenuItem>
               <LinkRouter to="signOut" className="linkResponsive" onClick={SignOut}>Sign Out</LinkRouter>
+              </MenuItem>
+              <MenuItem>
+              {(props.user.isAdmin) === true ? <h1>I am the Admin</h1> : <span>Hola no soy admin</span> }
               </MenuItem>
               </>
               }
