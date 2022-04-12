@@ -24,7 +24,7 @@ const brandControllers = {
     addbrand: async (required, response) => {
 
         const { brand } = required.body
-        console.log(brand)
+        /*         console.log(brand) */
         new Brand({
             brand
         }).save()

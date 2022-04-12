@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.userImage{
+  width: 2.5rem;
+  border-radius: 100px;
+}
+
 .boxNavBar{
   background-color: white !important;
 }

@@ -539,7 +539,7 @@ const NavBar2 = (props) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {!props.user ?<Avatar alt="Remy Sharp" src={process.env.PUBLIC_URL+ `../img/user.png`} /> : 
-                <img src={props.user.image} alt="User Image" className='userImage' width={40}/>}
+                <img src={props.user.image} alt="User Image" className='userImage'/>}
               </IconButton>
             </Tooltip>
             <Menu
