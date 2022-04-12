@@ -14,6 +14,7 @@ import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
+import MySnackbar from './components/snackbar/snackbar'
 
 function App(props) {
 
@@ -29,6 +30,7 @@ function App(props) {
     <>
       <BrowserRouter>
         <NavBar2/>
+        <MySnackbar/>
         <Routes>
           <Route path="/home"  element={<Home />}/> 
           <Route path="*"  element={<Home />}/> 
