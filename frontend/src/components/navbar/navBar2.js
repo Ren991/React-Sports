@@ -113,12 +113,13 @@ const NavBar2 = (props) => {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
+                  class="navbar-toggler"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#navbarLeftAlignExample"
+                  aria-controls="navbarLeftAlignExample"
                   aria-expanded="false"
+                  aria-label="Toggle navigation"
                 >
                   CATEGORY
                 </a>
