@@ -1,19 +1,26 @@
 import axios from "axios"
 
 const dataInicial = {
-    products: [],
-    product: [],
-    marca: [],
-    filteredProducts: []
+  products: [],
+  productId:[],
+  marca:[],
+  filteredProducts: []
 };
 
 export default function productosReducer(state = dataInicial, action) {
-    switch (action.type) {
-        case GET_ALL_PRODUCTS:
-            return {
-                ...state,
-                products: action.payload,
-            };
+  switch (action.type) {
+    case GET_ALL_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      };
+     
+    case "GET_PRODUCT":
+      console.log("Holas")
+      return{
+        ...state,
+        productId: action.payload,
+      };
 
         case "GET_PRODUCT":
             console.log("Holas")
@@ -46,6 +53,8 @@ const URLProductos = "http://localhost:4000/api"
 //aciones
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 const MARCA = "MARCA"
+
+
 
 export const getAllProducts = () => async (dispatch, getState) => {
 
@@ -86,9 +95,7 @@ export const searchProductById = async (id) => {
 export const seachProductsMarca = (id) => {
 
     return async (dispatch, getState) => {
-        console.log(id);
         const res = await axios.get(URLProductos + '/allGoodsFor/brand/' + id)
-        console.log(res);
         dispatch({ type: "marca", payload: res.data.respuesta.brandsLocal })
 
     }

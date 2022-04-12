@@ -9,7 +9,8 @@ const productsControllers = {
         var error = null
 
         try {
-            products = await Products.find()
+            // AGREGUE EL POPULATE
+            products = await Products.find().populate('brand')
         } catch (err) {
             error = err
             console.log(error);
