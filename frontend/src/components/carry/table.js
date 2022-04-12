@@ -78,7 +78,8 @@ export default function Table(props) {
         localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
         console.log(productosLocalStorage);
 
-        props.setReload(!props.reload)
+        props.setReload(true)
+        console.log(props.reload);
     }
 
 
