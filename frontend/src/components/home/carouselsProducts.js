@@ -59,7 +59,7 @@ function CarouselProducts(props) {
             <p>{product.productName}</p>
             <img className="imgCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
             <p>{product.price}</p>
-            <Link to={`/DETALLEPRODUCTO/${product._id}`} productInfo={product}>
+            <Link to={`/productDetail/${product._id}`} productInfo={product}>
               View product
             </Link>
           </SwiperSlide>
@@ -91,7 +91,7 @@ function CarouselProducts(props) {
             <p>{product.productName}</p>
             <img className="imgCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
             <p>{product.price}</p>
-            <Link to={`/DETALLEPRODUCTO/${product._id}`} productInfo={product}>
+            <Link to={`/productDetail/${product._id}`} productInfo={product}>
               View product
             </Link>
           </SwiperSlide>

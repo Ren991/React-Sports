@@ -16,7 +16,7 @@ import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 
 function App(props) {
-
+  
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem('token')

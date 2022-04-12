@@ -18,6 +18,7 @@ import { Link as LinkRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import userAction from "../../redux/actions/userAction";
 import Counter from "../counterWorldCup/counter";
+import Swal from 'sweetalert2'
 
 const NavBar2 = (props) => {
   // INICIO Manipuleo para renderizado dinamico de categorias NavBar
@@ -50,6 +51,7 @@ const NavBar2 = (props) => {
 
   function SignOut() {
     props.signOutUser(props.user.email);
+    Swal.fire('Session Closed')
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
