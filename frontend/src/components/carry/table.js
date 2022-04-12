@@ -1,15 +1,85 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/checkOut.css'
 
-
+var articulo = []
 export default function Table(props) {
     console.log(props.productos);
     const productos = props.productos
+    var productosLocalStorage = props.productosDeLocalStorage
+
     console.log(typeof productos);
     var cantidad = []
     cantidad.unshift(productos)
     console.log(cantidad);
 
+
+
+    cantidad.forEach(element => {
+        articulo.push(
+            {
+                _id: element._id,
+                type: element.type,
+                description: element.description,
+                image: element.image,
+                price: element.price,
+                size: element.size,
+                stock: element.stock,
+                color: element.color,
+                sport: element.sport,
+                productName: element.productName,
+                genre: element.gender,
+                brand: element.brand,
+                cantidad: 1,
+            }
+        )
+    })
+
+    console.log(articulo);
+
+    var [contador, setContador] = useState(1)
+    var conta = []
+    function Suma(id) {
+        console.log(id);
+
+        conta = [...articulo.filter(arti => arti._id === id)]
+        console.log(conta);
+        conta.map(function anonima(arti) {
+            if (arti.cantidad < arti.stock) {
+                arti.cantidad++
+            }
+
+        })
+        console.log(conta[0].cantidad);
+        setContador(conta[0].cantidad)
+
+    }
+
+    var conta = []
+    function Resta(id) {
+        console.log(id);
+
+        conta = [...articulo.filter(arti => arti._id === id)]
+        console.log(conta);
+        conta.map(function anonima(arti) {
+            if (arti.cantidad > 0) {
+                arti.cantidad--
+            }
+
+        })
+        console.log(conta[0].cantidad);
+        setContador(conta[0].cantidad)
+
+    }
+
+    function remove(id) {
+        console.log(id);
+        console.log(productosLocalStorage)
+        productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
+        localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
+        console.log(productosLocalStorage);
+
+        props.setReload(!props.reload)
+    }
 
 
     return (
@@ -33,20 +103,20 @@ export default function Table(props) {
                 </td>
                 <td className='botonera2'>
 
-                    <button className='restaSuma'>
+                    <button className='restaSuma' onClick={(() => (Resta(productos._id)))}>
                         -
                     </button>
                 </td>
                 <td className='botonera2'>
-                    {cantidad.length}
+                    {contador}
                 </td>
                 <td className='botonera2'>
-                    <button className='restaSuma'>
+                    <button className='restaSuma' onClick={(() => (Suma(productos._id)))} >
                         +
                     </button>
                 </td>
                 <td className='botonera2'>
-                    <button className='restaSuma'>
+                    <button className='restaSuma' onClick={(() => (remove(productos._id)))}>
                         x
                     </button>
 
