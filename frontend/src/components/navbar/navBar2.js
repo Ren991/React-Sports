@@ -1,6 +1,7 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button'
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -28,7 +29,11 @@ const NavBar2 = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElCarrito, setAnchorElCarrito] = React.useState(null);
-
+  const [anchorElSport, setAnchorElSport] = React.useState(null); //DROPDOWN SPORT
+  const [anchorElBrand, setAnchorElBrand] = React.useState(null);//DROPDOWN BRAND
+  const [anchorElCategory, setAnchorElCategory] = React.useState(null);//DROPDOWN CATEGORY
+  const [anchorElGender, setAnchorElGender] = React.useState(null);//DROPDOWN GENDER
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -38,6 +43,22 @@ const NavBar2 = (props) => {
 
   const handleOpenCarritoMenu = (event) => {
     setAnchorElCarrito(event.currentTarget);
+  };
+
+  const handleOpenSportMenu = (event) => {
+    setAnchorElSport(event.currentTarget);
+  };
+
+  const handleOpenBrandMenu = (event) => {
+    setAnchorElBrand(event.currentTarget);
+  };
+
+  const handleOpenCategoryMenu = (event) => {
+    setAnchorElCategory(event.currentTarget);
+  };
+
+  const handleOpenGenderMenu = (event) => {
+    setAnchorElGender(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -50,6 +71,32 @@ const NavBar2 = (props) => {
   const handleCloseCarritoMenu = () => {
     setAnchorElCarrito(null);
   };
+
+  const handleCloseSportMenu = () => {
+    setAnchorElSport(null);
+  };
+
+  const handleCloseBrandMenu = () => {
+    setAnchorElBrand(null);
+  };
+
+  const handleCloseCategoryMenu = () => {
+    setAnchorElCategory(null);
+  };
+
+  const handleCloseGenderMenu = () => {
+    setAnchorElGender(null);
+  };
+  
+ /*  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => { //
+    setAnchorEl(null);
+  }; */
+
+
 
   return (
     <>
@@ -111,142 +158,167 @@ const NavBar2 = (props) => {
               }}
             >
             
+            <MenuItem>
+            {/*HERE STARTS CATEGORY */}
+
+              <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenCategoryMenu} sx={{ p: 0 }}>
+               <p>Category</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElCategory}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElCategory)}
+              onClose={handleCloseCategoryMenu}
+            >
+              <>
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  CATEGORY
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Sportwear
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      shoes
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Tecnology
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+              <p>Sport wear</p>
               </MenuItem>
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  GENRE
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Male
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Female
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+              <p>Shoes</p>
               </MenuItem>
-              <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                  >
-                  BRAND
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Adidas
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Nike
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
-              </MenuItem>
-              <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  SPORTS
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Soccer
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Tennis
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Running
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
-              </MenuItem>
+              </>
+
+
             </Menu>
           </Box>
+              </MenuItem>
+             {/*  SPORT MENU */}
+              <MenuItem>
+
+              <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
+               <p>Sport</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElSport}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElSport)}
+              onClose={handleCloseSportMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Soccer</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Tennis</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Running</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Fitness and Training</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+              </MenuItem>
+             {/*  HERE STARTS GENDER */}
+             <MenuItem>
+             <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
+               <p>Gender</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElGender}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElGender)}
+              onClose={handleCloseGenderMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Male</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Female</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+             </MenuItem>
+            
+        <MenuItem>
+        <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
+               <p>Brand</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElBrand}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElBrand)}
+              onClose={handleCloseBrandMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Adidas</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Nike</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+        </MenuItem>
+            </Menu>
+          </Box>
+         {/*  HERE FINISH HAMBURGUER MENU */}
+
+        {/*  HERE START COMMON MENU */}
           <Typography
             variant="h6"
             noWrap
@@ -258,138 +330,162 @@ const NavBar2 = (props) => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} className="containerDropdowns">
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  CATEGORY
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Sportwear
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      shoes
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Tecnology
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+            {/*HERE STARTS CATEGORY */}
+
+              <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Select a category">
+              <IconButton onClick={handleOpenCategoryMenu} sx={{ p: 0 }}>
+               <p>Category</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElCategory}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElCategory)}
+              onClose={handleCloseCategoryMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Sport wear</p>
               </MenuItem>
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  GENRE
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                  >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Male
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Female
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+              <p>Shoes</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+              </MenuItem>
+             {/*  SPORT MENU */}
+              <MenuItem>
+
+              <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Select a Sport">
+              <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
+               <p>Sport</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElSport}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElSport)}
+              onClose={handleCloseSportMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Soccer</p>
               </MenuItem>
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  BRAND
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Adidas
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Nike
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+              <p>Tennis</p>
               </MenuItem>
               <MenuItem>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  SPORTS
-                </a>
-                <ul
-                  className="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Soccer
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Tennis
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Running
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              </ul>
+              <p>Running</p>
               </MenuItem>
+              <MenuItem>
+              <p>Fitness and Training</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+              </MenuItem>
+             {/*  HERE STARTS GENDER */}
+             <MenuItem>
+             <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Select a gender">
+              <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
+               <p>Gender</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElGender}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElGender)}
+              onClose={handleCloseGenderMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Male</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Female</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+             </MenuItem>
+            
+        <MenuItem>
+        <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Select a brand">
+              <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
+               <p>Brand</p>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElBrand}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElBrand)}
+              onClose={handleCloseBrandMenu}
+            >
+              <>
+              <MenuItem>
+              <p>Adidas</p>
+              </MenuItem>
+              <MenuItem>
+              <p>Nike</p>
+              </MenuItem>
+              </>
+
+
+            </Menu>
+          </Box>
+        </MenuItem>
+              
           </Box>
 
           <Box>
@@ -417,12 +513,15 @@ const NavBar2 = (props) => {
               
               {props.user ?
               <>
+              <LinkRouter to="/checkout" className="normalLink">
               <MenuItem>
-              My shopping
-              </MenuItem>
-              <MenuItem>
+             
               Checkout
-              </MenuItem>
+             
+             </MenuItem>
+             </LinkRouter>
+             
+             
               </>
               :
               <>
@@ -440,7 +539,7 @@ const NavBar2 = (props) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {!props.user ?<Avatar alt="Remy Sharp" src={process.env.PUBLIC_URL+ `../img/user.png`} /> : 
-                <img src={props.user.image} alt="User Image" className='userImage'/>}
+                <img src={props.user.image} alt="User Image" className='userImage' width={40}/>}
               </IconButton>
             </Tooltip>
             <Menu
@@ -475,7 +574,7 @@ const NavBar2 = (props) => {
               <LinkRouter to="signOut" className="linkResponsive" onClick={SignOut}>Sign Out</LinkRouter>
               </MenuItem>
               <MenuItem>
-              {(props.user.isAdmin) === true ? <h1>I am the Admin</h1> : <span>Hola no soy admin</span> }
+              {(props.user.isAdmin) === true ? <LinkRouter to="/adminView"><span>I am the Admin</span></LinkRouter> : <span>Pepito 123</span> }
               </MenuItem>
               </>
               }
