@@ -26,7 +26,7 @@ function ProductCard(props) {
               <span></span> {/* style={{backgroundColor:`${prod.color}`}  COMPLETAR CARGA DE DATOS CON COLOR*/}
 
             </div>
-            <Link to={`/DETALLEPRODUCTO/${prod._id}`} productInfo={prod}>
+            <Link to={`/productDetail/${prod._id}`} productInfo={prod}>
               View product
             </Link>
           </div>

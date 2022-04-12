@@ -56,7 +56,7 @@ function DetalleProducto(props) {
                   {currentProduct.stock == 0 ? (
                     <h3 className="outOfStock">Out of stock!</h3>
                   ) : (
-                    <h3>Last units!</h3>
+                    <h3 className="fewUnitsRemaining">Few units remaining!</h3>
                   )}
                 </>
               ) : (
@@ -74,10 +74,14 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-              {/* <input type="number" defaultValue="1"></input> */}
+            {currentProduct.stock !== 0 ? (
               <button id={productId} onClick={addCart}>
-                Añadir al carrito
+                Add to cart
               </button>
+            )
+            :
+            (<></>)
+            }
             </div>
             <div className="divGoToCartOrContinueShopping">
               {currentProduct.stock !== 0 ? (
@@ -87,12 +91,14 @@ function DetalleProducto(props) {
                     // className="linkResponsive userButton"
                     // onClick={SignOut}
                   >
-                    <button>Go to check out</button>
+                    <button>Proceed to check out</button>
                   </Link>
                   <p>or</p>
-                  <button onClick={() => window.history.back()}>Go Back</button>
+                  <button onClick={() => window.history.back()}>Go back</button>
                 </>
-              ) : (
+              ) 
+              : 
+              (
                 <button onClick={() => window.history.back()}>Go Back</button>
                 )}
             </div>
