@@ -41,3 +41,17 @@
       object-position:fill;
   }
   /*Fin de carousel*/
+  .carouselProductsContainer{
+    width: 100%;
+    height: 50vh;
+  }
+
+  .carouselProducts{
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    
+  }
+  .imageCarousel{
+    object-position: cover;
+  }
