@@ -30,14 +30,17 @@ function App(props) {
       <BrowserRouter>
         <NavBar2/>
         <Routes>
+          <Route path="/home"  element={<Home />}/> 
           <Route path="*"  element={<Home />}/> 
-          <Route path="/DETALLEPRODUCTO/:id"  element={<DetalleProducto />}/>
-          <Route path="/PRODUCTSVIEW"  element={<ProductsView />}/> 
+          <Route path="/productDetail/:id"  element={<DetalleProducto />}/>
           {props.user?.isAdmin && <Route path="/adminView"  element={<AdminView />}/> }
+          {props.user?.isAdmin && <Route path="/adminView/:id"  element={<AdminView />}/> }
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>
           <Route path="/brands/:brand" element={<ProductsView />}/>
+          <Route path="/gender/:gender" element={<ProductsView />}/>
+          <Route path="/type/:type" element={<ProductsView />}/>
           <Route path="/checkout" element={<CheckOut />} />
           {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
           {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 

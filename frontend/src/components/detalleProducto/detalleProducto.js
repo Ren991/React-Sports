@@ -14,7 +14,6 @@ function DetalleProducto(props) {
   useEffect(() => {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
-  console.log(currentProduct);
 
   async function addCart(event) {
     props.addToCart(event.target.id);
@@ -56,7 +55,7 @@ function DetalleProducto(props) {
                   {currentProduct.stock == 0 ? (
                     <h3 className="outOfStock">Out of stock!</h3>
                   ) : (
-                    <h3>Last units!</h3>
+                    <h3 className="fewUnitsRemaining">Few units remaining!</h3>
                   )}
                 </>
               ) : (
@@ -74,10 +73,13 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-              {/* <input type="number" defaultValue="1"></input> */}
-              <button id={productId} onClick={addCart}>
-                Añadir al carrito
-              </button>
+              {currentProduct.stock !== 0 ? (
+                <button id={productId} onClick={addCart}>
+                  Add to cart
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
             <div className="divGoToCartOrContinueShopping">
               {currentProduct.stock !== 0 ? (
@@ -87,15 +89,23 @@ function DetalleProducto(props) {
                     // className="linkResponsive userButton"
                     // onClick={SignOut}
                   >
-                    <button>Go to check out</button>
+                    <button>Proceed to check out</button>
                   </Link>
                   <p>or</p>
-                  <button onClick={() => window.history.back()}>Go Back</button>
+                  <button onClick={() => window.history.back()}>Go back</button>
                 </>
               ) : (
                 <button onClick={() => window.history.back()}>Go Back</button>
-                )}
+              )}
             </div>
+            <>
+              {/* TO_DO__cambiar condicion ""=== true" PARA QUE SOLO SEA VISIBLE A ADMIN */}
+              {props.user?.isAdmin === true && (
+                <Link to={`/adminView/${productId}`}>
+                  <button>Take to CRUD (Admin View)</button>
+                </Link>
+              )}
+            </>
           </div>
         </div>
       </div>
@@ -109,6 +119,7 @@ const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.cart,
     product: state.productosMain.product,
+    user: state.userReducer.user,
   };
 };
 
