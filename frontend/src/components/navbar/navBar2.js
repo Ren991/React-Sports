@@ -539,7 +539,7 @@ const NavBar2 = (props) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {!props.user ?<Avatar alt="Remy Sharp" src={process.env.PUBLIC_URL+ `../img/user.png`} /> : 
-                <img src={props.user.image} alt="User Image" className='userImage'/>}
+                <img src={props.user.image} alt="User Image" className='userImage' width={40}/>}
               </IconButton>
             </Tooltip>
             <Menu
@@ -574,7 +574,7 @@ const NavBar2 = (props) => {
               <LinkRouter to="signOut" className="linkResponsive" onClick={SignOut}>Sign Out</LinkRouter>
               </MenuItem>
               <MenuItem>
-              {(props.user.isAdmin) === true ? <h1>I am the Admin</h1> : <span>Hola no soy admin</span> }
+              {(props.user.isAdmin) === true ? <LinkRouter to="/adminView"><span>I am the Admin</span></LinkRouter> : <span>Pepito 123</span> }
               </MenuItem>
               </>
               }

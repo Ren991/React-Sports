@@ -7,7 +7,7 @@ const usersSchema = new mongoose.Schema({
     password: [{ type: String, required: true }],
     uniqueString: { type: String, required: true },
     emailVerify: { type: Boolean, required: true },
-    isAdmin: { type: Boolean },
+    isAdmin: { type: Boolean, default:false },
     image: { type: String },
     adress: { type: String },
     city: { type: String },

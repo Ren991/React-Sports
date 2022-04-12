@@ -279,6 +279,7 @@ const userController = {
       city,
       country,
       from,
+      isAdmin,
     } = req.body.userData;
 
     try {
@@ -330,6 +331,7 @@ const userController = {
           country,
           uniqueString: crypto.randomBytes(15).toString("hex"),
           emailVerify: false,
+          isAdmin,
           from: [from],
         });
         if (from !== "signUp") {
@@ -386,6 +388,7 @@ const userController = {
               email: userExist.email,
               image: userExist.image,
               from: userExist.from,
+              isAdmin: userExist.isAdmin
             };
             await userExist.save();
 
@@ -424,6 +427,7 @@ const userController = {
                 email: userExist.email,
                 image: userExist.image,
                 from: userExist.from,
+                isAdmin: userExist.isAdmin,
               };
               const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
                 expiresIn: 60 * 60 * 24,
@@ -481,6 +485,7 @@ const userController = {
           adress: req.user.adress,
           city: req.user.city,
           country: req.user.country,
+          isAdmin:req.user.isAdmin,
           from: "token",
         },
         message: "Welcome again " + req.user.firstName,
