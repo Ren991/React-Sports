@@ -214,7 +214,7 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueTypesArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={element}>{element}</LinkRouter>
+                            <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -256,7 +256,7 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueSportsArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={element}>{element}</LinkRouter>
+                            <LinkRouter to={`/sports/${element}`}>{element}</LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -304,7 +304,7 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueGendersArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={element}>{element}</LinkRouter>
+                            <LinkRouter to={`/gender/${element}`}>{element}</LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -346,7 +346,7 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueBrandsArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={element}>{element}</LinkRouter>
+                            <LinkRouter to={`/brands/${element}`}>{element}</LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -373,10 +373,12 @@ const NavBar2 = (props) => {
               className="nombreLogo"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
+              <LinkRouter to="/home">
               <img
                 className="logoReactSports"
                 src={process.env.PUBLIC_URL + `../img/Logo_react_final.png`}
               />
+              </LinkRouter>
             </Typography>
             <Box
               sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
@@ -410,7 +412,7 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueTypesArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={element}>{element}</LinkRouter>
+                          <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -452,7 +454,7 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueSportsArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={element}>{element}</LinkRouter>
+                          <LinkRouter to={`/sports/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -500,7 +502,7 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueGendersArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={element}>{element}</LinkRouter>
+                          <LinkRouter to={`/gender/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -542,7 +544,7 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueBrandsArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={element}>{element}</LinkRouter>
+                          <LinkRouter to={`/brands/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
