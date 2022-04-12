@@ -11,8 +11,6 @@ function ProductsView() {
   const dispatch = useDispatch()
 
   const { brand } = useParams()
-  console.log(brand);
-  console.log(marca);
   useEffect(() => {
     dispatch(seachProductsMarca(brand))
   }, [])
