@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/checkOut.css'
 import Table from './table'
 import { connect, useDispatch, useSelector } from 'react-redux'
@@ -12,7 +12,7 @@ function CheckOut(props) {
     console.log(props);
     const todosLosProductos = useSelector(state => state.productosMain.products)
     const dispatch = useDispatch()
-
+    const [reload, setReload] = useState(false)
     useEffect(() => {
         dispatch(getAllProducts())
     }, [])
@@ -21,18 +21,20 @@ function CheckOut(props) {
 
     /*     console.log(todosLosProductos); */
 
-    var productosDeLocalStorage = JSON.parse(localStorage.getItem("cart"))
+    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState([])
 
-
+    useEffect(() => {
+        setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
+    }, [reload])
 
     productosDeLocalStorage?.map((id) => {
         productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
     })
 
-
+    var [productosAMostar, setProductosAMostar] = useState([])
 
     const productos = new Set(productosEnArray);
-    const productosAMostar = [...productos]
+    productosAMostar = [...productos]
     console.log(productosAMostar);
 
 
@@ -51,12 +53,12 @@ function CheckOut(props) {
                         <thead id='encabezado'>
                             <tr>
                                 <th>Producto</th>
+                                <th>Precio</th>
                                 <th>Cantidad</th>
-                                <th>Total</th>
                             </tr>
                         </thead>
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} />)}
                     </table>
                 </div>
                 {/*                        </div>
