@@ -1,28 +1,6 @@
 import axios from "axios"
 
 const dataInicial = {
-<<<<<<< HEAD
-  products: [],
-  productId:[],
-  marca:[],
-  filteredProducts: []
-};
-
-export default function productosReducer(state = dataInicial, action) {
-  switch (action.type) {
-    case GET_ALL_PRODUCTS:
-      return {
-        ...state,
-        products: action.payload,
-      };
-     
-    case "GET_PRODUCT":
-      console.log("Holas")
-      return{
-        ...state,
-        productId: action.payload,
-      };
-=======
     products: [],
     product: [],
     marca: [],
@@ -36,7 +14,6 @@ export default function productosReducer(state = dataInicial, action) {
                 ...state,
                 products: action.payload,
             };
->>>>>>> f0483a69983cc2d72aef813b5fb9b6853142a833
 
         case "GET_PRODUCT":
             console.log("Holas")
@@ -98,23 +75,12 @@ export const modificarStock = (id) => {
     }
 }
 
-<<<<<<< HEAD
 export const searchProductById = async (id) => {   
   
   const res = await axios.get(URLProductos + "/allGoodsId/" + id);
   return {  
     response: res.data.respuesta,
   };
-=======
-export const searchProductById = (id) => {
-    console.log(id);
-    return async (dispatch, getState) => {
-        console.log(id);
-        const res = await axios.get(URLProductos + "/allGoodsId/" + id);
-        dispatch({ type: "GET_PRODUCT", payload: res.data.respuesta });
-        console.log(res)
-    };
->>>>>>> f0483a69983cc2d72aef813b5fb9b6853142a833
 };
 
 export const seachProductsMarca = (id) => {

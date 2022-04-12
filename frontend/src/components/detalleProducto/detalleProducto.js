@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "../../styles/detalleProducto.css";
 import { connect } from "react-redux";
@@ -16,51 +15,11 @@ function DetalleProducto(props) {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
   console.log(currentProduct);
-=======
-import React, { useEffect, useState } from 'react';
-import '../../styles/detalleProducto.css';
-import { connect, useDispatch } from 'react-redux';
-import { searchProductById } from '../../redux/productos/productos'
-import { Link, useParams } from 'react-router-dom';
-import cartAction from '../../redux/actions/cartAction';
-
-
-
-
-function DetalleProducto(props) {
-
-  // TO_DO__crashea con F5
-
-  const { id } = useParams()
-  const productId = id
-  console.log(id)
-  const [reload, setReload] = useState(false)
-  const dispatch = useDispatch()
-
-
-  useEffect(() => {
-
-    dispatch(searchProductById(id))
-
-  }, [])
-
-  console.log(props)
-
-
-
-
-
-  async function addCart(event) {
-
-    props.addToCart(event.target.id)
-
->>>>>>> f0483a69983cc2d72aef813b5fb9b6853142a833
 
   async function addCart(event) {
     props.addToCart(event.target.id);
   }
 
-<<<<<<< HEAD
   return (
     <div className="mainHtml">
       <div className="contenedorDetalleProducto">
@@ -146,50 +105,11 @@ function DetalleProducto(props) {
 const mapDispatchToProps = {
   addToCart: cartAction.addToCart,
 };
-=======
-  console.log(props)
-
-
-
-  return (
-    <div className='contenedorDetalleProducto'>
-      <div className="detalleProductoIzquierda">
-        <div className='detalleProductoCarrito'>
-          <input type='number' defaultValue='1'></input>
-          <button id={productId} onClick={addCart}>Añadir al carrito</button>
-        </div>
-
-      </div>
-      <div className='detalleProductoCarrito'>
-        <input type='number' defaultValue='1'></input>
-        {/*   <button onClick={getProductId}>Añadir al carrito</button> */}
-      </div>
-    </div>
-
-  )
-}
-
-const mapDispatchToProps = {
-  addToCart: cartAction.addToCart,
-}
-
->>>>>>> f0483a69983cc2d72aef813b5fb9b6853142a833
 const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.cart,
     product: state.productosMain.product,
-<<<<<<< HEAD
   };
 };
-=======
-
-
-  }
-}
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(DetalleProducto)
->>>>>>> f0483a69983cc2d72aef813b5fb9b6853142a833
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetalleProducto);
