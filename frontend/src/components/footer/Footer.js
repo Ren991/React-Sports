@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/footer.css'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
     return ( 
@@ -10,8 +11,10 @@ const Footer = () => {
             <div className="col-md-4 col-sm-11 col-xs-11">
                 <div className="footer-text pull-left">
                     <div className="d-flex">
-                        <h1 className="font-weight-bold mr-2 px-3" style={{color:"#16151a", backgroundColor:"#957bda"}}> T </h1>
-                        <h1 style={{color: "#957bda"}}>Devs</h1>
+                    <img
+                  className="logoReactSports"
+                  src={process.env.PUBLIC_URL + `../img/Logo_react_final.png`}
+                />
                     </div>
                     <p className="card-text">React sports sportwear and shoes.</p>
                     <div className="social mt-2 mb-3"> <i className="fa fa-facebook-official fa-lg"></i> <i className="fa fa-instagram fa-lg"></i> <i className="fa fa-twitter fa-lg"></i> <i className="fa fa-linkedin-square fa-lg"></i> <i className="fa fa-facebook"></i> </div>
@@ -19,31 +22,51 @@ const Footer = () => {
             </div>
             <div className="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Category</h5>
+                <h5 className="heading" style={{color:"black"}}>Category</h5>
                 <ul>
-                    <li>Sportwear</li>
-                    <li>Shoes</li>
+                <Link to ="/type/footwear">
+                    <li >Footwear</li>
+                    </Link>
+
+                    <Link to ="/type/t-shirt">
+                    <li >T-shirts</li>
+                    </Link>
+                  
+                    <Link to ="/type/pants">
+                    <li >Pants</li>
+                    </Link>
                    
                 </ul>
             </div>
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Brand</h5>
+                <h5 className="heading" style={{color:"black"}}>Brand</h5>
                 <ul className="card-text">
-                    <li>Adidas</li>
-                    <li>Nike</li>
-                    <li>Umbro</li>
-                    <li>Puma</li>
-                    <li>Fila</li>
+                <Link to ="/brands/nike">
+                    <li >Nike</li>
+                    </Link>
+                    <Link to ="/brands/adidas">
+                    <li >Adidas</li>
+                    </Link>
+                    
+              
                 </ul>
             </div>
            
             <div className="col-md-2 col-sm-4 col-xs-4">
-                <h5 className="heading">Sport</h5>
+                <h5 className="heading" style={{color:"black"}}>Sport</h5>
                 <ul className="card-text">
-                    <li>Footbal</li>
-                    <li>Running</li>
-                    <li>Tennis</li>
-                    <li>Training and Fitness</li>
+                    <Link to ="/sports/football">
+                    <li >Footbal</li>
+                    </Link>
+                   <Link to="/sports/running">
+                   <li>Running</li>
+                   </Link>
+                   <Link to="/sports/basquetball">
+                   <li>Basquetball</li>
+                   </Link>
+                    
+                    
+                   
                 </ul>
             </div>
         </div>

@@ -17,7 +17,7 @@ import AdminView from './components/pages/admin'
 import MySnackbar from './components/snackbar/snackbar'
 
 function App(props) {
-
+  
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem('token')

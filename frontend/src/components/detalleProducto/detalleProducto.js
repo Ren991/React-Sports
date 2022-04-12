@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 
 function DetalleProducto(props) {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const { id } = useParams();
   const productId = id;
   const [reload, setReload] = useState(false);
@@ -24,8 +25,8 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
-            <Link to="/checkout">
-              <a href="#">Inicio</a>
+            <Link to="/">
+              <a>Inicio</a>
             </Link>
             <p> / </p>
             <p>{currentProduct.productName}</p>
