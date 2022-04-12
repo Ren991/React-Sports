@@ -22,8 +22,22 @@ const userAction = {
             if(user.data.success){
                 localStorage.setItem('token', user.data.response.token)
                 dispatch({type: 'user', payload: user.data.response.userData})
+                dispatch({
+                    type: 'message',
+                    payload: {
+                        view: true,
+                        message: user.data.message,
+                        success: user.data.success
+                    }
+                })
             }else {
-                console.log(user.data.message)}
+                dispatch({type:'message',
+                 payload:{
+                    view: true,
+                    message: user.data.message,
+                    success: user.data.success,
+
+                }})}
         }
     },
 
@@ -32,6 +46,14 @@ const userAction = {
             const user = axios.post('http://localhost:4000/api/auth/signOut', {userData})
             localStorage.removeItem('token')
             dispatch({type: 'user', payload: null});
+            /* dispatch({
+                type: 'message',
+                payload: {
+                    view: true,
+                    message: user.data.message,
+                    success: user.data.success
+                }
+            }) */
         }
 
     },

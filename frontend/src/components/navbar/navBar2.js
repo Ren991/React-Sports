@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import MySnackbar from '../snackbar/snackbar'
 
 import "../../styles/stylesNavBar2.css"
 import {Link as LinkRouter} from "react-router-dom"
@@ -53,6 +54,7 @@ const NavBar2 = (props) => {
 
   return (
     <>
+    <MySnackbar/>
     <div className="containerCounter">
           <div className="boxCup">
             <h4>FIFA WORLD CUP</h4>
@@ -492,7 +494,8 @@ const NavBar2 = (props) => {
 const mapStateToProps = (state) =>{
   
   return{
-    user: state.userReducer.user 
+    user: state.userReducer.user,
+    snackbar: state.userReducer.snackbar
   }
 }
 
