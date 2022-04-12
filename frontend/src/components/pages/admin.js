@@ -16,6 +16,8 @@ function AdminView(props) {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
 
+ 
+
   async function modProduct(event) {
     // props.modifyProduct("LOS DETALLES DEL PRODUCTO");
     console.log(event.target)
@@ -28,6 +30,7 @@ function AdminView(props) {
   //FIN CRUD
 
   const handleSubmit = (event) => {
+    console.log(event.target)
     event.preventDefault();
     const uploadProduct = {
       ProductName: event.target[0].value,
@@ -40,6 +43,7 @@ function AdminView(props) {
       Genre: event.target[7].value,
       Brand: event.target[8].value,
     };
+    props.loadProduct(uploadProduct)
     /* props.signUpUser(userData) */
   };
   return (
@@ -411,6 +415,7 @@ function AdminView(props) {
 const mapDispatchToProps = {
   modifyProduct: productsActions.modifyProduct,
   deleteProduct: productsActions.deleteProduct,
+  loadProduct: productsActions.addProduct
 };
 // const mapStateToProps = (state) => {
 //   return {
