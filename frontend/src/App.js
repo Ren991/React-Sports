@@ -34,6 +34,7 @@ function App(props) {
           <Route path="*"  element={<Home />}/> 
           <Route path="/productDetail/:id"  element={<DetalleProducto />}/>
           {props.user?.isAdmin && <Route path="/adminView"  element={<AdminView />}/> }
+          {props.user?.isAdmin && <Route path="/adminView/:id"  element={<AdminView />}/> }
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>

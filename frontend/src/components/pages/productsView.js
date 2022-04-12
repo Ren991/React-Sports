@@ -46,7 +46,7 @@ function ProductsView() {
   // console.log(allProducts.filter(element => element.gender == filterValue))
   // filteredProducts.push(allProducts.filter(element => element.gender == filterValue))
   //TO_DO__COMO EVITAR QUE SE GENERE UN ARRAY CON UNA UNICA POSICION QUE CONTIENE EL ARRAY FILTRADO???
-  console.log(filteredProducts[0])
+  // console.log(filteredProducts[0])
 
   return (
     <main>
