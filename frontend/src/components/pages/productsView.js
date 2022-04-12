@@ -23,18 +23,23 @@ function ProductsView() {
       filteredProducts.push(
         allProducts.filter((element) => element.brand.brand == filterValue)
       );
+      break;
     case "type":
       filteredProducts.push(
         allProducts.filter((element) => element.type == filterValue)
       );
+      break;
     case "sport":
       filteredProducts.push(
         allProducts.filter((element) => element.sport == filterValue)
       );
+      break;
     case "gender":
       filteredProducts.push(
         allProducts.filter((element) => element.gender == filterValue)
       );
+      break;
+
   }
 
   //TO_DO__PENDIENTE 100% DINAMICO, ¿COMO LE PASO LA PROPIEDAD DINAMICAMENTE? filterSelected como propiedad a evaluar
