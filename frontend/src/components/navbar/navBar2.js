@@ -521,8 +521,8 @@ const NavBar2 = (props) => {
                   >
                     <>
                       {uniqueBrandsArray?.map((element) => (
-                        <MenuItem>
-                          <LinkRouter to={`/brands/${element}`}>{element}</LinkRouter>
+                        <MenuItem >
+                          <LinkRouter className="menu-items-navbar"  to={`/brands/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
