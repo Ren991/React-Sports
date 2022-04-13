@@ -12,6 +12,7 @@ function AdminView(props) {
 
   const { id } = useParams();
   const productId = id;
+  console.log(productId)
   const [currentProduct, setCurrentProduct] = useState([]);
 
   useEffect(() => {
@@ -117,6 +118,7 @@ function AdminView(props) {
                 >
                   DELETE PRODUCT
                 </button>
+                <input type="submit" className="submitButton" placeholder="DELETE PRODUCT"/>     
               </form>
             </div>
           </div>
@@ -392,7 +394,7 @@ function AdminView(props) {
                     @
                   </span>
                   <input
-                    type="text"
+                    type="color"
                     className="form-control"
                     placeholder="Color"
                     aria-label="Username"

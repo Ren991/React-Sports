@@ -260,7 +260,7 @@ const userController = {
     if (user) {
       user.emailVerify = true;
       await user.save();
-      res.redirect("http://localhost:3000/");
+      res.redirect("http://localhost:3000/signIn");
     } else {
       res.json({
         success: false,

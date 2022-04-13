@@ -61,6 +61,7 @@ const productsControllers = {
         
         console.log("Loaded")
     },
+
     seeProductForId: async (require, response) => {
         const id = require.params.id
         var ProductsLocal
