@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/checkOut.css'
 import Table from './table'
+import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../../redux/productos/productos'
 
@@ -9,7 +10,8 @@ var productosEnArray = []
 const productosAMostar = []
 
 function CheckOut(props) {
-    console.log(props);
+    const productsUser = useSelector(state => state.carritoMain.carritoUser)
+    console.log(productsUser)
     const todosLosProductos = useSelector(state => state.productosMain.products)
     const dispatch = useDispatch()
     const [reload, setReload] = useState(false)
@@ -57,8 +59,9 @@ function CheckOut(props) {
                                 <th>Cantidad</th>
                             </tr>
                         </thead>
+                        <TableTwo />
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} productsUser={productsUser}/>)}
                     </table>
                 </div>
                 {/*                        </div>

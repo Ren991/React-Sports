@@ -14,6 +14,7 @@ import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
+import Header from './components/header/Header'
 
 function App(props) {
 
@@ -28,7 +29,8 @@ function App(props) {
   return (
     <>
       <BrowserRouter>
-        <NavBar2/>
+        {/* <NavBar2/> */}
+        <Header/>
         <Routes>
           <Route path="/home"  element={<Home />}/> 
           <Route path="*"  element={<Home />}/> 

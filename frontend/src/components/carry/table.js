@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import '../../styles/checkOut.css'
 
 var articulo = []
-export default function Table(props) {
-    console.log(props.productos);
+const Table= (props)=> {
+    
+    
     const productos = props.productos
     var productosLocalStorage = props.productosDeLocalStorage
 
-    console.log(typeof productos);
+    
     var cantidad = []
     cantidad.unshift(productos)
-    console.log(cantidad);
+  
 
 
 
@@ -34,12 +36,12 @@ export default function Table(props) {
         )
     })
 
-    console.log(articulo);
+
 
     var [contador, setContador] = useState(1)
     var conta = []
     function Suma(id) {
-        console.log(id);
+
 
         conta = [...articulo.filter(arti => arti._id === id)]
         console.log(conta);
@@ -49,14 +51,14 @@ export default function Table(props) {
             }
 
         })
-        console.log(conta[0].cantidad);
+     
         setContador(conta[0].cantidad)
 
     }
 
     var conta = []
     function Resta(id) {
-        console.log(id);
+   ;
 
         conta = [...articulo.filter(arti => arti._id === id)]
         console.log(conta);
@@ -66,20 +68,20 @@ export default function Table(props) {
             }
 
         })
-        console.log(conta[0].cantidad);
+      
         setContador(conta[0].cantidad)
 
     }
 
     function remove(id) {
-        console.log(id);
-        console.log(productosLocalStorage)
+        //console.log(id);
+        //console.log(productosLocalStorage)
         productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
         localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
         console.log(productosLocalStorage);
         props.setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
         props.setReload(true)
-        console.log(props.reload);
+        //console.log(props.reload);
     }
 
 
@@ -127,3 +129,4 @@ export default function Table(props) {
         </tbody >
     )
 }
+export default Table

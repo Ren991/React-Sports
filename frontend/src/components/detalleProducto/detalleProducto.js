@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { searchProductById } from "../../redux/productos/productos";
 import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
-
+import AddProduct from "./AddProduct"
 function DetalleProducto(props) {
   const { id } = useParams();
   const productId = id;
@@ -14,7 +14,7 @@ function DetalleProducto(props) {
   useEffect(() => {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
-  console.log(currentProduct);
+  
 
   async function addCart(event) {
     props.addToCart(event.target.id);
@@ -25,10 +25,6 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
-            <Link to="/checkout">
-              <a href="#">Inicio</a>
-            </Link>
-            <p> / </p>
             <p>{currentProduct.productName}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
@@ -66,6 +62,7 @@ function DetalleProducto(props) {
             <div className="headerProducto">
               <h2>{currentProduct.productName}</h2>
               <h3>${currentProduct.price}</h3>
+              <p>{currentProduct.stock}</p>
             </div>
             <div className="detallesProducto">
               <p>Color: N/A</p>
@@ -74,14 +71,7 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-            {currentProduct.stock !== 0 ? (
-              <button id={productId} onClick={addCart}>
-                Add to cart
-              </button>
-            )
-            :
-            (<></>)
-            }
+              <AddProduct id={productId} stock={currentProduct.stock}/>
             </div>
             <div className="divGoToCartOrContinueShopping">
               {currentProduct.stock !== 0 ? (
