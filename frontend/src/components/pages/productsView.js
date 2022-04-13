@@ -8,6 +8,7 @@ import ProductCard from "../cards/productCard";
 import { getAllProducts } from "../../redux/productos/productos";
 
 function ProductsView() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
   const [filterSelected] = Object.keys(useParams());
@@ -46,7 +47,7 @@ function ProductsView() {
   // console.log(allProducts.filter(element => element.gender == filterValue))
   // filteredProducts.push(allProducts.filter(element => element.gender == filterValue))
   //TO_DO__COMO EVITAR QUE SE GENERE UN ARRAY CON UNA UNICA POSICION QUE CONTIENE EL ARRAY FILTRADO???
-  console.log(filteredProducts[0])
+  // console.log(filteredProducts[0])
 
   return (
     <main>

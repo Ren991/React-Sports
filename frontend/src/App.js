@@ -16,7 +16,7 @@ import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 
 function App(props) {
-
+  
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       const token = localStorage.getItem('token')
@@ -34,6 +34,7 @@ function App(props) {
           <Route path="*"  element={<Home />}/> 
           <Route path="/productDetail/:id"  element={<DetalleProducto />}/>
           {props.user?.isAdmin && <Route path="/adminView"  element={<AdminView />}/> }
+          {props.user?.isAdmin && <Route path="/adminView/:id"  element={<AdminView />}/> }
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>

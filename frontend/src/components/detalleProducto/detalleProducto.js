@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 
 function DetalleProducto(props) {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const { id } = useParams();
   const productId = id;
   const [reload, setReload] = useState(false);
@@ -14,7 +15,6 @@ function DetalleProducto(props) {
   useEffect(() => {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
-  console.log(currentProduct);
 
   async function addCart(event) {
     props.addToCart(event.target.id);
@@ -25,8 +25,8 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
-            <Link to="/checkout">
-              <a href="#">Inicio</a>
+            <Link to="/">
+              <a>Inicio</a>
             </Link>
             <p> / </p>
             <p>{currentProduct.productName}</p>
@@ -74,14 +74,13 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-            {currentProduct.stock !== 0 ? (
-              <button id={productId} onClick={addCart}>
-                Add to cart
-              </button>
-            )
-            :
-            (<></>)
-            }
+              {currentProduct.stock !== 0 ? (
+                <button id={productId} onClick={addCart}>
+                  Add to cart
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
             <div className="divGoToCartOrContinueShopping">
               {currentProduct.stock !== 0 ? (
@@ -96,12 +95,18 @@ function DetalleProducto(props) {
                   <p>or</p>
                   <button onClick={() => window.history.back()}>Go back</button>
                 </>
-              ) 
-              : 
-              (
+              ) : (
                 <button onClick={() => window.history.back()}>Go Back</button>
-                )}
+              )}
             </div>
+            <>
+              {/* TO_DO__cambiar condicion ""=== true" PARA QUE SOLO SEA VISIBLE A ADMIN */}
+              {props.user?.isAdmin === true && (
+                <Link to={`/adminView/${productId}`}>
+                  <button>Take to CRUD (Admin View)</button>
+                </Link>
+              )}
+            </>
           </div>
         </div>
       </div>
@@ -115,6 +120,7 @@ const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.cart,
     product: state.productosMain.product,
+    user: state.userReducer.user,
   };
 };
 
