@@ -19,19 +19,36 @@ function AdminView(props) {
 
  
 
-  async function modProduct(event) {
-    // props.modifyProduct("LOS DETALLES DEL PRODUCTO");
-    console.log(event.target)
+  function modProduct(event) {
+    event.preventDefault()
+    const idProd = event.target[11].value
+    const toModifyProduct={
+      productName: event.target[0].value,
+      type: event.target[1].value,
+      sport: event.target[2].value,
+      description: event.target[3].value,
+      color: event.target[4].value,
+      stock: Number(event.target[5].value),
+      image: event.target[6].value,
+      price: Number(event.target[7].value),
+      genre: event.target[8].value,
+      brand: event.target[9].value,
+      size: Number(event.target[10].value),
+    }
+    console.log(idProd)
+    console.log(toModifyProduct)
+    props.modifyProduct(idProd,toModifyProduct)
   }
 
   async function delProduct(event) {
-    props.deleteProduct("EL ID");
+    event.preventDefault();
+    const toDeleteProduct = event.target[0].value
+    props.deleteProduct(toDeleteProduct) 
   }
 
   //FIN CRUD
 
   const handleSubmit = (event) => {
-    console.log(event.target)
     event.preventDefault();
     const uploadProduct = {
       productName: event.target[0].value,
@@ -47,8 +64,8 @@ function AdminView(props) {
       size: Number(event.target[10].value),
     };
     props.loadProduct(uploadProduct)
-    /* props.signUpUser(userData) */
   };
+
   return (
     <div className="adminContainer">
       <div>
@@ -78,7 +95,11 @@ function AdminView(props) {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
+<<<<<<< HEAD
               <form  onSubmit={delProduct}>
+=======
+              <form onSubmit={delProduct}>
+>>>>>>> 74b145c974505b4257fc91e1a5754b0271ccd3af
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     @
@@ -89,12 +110,16 @@ function AdminView(props) {
                     placeholder={productId}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                    />
                 </div>
                 <button
+<<<<<<< HEAD
                  
+=======
+>>>>>>> 74b145c974505b4257fc91e1a5754b0271ccd3af
                   variant="primary"
                   type="submit"
+                  id="productDeleted"
                   className="submitButton"
                 >
                   DELETE PRODUCT
@@ -139,6 +164,18 @@ function AdminView(props) {
                     className="form-control"
                     placeholder={currentProduct?.productName}
                     aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    Type:
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={currentProduct?.type}
+                    aria-label="Type"
                     aria-describedby="basic-addon1"
                   />
                 </div>
@@ -228,7 +265,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.gender}
+                    placeholder={currentProduct?.genre}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -243,6 +280,30 @@ function AdminView(props) {
                     className="form-control"
                     placeholder={currentProduct?.brand}
                     aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    Size:
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={currentProduct?.size}
+                    aria-label="Size"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    Prod ID:
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={currentProduct?._id}
+                    aria-label="prodID"
                     aria-describedby="basic-addon1"
                   />
                 </div>

@@ -96,6 +96,29 @@ const productsControllers = {
             .then(console.log(ProductsLocal))
             .catch(error => response.json({ paso: "no existe", error }))
     },
+
+    modifyProduct: async (req, res) => {
+        console.log(req.body)
+    
+        try {
+          const modifiedProduct = await Products.findOneAndUpdate(
+            { "products._id": req.params.id },
+            { $set: req.body  },
+            { new: true }
+          );
+          res.json({
+            success: true,
+            response: { modifiedProduct },
+            message: "Your product has been modified",
+          });
+        } catch (error) {
+          console.log(error);
+          res.json({
+            success: true,
+            message: "Something went wrong please try again in a few seconds",
+          });
+        }
+      },
     // tipo un string o arraY?,
     /*     modifyProduct: async (req, res) => {
             const id = req.params.id

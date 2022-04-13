@@ -18,7 +18,7 @@ goodsRouter.route('/allGoodsForGender/gender/:gender')
 goodsRouter.route('/allGoodsId/:id')
     .get(seeProductForId)
     .delete(deleteProduct) 
-/* .put(modifyProduct) */
+    .put(modifyProduct) 
 
 goodsRouter.route('/allGoodsForGender/gender/:gender')
 .get(seeProductForGender)

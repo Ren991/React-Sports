@@ -30,7 +30,7 @@ function CarouselProducts(props) {
   const bestSeller = allProducts.filter(product => product.stock < 7) //Modificar stock base de datos
   console.log(bestSeller)
 
-  const basquetBall = allProducts.filter(product=>product.sport==="basquetball" )
+  const basquetBall = allProducts.filter(product=>product.sport==="Basketball" )
   console.log(basquetBall)
 
  
@@ -58,7 +58,6 @@ function CarouselProducts(props) {
             <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
             <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
             <p className="productNameCarousel">{product.productName}</p>
-            <p className="productDescriptionCarousel">{product.description}</p>
             <p className="productPriceCarousel">${product.price}</p>
             </Link>
           </SwiperSlide>
@@ -90,7 +89,6 @@ function CarouselProducts(props) {
             <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
             <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
             <p className="productNameCarousel">{product.productName}</p>
-            <p className="productDescriptionCarousel">{product.description}</p>
             <p className="productPriceCarousel">${product.price}</p>
             </Link>
           </SwiperSlide>
