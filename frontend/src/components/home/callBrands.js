@@ -9,19 +9,19 @@ const CallBrands = () => {
       <div className='containerCallBrands'>
               <p className='tittleCallsBrands'>OUR BEST BRANDS</p>
               <div className='containerImgCalls'>
-            <LinkRouter to="/brands/nike" className="linkResponsive">
+            <LinkRouter to="/brands/Nike" className="linkResponsive">
               <img
                   className="imgcallsBrands animate__swing"
                   src={process.env.PUBLIC_URL + `../img/nikeCall.png`}
                 />
             </LinkRouter>
-            <LinkRouter to="/brands/adidas" className="linkResponsive">
+            <LinkRouter to="/brands/Adidas" className="linkResponsive">
                 <img
                   className="imgcallsBrands"
                   src={process.env.PUBLIC_URL + `../img/adidasCall.png`}
                 />
             </LinkRouter>
-            <LinkRouter to="/brands" className="linkResponsive">
+            <LinkRouter to="/brands/Puma" className="linkResponsive">
                 <img
                   className="imgcallsBrands"
                   src={process.env.PUBLIC_URL + `../img/pumaCall.png`}

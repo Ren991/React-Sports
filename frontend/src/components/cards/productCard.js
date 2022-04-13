@@ -18,12 +18,13 @@ function ProductCard(props) {
     <div className="cardBody">
       <div className="container" >
         <div className="card">
-          <h1 className="marcaZapatilla">{prod.brand.brand}</h1>
+          <h1 className="marcaZapatilla"><img className='imgBrands' src={process.env.PUBLIC_URL + `/img/${prod.brand.brand}.png`} /></h1>
           <div className="imgBx">
             <img src={process.env.PUBLIC_URL + `/img/productImages/${prod.image}`} />
           </div>
           <div className="contentBx">
-            <h2>{prod.type}</h2>
+            <h2 className='productNameStyle'>{prod.productName}</h2>
+            <h3 className='productNameStyle'>USD ${prod.price}</h3>
             <div className="size">
               <h3>Size : {prod.size}</h3>
             </div>
