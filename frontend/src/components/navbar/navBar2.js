@@ -555,96 +555,9 @@ const NavBar2 = (props) => {
               <MenuItem>
               <p>Nike</p>
               </MenuItem>
-<<<<<<< HEAD
-              </>
-
-
-            </Menu>
-          </Box>
-        </MenuItem>
-              
-          </Box>
-
-          <Box>
-          <Tooltip title="Open shopping cart">
-              <IconButton onClick={handleOpenCarritoMenu} sx={{ p: 0 }}>
-              <img className="logoCarrito" src= {process.env.PUBLIC_URL+ `../img/carrito.png`} /> 
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElCarrito}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElCarrito)}
-              onClose={handleCloseCarritoMenu}
-            >
-              
-              {props.user ?
-              <>
-              <LinkRouter to="/checkout" className="normalLink">
-              <MenuItem>
-             
-              Checkout
-             
-             </MenuItem>
-             </LinkRouter>
-             
-             
-              </>
-              :
-              <>
-              <p className='messageCart'>
-               Please sign in to use the cart
-              </p>
-              </>
-              }
-              
-            </Menu>
-       
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }} className="containerUser">
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {!props.user ?<Avatar alt="Remy Sharp" src={process.env.PUBLIC_URL+ `../img/user.png`} /> : 
-                <img src={props.user.image} alt="User Image" className='userImage'/>}
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              
-              {!props.user ?
-              <>
-              <MenuItem>
-              <LinkRouter to="signUp" className="linkResponsive">Sign Up</LinkRouter>
-=======
               </> */}
                   </Menu>
                 </Box>
->>>>>>> f0ec266cb732e9c0dbd2c47922bcf8603d5f13d3
               </MenuItem>
             </Box>
 
