@@ -50,12 +50,13 @@ const productsControllers = {
     },
     addProduct: async (required, response) => {
 
-        const { type, description, image, price, size, stock, sport, productName, genre, brand } = required.body
+        const { type, description, image, price, size, stock, sport, productName, genre, brand,color } = required.body
 
-        new Products({ type, description, image, price, size, stock, sport, productName, genre, brand }).save()
+        new Products({ type, description, image, price, size, stock, sport, productName, genre, brand,color }).save()
             .then((respuesta) => response.json({ respuesta }))
             .catch(error => response.json({ error }))
     },
+
     seeProductForId: async (require, response) => {
         const id = require.params.id
         var ProductsLocal
