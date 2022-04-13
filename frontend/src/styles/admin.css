@@ -1,10 +1,9 @@
 .adminContainer{
     display:flex;
-    background-color:green;
     flex-direction:column;
     align-items:center;
     justify-content: center;
-    width:90%;
+    width:80%;
     margin-left: auto;
     margin-right: auto;
     border-radius:2rem;
@@ -14,7 +13,11 @@
     width: 80%;
     margin-left:auto;
     margin-right: auto;
+    box-shadow: 10px 10px 5px 3px rgba(0,0,0,0.76);
+    -webkit-box-shadow: 10px 10px 5px 3px rgba(0,0,0,0.76);
+    -moz-box-shadow: 10px 10px 5px 3px rgba(0,0,0,0.76);
 }
 .titleAdmin{
+    margin-top: 1rem;
     text-align:center;
 }

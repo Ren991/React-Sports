@@ -4,6 +4,8 @@ import "../../styles/admin.css";
 import productsActions from "../../redux/actions/productsActions";
 import { searchProductById } from "../../redux/productos/productos";
 import { useParams } from "react-router-dom";
+import 'animate.css';
+
 
 function AdminView(props) {
   //inicio CRUD
@@ -68,7 +70,7 @@ function AdminView(props) {
   return (
     <div className="adminContainer">
       <div>
-        <h1 className="titleAdmin">Admin Section</h1>
+        <h1 className="titleAdmin animate__backInDown">Admin Section</h1>
       </div>
       <div
         className="accordion accordion-flush accordionContainer"
