@@ -95,11 +95,7 @@ function AdminView(props) {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-<<<<<<< HEAD
-              <form  onSubmit={delProduct}>
-=======
               <form onSubmit={delProduct}>
->>>>>>> 74b145c974505b4257fc91e1a5754b0271ccd3af
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     @
@@ -113,10 +109,6 @@ function AdminView(props) {
                     />
                 </div>
                 <button
-<<<<<<< HEAD
-                 
-=======
->>>>>>> 74b145c974505b4257fc91e1a5754b0271ccd3af
                   variant="primary"
                   type="submit"
                   id="productDeleted"
@@ -400,7 +392,7 @@ function AdminView(props) {
                     @
                   </span>
                   <input
-                    type="text"
+                    type="color"
                     className="form-control"
                     placeholder="Color"
                     aria-label="Username"
