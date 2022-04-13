@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Akshar&display=swap'); /* fuente para el counter */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap'); /* fuente para los numeros del counter */
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.userImage{
+  width: 2rem !important;
+  border-radius: 100px;
+}
+
+.containerContacts{
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoCup{
+  width: 2rem;
+}
+
+.logoContact{
+  width: 1rem;
+  margin-right: .3rem;
+}
+
+.contact{
+  color: #7e8287;
+  margin: 0;
+  font-family: 'Abel', sans-serif;
+  font-size: 0.85rem;
 }
 
 .boxNavBar{
@@ -24,18 +54,6 @@
   color: black !important;
 }
 
-.nav-link{
-  color: black;
-  text-align: center !important;
-}
-
-.nav-link:hover{
-  color: #f93943 !important;
-}
-.nav-link:focus{
-  color: #f93943 !important;
-}
-
 .MuiMenuItem-root{
   width: 9rem !important;
   display: flex !important;
@@ -44,8 +62,6 @@
 }
 
 .nombreLogo{
-    font-family: 'Oooh Baby', cursive !important;
-    color: #da4831;
     margin-bottom: 1rem;
     padding: .5rem;
     font-size: 3.5rem;
@@ -54,9 +70,7 @@
 .logo{
      width: 15rem;
 }
-.logoCarrito{
-    height: 2.5rem;
-}
+
 .containerUser{
     margin-left: 1.5rem;
 }
@@ -64,6 +78,25 @@
     padding: .5rem;
     margin: 0;
     font-size: 1rem;
+}
+
+.pDropdown{
+  margin: 0 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 1.2rem;
+  color: #262626 !important;
+}
+
+.pDropdown:hover{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.logoFlechita{
+  width: 0.8rem;
+}
+
+.linksNav{
+  color: #000 !important;
 }
 
 /* Styles for counter  */
@@ -89,13 +122,36 @@
   color: white;
 }
 .counterMargin span{
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   margin-left: 5px;
   margin-right: 5px;
+  font-family: 'Abel', sans-serif;
+  font-style: italic;
 }
+.counterMargin span.tittleCounter{
+  font-size: 1.2rem;
+  font-family: 'Akshar', sans-serif;
+  font-style: italic;
+}
+
 .boxCup{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000;
 }
+
+@media (max-width: 400px) { 
+  .boxCounter{
+    transform: scale(0.95);
+  }
+  .counterMargin span{
+    font-size: 0.9rem;
+  }
+  .counterMargin span.tittleCounter{
+    font-size: 0.9rem;
+  }
+  }
 
 @media (max-width: 500px) { 
 .userImage{
@@ -105,3 +161,19 @@
   object-fit: cover;
 }
 }
+
+@media (max-width: 1024px) { 
+  .logoReactSports{
+    width: 7rem;
+    padding: 1.5rem 0;
+  }
+  }
+
+@media (max-width: 1480px) { 
+  .containerContacts{
+    display: none;
+  }
+  }
+  
+
+
