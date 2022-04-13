@@ -10,6 +10,7 @@ function AdminView(props) {
 
   const { id } = useParams();
   const productId = id;
+  console.log(productId)
   const [currentProduct, setCurrentProduct] = useState([]);
 
   useEffect(() => {
@@ -71,7 +72,7 @@ function AdminView(props) {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              <form>
+              <form  onSubmit={delProduct}>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     @
@@ -85,13 +86,14 @@ function AdminView(props) {
                   />
                 </div>
                 <button
-                  onClick={delProduct}
+                 
                   variant="primary"
                   type="submit"
                   className="submitButton"
                 >
                   DELETE PRODUCT
                 </button>
+                <input type="submit" className="submitButton" placeholder="DELETE PRODUCT"/>     
               </form>
             </div>
           </div>
