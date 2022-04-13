@@ -36,10 +36,9 @@ function CarouselProducts(props) {
  
    
   return (
-    <div>
-    
+    <div className="containerCarouselProducts">
     <div style={{marginTop:15}} className="carouselProducts">
-      <h2 style={{textAlign:"center"}} >Best Seller products</h2>
+      <p style={{textAlign:"center"}} className="tittlesCarouselProducts">BEST SELLER PRODUCTS</p>
        <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -51,16 +50,16 @@ function CarouselProducts(props) {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiperProducts"
       >
         
         {bestSeller.map((product, index) => (
-          <SwiperSlide key="index" className="carouselProducts">
-            <p>{product.productName}</p>
-            <img className="imgCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
-            <p>{product.price}</p>
-            <Link to={`/productDetail/${product._id}`} productInfo={product}>
-              View product
+          <SwiperSlide key="index" className="carouselProductsSlide">
+            <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
+            <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
+            <p className="productNameCarousel">{product.productName}</p>
+            <p className="productDescriptionCarousel">{product.description}</p>
+            <p className="productPriceCarousel">${product.price}</p>
             </Link>
           </SwiperSlide>
            
@@ -71,7 +70,7 @@ function CarouselProducts(props) {
     </div>
       <div style={{marginTop:15}} className="carouselProducts" >
 
-      <h2 style={{textAlign:"center"}} >Basquetball</h2>
+      <p style={{textAlign:"center"}} className="tittlesCarouselProducts">BASQUETBALL</p>
        <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -83,16 +82,16 @@ function CarouselProducts(props) {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiperProducts"
       >
         
         {basquetBall.map((product, index) => (
-          <SwiperSlide key="index" className="carouselProducts">
-            <p>{product.productName}</p>
-            <img className="imgCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
-            <p>{product.price}</p>
-            <Link to={`/productDetail/${product._id}`} productInfo={product}>
-              View product
+          <SwiperSlide key="index" className="carouselProductsSlide">
+            <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
+            <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
+            <p className="productNameCarousel">{product.productName}</p>
+            <p className="productDescriptionCarousel">{product.description}</p>
+            <p className="productPriceCarousel">${product.price}</p>
             </Link>
           </SwiperSlide>
            
@@ -100,13 +99,7 @@ function CarouselProducts(props) {
 
         
       </Swiper>
-
-
-        
       </div>
-
-
-      
     </div>
   );
 }

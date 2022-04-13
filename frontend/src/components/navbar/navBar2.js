@@ -116,25 +116,44 @@ const NavBar2 = (props) => {
     setAnchorElGender(null);
   };
 
-  /*  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => { //
-    setAnchorEl(null);
-  }; */
-
   return (
     <>
       <div className="containerCounter">
+        <div className="containerContacts">
         <div className="boxCup">
-          <h4>FIFA WORLD CUP</h4>
+        <img
+                  className="logoContact"
+                  src={process.env.PUBLIC_URL + `../img/email.png`}
+                />
+                <p className="contact">reactsports2022@gmail.com</p>
+        </div>
+        <div className="boxCup">
+        <img
+                  className="logoContact"
+                  src={process.env.PUBLIC_URL + `../img/telefono.png`}
+                />
+                <p className="contact">0800 754 (1568)</p>
+        </div>
         </div>
         <div className="boxCounter">
           <Counter countDownTimestampMs={1669086060000} />
         </div>
+        <div className="containerContacts">
         <div className="boxCup">
-          <h4>QATAR 2022</h4>
+        <img
+                  className="logoContact"
+                  src={process.env.PUBLIC_URL + `../img/whatsapp.png`}
+                />
+                <p className="contact">+541163589647</p>
+        </div>
+        <div className="boxCup">
+                <img
+                  className="logoContact"
+                  src={process.env.PUBLIC_URL + `../img/ubicacion.png`}
+                />
+                <p className="contact">308 North Garden USA</p>
+          
+        </div>
         </div>
       </div>
       <AppBar position="static" className="boxNavBar">
@@ -189,12 +208,15 @@ const NavBar2 = (props) => {
                   {/*HERE STARTS CATEGORY */}
 
                   <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title="Select a Category">
                       <IconButton
                         onClick={handleOpenCategoryMenu}
                         sx={{ p: 0 }}
                       >
-                        <p>Category</p>
+                        <p className="pDropdown">CATEGORY <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -220,23 +242,18 @@ const NavBar2 = (props) => {
                           </MenuItem>
                         ))}
                       </>
-                      {/* <>
-              <MenuItem>
-              <p>Sport wear</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Shoes</p>
-              </MenuItem>
-              </> */}
                     </Menu>
                   </Box>
                 </MenuItem>
                 {/*  SPORT MENU */}
                 <MenuItem>
                   <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title="Select a Sport">
                       <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
-                        <p>Sport</p>
+                        <p className="pDropdown">SPORT <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -262,29 +279,18 @@ const NavBar2 = (props) => {
                           </MenuItem>
                         ))}
                       </>
-                      {/* <>
-              <MenuItem>
-              <p>Soccer</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Tennis</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Running</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Fitness and Training</p>
-              </MenuItem>
-              </> */}
                     </Menu>
                   </Box>
                 </MenuItem>
                 {/*  HERE STARTS GENDER */}
                 <MenuItem>
                   <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title="Select a Gender">
                       <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
-                        <p>Gender</p>
+                        <p className="pDropdown">GENDER <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -310,23 +316,18 @@ const NavBar2 = (props) => {
                           </MenuItem>
                         ))}
                       </>
-                      {/* <>
-              <MenuItem>
-              <p>Male</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Female</p>
-              </MenuItem>
-              </> */}
                     </Menu>
                   </Box>
                 </MenuItem>
 
                 <MenuItem>
                   <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title="Select a Brand">
                       <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
-                        <p>Brand</p>
+                        <p className="pDropdown">BRAND <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -352,14 +353,6 @@ const NavBar2 = (props) => {
                           </MenuItem>
                         ))}
                       </>
-                      {/* <>
-              <MenuItem>
-              <p>Adidas</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Nike</p>
-              </MenuItem>
-              </> */}
                     </Menu>
                   </Box>
                 </MenuItem>
@@ -390,9 +383,12 @@ const NavBar2 = (props) => {
                 {/*HERE STARTS CATEGORY */}
 
                 <Box sx={{ flexGrow: 0 }}>
-                  <Tooltip title="Select a category">
+                  <Tooltip title="Select a Category">
                     <IconButton onClick={handleOpenCategoryMenu} sx={{ p: 0 }}>
-                      <p>Category</p>
+                      <p className="pDropdown">CATEGORY <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -413,19 +409,11 @@ const NavBar2 = (props) => {
                   >
                     <>
                       {uniqueTypesArray?.map((element) => (
-                        <MenuItem>
-                          <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
+                        <MenuItem className="linksNav">
+                        <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
                         </MenuItem>
                       ))}
                     </>
-                    {/* <>
-              <MenuItem>
-              <p>Sport wear</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Shoes</p>
-              </MenuItem>
-              </> */}
                   </Menu>
                 </Box>
               </MenuItem>
@@ -434,7 +422,10 @@ const NavBar2 = (props) => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Select a Sport">
                     <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
-                      <p>Sport</p>
+                      <p className="pDropdown">SPORT <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -460,29 +451,18 @@ const NavBar2 = (props) => {
                         </MenuItem>
                       ))}
                     </>
-                    {/* <>
-              <MenuItem>
-              <p>Soccer</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Tennis</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Running</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Fitness and Training</p>
-              </MenuItem>
-              </> */}
                   </Menu>
                 </Box>
               </MenuItem>
               {/*  HERE STARTS GENDER */}
               <MenuItem>
                 <Box sx={{ flexGrow: 0 }}>
-                  <Tooltip title="Select a gender">
+                  <Tooltip title="Select a Gender">
                     <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
-                      <p>Gender</p>
+                      <p className="pDropdown">GENDER <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -508,23 +488,18 @@ const NavBar2 = (props) => {
                         </MenuItem>
                       ))}
                     </>
-                    {/* <>
-              <MenuItem>
-              <p>Male</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Female</p>
-              </MenuItem>
-              </> */}
                   </Menu>
                 </Box>
               </MenuItem>
 
               <MenuItem>
                 <Box sx={{ flexGrow: 0 }}>
-                  <Tooltip title="Select a brand">
+                  <Tooltip title="Select a Brand">
                     <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
-                      <p>Brand</p>
+                      <p className="pDropdown">BRAND <img
+                  className="logoFlechita"
+                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                /></p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -550,14 +525,6 @@ const NavBar2 = (props) => {
                         </MenuItem>
                       ))}
                     </>
-                    {/* <>
-              <MenuItem>
-              <p>Adidas</p>
-              </MenuItem>
-              <MenuItem>
-              <p>Nike</p>
-              </MenuItem>
-              </> */}
                   </Menu>
                 </Box>
               </MenuItem>
@@ -567,7 +534,6 @@ const NavBar2 = (props) => {
               <Tooltip title="Open shopping cart">
                 <IconButton onClick={handleOpenCarritoMenu} sx={{ p: 0 }}>
                   <img
-                    className="logoCarrito"
                     src={process.env.PUBLIC_URL + `../img/carrito.png`}
                   />
                 </IconButton>
@@ -608,16 +574,14 @@ const NavBar2 = (props) => {
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {!props.user ? (
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={process.env.PUBLIC_URL + `../img/user.png`}
-                    />
+                  <img
+                  src={process.env.PUBLIC_URL + `../img/user.png`}
+                /> 
                   ) : (
                     <img
                       src={props.user.image}
                       alt="User Image"
                       className="userImage"
-                      width={40}
                     />
                   )}
                 </IconButton>
