@@ -74,7 +74,7 @@ function DetalleProducto(props) {
           </div>
           <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
-              {currentProduct.stock !== 0 ? (
+              {currentProduct.stock !== 0 && props.user ? (
                 <button id={productId} onClick={addCart}>
                   Add to cart
                 </button>

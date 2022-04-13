@@ -682,11 +682,13 @@ const NavBar2 = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) =>{
+  
+  return{
     user: state.userReducer.user,
-  };
-};
+    snackbar: state.userReducer.snackbar
+  }
+}
 
 const mapDispatchToProps = {
   signOutUser: userAction.signOutUser,

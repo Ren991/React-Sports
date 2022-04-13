@@ -471,7 +471,11 @@ const userController = {
     const email = req.body.userData;
     const user = await Users.findOne({ email });
     await user.save();
-    res.json(console.log("Closed session " + email));
+    res.json({
+      success: true,
+      message:"Your session has been closed"
+    })
+
   },
 
   verifyToken: (req, res) => {
