@@ -1,4 +1,4 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' //Fix nodemailer error
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='1' //Fix nodemailer error
 const Users = require("../models/users");
 const bcryptjs = require("bcryptjs");
 const crypto = require("crypto");
@@ -260,7 +260,7 @@ const userController = {
     if (user) {
       user.emailVerify = true;
       await user.save();
-      res.redirect("http://localhost:3000/");
+      res.redirect("http://localhost:3000/signIn");
     } else {
       res.json({
         success: false,
