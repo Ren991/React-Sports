@@ -27,7 +27,7 @@ export default function Table(props) {
                 color: element.color,
                 sport: element.sport,
                 productName: element.productName,
-                genre: element.gender,
+                genre: element.genre,
                 brand: element.brand,
                 cantidad: 1,
             }

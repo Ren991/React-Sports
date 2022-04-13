@@ -255,7 +255,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.gender}
+                    placeholder={currentProduct?.genre}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
