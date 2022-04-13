@@ -18,9 +18,25 @@ function AdminView(props) {
 
  
 
-  async function modProduct(event) {
-    // props.modifyProduct("LOS DETALLES DEL PRODUCTO");
-    console.log(event.target)
+  function modProduct(event) {
+    event.preventDefault()
+    const idProd = event.target[11].value
+    const toModifyProduct={
+      productName: event.target[0].value,
+      type: event.target[1].value,
+      sport: event.target[2].value,
+      description: event.target[3].value,
+      color: event.target[4].value,
+      stock: Number(event.target[5].value),
+      image: event.target[6].value,
+      price: Number(event.target[7].value),
+      genre: event.target[8].value,
+      brand: event.target[9].value,
+      size: Number(event.target[10].value),
+    }
+    console.log(idProd)
+    console.log(toModifyProduct)
+    props.modifyProduct(idProd,toModifyProduct)
   }
 
   async function delProduct(event) {
@@ -47,8 +63,8 @@ function AdminView(props) {
       size: Number(event.target[10].value),
     };
     props.loadProduct(uploadProduct)
-    /* props.signUpUser(userData) */
   };
+
   return (
     <div className="adminContainer">
       <div>
@@ -264,8 +280,20 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.type}
+                    placeholder={currentProduct?.size}
                     aria-label="Size"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    Prod ID:
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={currentProduct?._id}
+                    aria-label="prodID"
                     aria-describedby="basic-addon1"
                   />
                 </div>
