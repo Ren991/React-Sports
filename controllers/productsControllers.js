@@ -90,60 +90,60 @@ const productsControllers = {
             .catch(error => response.json({ paso: "no existe", error }))
     },
     // tipo un string o arraY?,
-    /*     modifyProduct: async (req, res) => {
-            const id = req.params.id
-            const ProductsLocal = req.body
-    
-            var productLocal
-            productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
-                .then((response) => res.json({ paso: "listo", respuesta: response }))
-                .catch(error => res.json({ error }))
-        },
-        seeProductForId: async (require, response) => {
-            const id = require.params.id
-            var ProductsLocal
-    
-    
-    
-            ProductsLocal = await Products.findOne({ _id: id })
-                .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
-                .catch(error => response.json({ paso: "no existe", error }))
-        },
-    
-        deleteProduct: async (required, response) => {
-            const id = required.params.id
-    
-            var deleteProduct
-    
-            deleteProduct = await Products.findOneAndDelete({ _id: id })
-                .then((res) => response.json({ paso: "eliminado", respuesta: res }))
-                .catch(error => response.json({ paso: "porfavor vuelva a intentarlo mas tarde", error }))
-        },
-        seeProductForGender: async (require, response) => {
-            const gender = require.params.gender
-            var ProductsLocal
-            console.log(typeof (gender));
-            console.log(gender);
-    
-    
-            ProductsLocal = await Products.find({ genre: gender })
-    
-                .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
-                .then(console.log(ProductsLocal))
-                .catch(error => response.json({ paso: "no existe", error }))
-        },
-    
-        // tipo un string o arraY?,
-        /*     modifyProduct: async (req, res) => {
-                const id = req.params.id
-                const ProductForModify = req.body
-        
-                var productLocal
-                productLocal = await Products.findOneAndUpdate({ _id: id }, ProductForModify, { new: true })
-                    .then((response) => res.json({ paso: "listo", respuesta: response }))
-                    .catch(error => res.json({ error }))
-            },
-            }, */
+    modifyProduct: async (req, res) => {
+        const id = req.params.id
+        const ProductsLocal = req.body
+
+        var productLocal
+        productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
+            .then((response) => res.json({ paso: "listo", respuesta: response }))
+            .catch(error => res.json({ error }))
+    },
+    /*   seeProductForId: async (require, response) => {
+          const id = require.params.id
+          var ProductsLocal
+  
+  
+  
+          ProductsLocal = await Products.findOne({ _id: id })
+              .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
+              .catch(error => response.json({ paso: "no existe", error }))
+      },
+  
+      deleteProduct: async (required, response) => {
+          const id = required.params.id
+  
+          var deleteProduct
+  
+          deleteProduct = await Products.findOneAndDelete({ _id: id })
+              .then((res) => response.json({ paso: "eliminado", respuesta: res }))
+              .catch(error => response.json({ paso: "porfavor vuelva a intentarlo mas tarde", error }))
+      },
+      seeProductForGender: async (require, response) => {
+          const gender = require.params.gender
+          var ProductsLocal
+          console.log(typeof (gender));
+          console.log(gender);
+  
+  
+          ProductsLocal = await Products.find({ genre: gender })
+  
+              .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
+              .then(console.log(ProductsLocal))
+              .catch(error => response.json({ paso: "no existe", error }))
+      },
+  
+      // tipo un string o arraY?,
+      /*     modifyProduct: async (req, res) => {
+              const id = req.params.id
+              const ProductForModify = req.body
+      
+              var productLocal
+              productLocal = await Products.findOneAndUpdate({ _id: id }, ProductForModify, { new: true })
+                  .then((response) => res.json({ paso: "listo", respuesta: response }))
+                  .catch(error => res.json({ error }))
+          },
+          }, */
 
 }
 

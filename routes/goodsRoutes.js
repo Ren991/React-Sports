@@ -7,6 +7,7 @@ const { getAllProducts, getAllProductsBrand, addProduct, modifyProduct, deletePr
 goodsRouter.route('/allGoods')
     .get(getAllProducts)
     .post(addProduct)
+
 goodsRouter.route('/allGoodsFor/brand/:id')
     .get(getAllProductsBrand)
 
@@ -17,11 +18,11 @@ goodsRouter.route('/allGoodsForGender/gender/:gender')
 
 goodsRouter.route('/allGoodsId/:id')
     .get(seeProductForId)
-/*     .delete(deleteProduct) */
-/* .put(modifyProduct) */
+    /*     .delete(deleteProduct) */
+    .put(modifyProduct)
 
 goodsRouter.route('/allGoodsForGender/gender/:gender')
-.get(seeProductForGender)
+    .get(seeProductForGender)
 
 module.exports = goodsRouter
 

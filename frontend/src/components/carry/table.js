@@ -5,7 +5,7 @@ var articulo = []
 export default function Table(props) {
     console.log(props.productos);
     const productos = props.productos
-    var productosLocalStorage = props.productosDeLocalStorage
+
 
     console.log(typeof productos);
     var cantidad = []
@@ -70,17 +70,17 @@ export default function Table(props) {
         setContador(conta[0].cantidad)
 
     }
-
-    function remove(id) {
-        console.log(id);
-        console.log(productosLocalStorage)
-        productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
-        localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
-        console.log(productosLocalStorage);
-
-        props.setReload(true)
-        console.log(props.reload);
-    }
+    /* 
+        function remove(id) {
+            console.log(id);
+            console.log(productosLocalStorage)
+            productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
+            localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
+            console.log(productosLocalStorage);
+            props.setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
+            props.setReload(true)
+            console.log(props.reload);
+        } */
 
 
     return (
@@ -117,7 +117,7 @@ export default function Table(props) {
                     </button>
                 </td>
                 <td className='botonera2'>
-                    <button className='restaSuma' onClick={(() => (remove(productos._id)))}>
+                    <button className='restaSuma' /* onClick={(() => (remove(productos._id)))} */>
                         x
                     </button>
 

@@ -21,11 +21,12 @@ function CheckOut(props) {
 
     /*     console.log(todosLosProductos); */
 
-    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState([])
+    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart")))
 
-    useEffect(() => {
-        setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
-    }, [reload])
+    /*     useEffect(() => {
+            setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
+        }, [reload]) */
+    console.log(productosDeLocalStorage);
 
     productosDeLocalStorage?.map((id) => {
         productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
@@ -58,7 +59,7 @@ function CheckOut(props) {
                             </tr>
                         </thead>
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} reload={reload} setReload={setReload} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} />)}
                     </table>
                 </div>
                 {/*                        </div>
