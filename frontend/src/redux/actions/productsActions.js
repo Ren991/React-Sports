@@ -6,7 +6,8 @@ const productsActions = {
     console.log(productData)
     return async (dispatch, getState) => {
       try {
-        const res = await axios.post(`http://localhost:4000/api/allGoods`, {productData});
+        const res = await axios.post(`http://localhost:4000/api/allGoods/`, {productData});
+        console.log(res)
         dispatch({
           type: "message",
           payload: {
@@ -15,7 +16,7 @@ const productsActions = {
             success: res.data.success,
           },
         });
-        /*return res;*/
+        return res;
       } catch (error) {
         console.log(error);
       }
