@@ -1,3 +1,4 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' //Fix nodemailer error
 const Users = require("../models/users");
 const bcryptjs = require("bcryptjs");
 const crypto = require("crypto");
@@ -10,12 +11,12 @@ const sendEmail = async (email, uniqueString) => {
     port: 465,
     secure: true,
     auth: {
-      user: "reactsports2022@gmail.com",
-      pass: "reactsports26",
+      user: "react.sports.verify@gmail.com",
+      pass: "Hola1234",
     },
   });
 
-  let sender = "reactsports2022@gmail.com";
+  let sender = "react.sports.verify@gmail.com";
   let mailOptions = {
     from: sender,
     to: email,
@@ -243,6 +244,7 @@ const sendEmail = async (email, uniqueString) => {
   };
   await transporter.sendMail(mailOptions, function (error, response) {
     if (error) {
+      console.log("ERROOOOOOOOOOOOOOOOOOOOOOR")
       console.log(error);
     } else {
       console.log("Message sent");
@@ -279,6 +281,7 @@ const userController = {
       city,
       country,
       from,
+      isAdmin,
     } = req.body.userData;
 
     try {
@@ -330,6 +333,7 @@ const userController = {
           country,
           uniqueString: crypto.randomBytes(15).toString("hex"),
           emailVerify: false,
+          isAdmin,
           from: [from],
         });
         if (from !== "signUp") {
@@ -386,6 +390,7 @@ const userController = {
               email: userExist.email,
               image: userExist.image,
               from: userExist.from,
+              isAdmin: userExist.isAdmin
             };
             await userExist.save();
 
@@ -424,6 +429,7 @@ const userController = {
                 email: userExist.email,
                 image: userExist.image,
                 from: userExist.from,
+                isAdmin: userExist.isAdmin,
               };
               const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, {
                 expiresIn: 60 * 60 * 24,
@@ -481,6 +487,7 @@ const userController = {
           adress: req.user.adress,
           city: req.user.city,
           country: req.user.country,
+          isAdmin:req.user.isAdmin,
           from: "token",
         },
         message: "Welcome again " + req.user.firstName,

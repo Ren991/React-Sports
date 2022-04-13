@@ -14,6 +14,7 @@ import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
+import Header from './components/header/Header'
 
 function App(props) {
 
@@ -28,16 +29,19 @@ function App(props) {
   return (
     <>
       <BrowserRouter>
-        <NavBar2/>
+        {/* <NavBar2/> */}
+        <Header/>
         <Routes>
+          <Route path="/home"  element={<Home />}/> 
           <Route path="*"  element={<Home />}/> 
-          <Route path="/DETALLEPRODUCTO/:id"  element={<DetalleProducto />}/>
-          <Route path="/PRODUCTSVIEW"  element={<ProductsView />}/> 
-          <Route path="/adminView"  element={<AdminView />}/> 
+          <Route path="/productDetail/:id"  element={<DetalleProducto />}/>
+          {props.user?.isAdmin && <Route path="/adminView"  element={<AdminView />}/> }
           <Route path="/brands" element={<BrandsView />}/>
           <Route path="/sports" element={<SportsView />}/>
           <Route path="/sports/:sport" element={<ProductsView />}/>
           <Route path="/brands/:brand" element={<ProductsView />}/>
+          <Route path="/gender/:gender" element={<ProductsView />}/>
+          <Route path="/type/:type" element={<ProductsView />}/>
           <Route path="/checkout" element={<CheckOut />} />
           {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
           {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 

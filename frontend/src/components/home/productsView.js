@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../../styles/cardsView.css'
 import ProductCard from '../cards/productCard'
 import './cssMain/main.css'
-import { getAllProducts } from '../../redux/productos/productos'
+import { seachProductsMarca } from '../../redux/productos/productos'
 import { useParams } from 'react-router-dom'
+
+
 function ProductsView() {
   const products = useSelector(state => state.productosMain.marca)
   const usuario = useSelector(state => state.usersMain.usuario)
