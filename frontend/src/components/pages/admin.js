@@ -17,6 +17,8 @@ function AdminView(props) {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
 
+ 
+
   async function modProduct(event) {
     // props.modifyProduct("LOS DETALLES DEL PRODUCTO");
     console.log(event.target)
@@ -29,18 +31,22 @@ function AdminView(props) {
   //FIN CRUD
 
   const handleSubmit = (event) => {
+    console.log(event.target)
     event.preventDefault();
     const uploadProduct = {
-      ProductName: event.target[0].value,
-      Sport: event.target[1].value,
-      Description: event.target[2].value,
-      Color: event.target[3].value,
-      Stock: event.target[4].value,
-      Image: event.target[5].value,
-      Price: event.target[6].value,
-      Genre: event.target[7].value,
-      Brand: event.target[8].value,
+      productName: event.target[0].value,
+      type: event.target[1].value,
+      sport: event.target[2].value,
+      description: event.target[3].value,
+      color: event.target[4].value,
+      stock: Number(event.target[5].value),
+      image: event.target[6].value,
+      price: Number(event.target[7].value),
+      genre: event.target[8].value,
+      brand: event.target[9].value,
+      size: Number(event.target[10].value),
     };
+    props.loadProduct(uploadProduct)
     /* props.signUpUser(userData) */
   };
   return (
@@ -131,7 +137,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.productName}
+                    placeholder={currentProduct?.productName}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -144,7 +150,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.sport}
+                    placeholder={currentProduct?.sport}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -157,7 +163,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.description}
+                    placeholder={currentProduct?.description}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -170,7 +176,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.color}
+                    placeholder={currentProduct?.color}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -183,7 +189,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.stock}
+                    placeholder={currentProduct?.stock}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -196,7 +202,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.image}
+                    placeholder={currentProduct?.image}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -209,7 +215,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.price}
+                    placeholder={currentProduct?.price}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -222,7 +228,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.gender}
+                    placeholder={currentProduct?.gender}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -235,7 +241,7 @@ function AdminView(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct.brand}
+                    placeholder={currentProduct?.brand}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -285,6 +291,19 @@ function AdminView(props) {
                     className="form-control"
                     placeholder="Product`s Name"
                     aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    @
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Type"
+                    aria-label="Type"
                     aria-describedby="basic-addon1"
                   />
                 </div>
@@ -392,6 +411,18 @@ function AdminView(props) {
                     aria-describedby="basic-addon1"
                   />
                 </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="basic-addon1">
+                    @
+                  </span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Size"
+                    aria-label="Size"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
                 <button
                   variant="primary"
                   type="submit"
@@ -413,6 +444,7 @@ function AdminView(props) {
 const mapDispatchToProps = {
   modifyProduct: productsActions.modifyProduct,
   deleteProduct: productsActions.deleteProduct,
+  loadProduct: productsActions.addProduct
 };
 // const mapStateToProps = (state) => {
 //   return {

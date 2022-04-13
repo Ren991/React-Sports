@@ -26,14 +26,18 @@ const Counter = ({countDownTimestampMs}) => {
     }
   return (
     <div className='counterMargin'>
+    <span><img
+                  className="logoCup"
+                  src={process.env.PUBLIC_URL + `../img/copa.png`}
+                /></span>
+    <span className='tittleCounter'>FIFA WORLD CUP:</span>
     <span>{remainingTime.days}</span>
-    <span>Days</span>
+    <span>:</span>
     <span>{remainingTime.hours}</span>
-    <span>Hours</span>
+    <span>:</span>
     <span>{remainingTime.minutes}</span>
-    <span>Minutes</span>
+    <span>:</span>
     <span>{remainingTime.seconds}</span>
-    <span>Seconds</span>
     </div>
   );
 };

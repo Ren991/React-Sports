@@ -50,11 +50,16 @@ const productsControllers = {
     },
     addProduct: async (required, response) => {
 
-        const { type, description, image, price, size, stock, sport, productName, genre, brand,color } = required.body
-
-        new Products({ type, description, image, price, size, stock, sport, productName, genre, brand,color }).save()
-            .then((respuesta) => response.json({ respuesta }))
-            .catch(error => response.json({ error }))
+        console.log(required.body.productData)
+        
+        
+        const {type, description, image, price, size, color, stock, sport, productName, genre, brand } = required.body.productData
+        
+        new Products({ type, description, image, price, size, color, stock, sport, productName, genre, brand }).save()
+        .then((respuesta) => console.log({ respuesta }))
+        .catch(error => response.json({ error }))
+        
+        console.log("Loaded")
     },
 
     seeProductForId: async (require, response) => {
