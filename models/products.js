@@ -5,7 +5,7 @@ const ProductsSchema = new mongoose.Schema({
     description: { type: String, required: true },
     image: { type: String, required: true },
     price: { type: Number, required: true },
-    size: { type: Number, required: true }, //talla
+    size: { type: String, required: true }, //talla
     stock: { type: Number, required: true },
     color: { type: String }, // tipo un string o arraY?,
     sport: { type: String, required: true },
