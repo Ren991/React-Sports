@@ -37,7 +37,7 @@ const NavBar2 = (props) => {
 
   allProducts.forEach((element) => {
     uniqueSports.add(element.sport);
-    uniqueGender.add(element.gender);
+    uniqueGender.add(element.genre);
     uniqueBrand.add(element.brand.brand);
     uniqueType.add(element.type);
   });

@@ -37,7 +37,7 @@ function ProductsView() {
       break;
     case "gender":
       filteredProducts.push(
-        allProducts.filter((element) => element.gender == filterValue)
+        allProducts.filter((element) => element.genre == filterValue)
       );
       break;
 

@@ -84,7 +84,7 @@ body{
   .imageProductsCarousel{
     width: 11rem !important;
     height: 15rem !important;
-    object-position: cover;
+    object-fit: contain !important;
   }
 
   .productNameCarousel{
