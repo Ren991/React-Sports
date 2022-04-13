@@ -8,6 +8,7 @@ import ProductCard from "../cards/productCard";
 import { getAllProducts } from "../../redux/productos/productos";
 
 function ProductsView() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
   const [filterSelected] = Object.keys(useParams());
