@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { searchProductById } from "../../redux/productos/productos";
 import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
+import productsActions from "../../redux/actions/productsActions";
 
 function DetalleProducto(props) {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -102,9 +103,11 @@ function DetalleProducto(props) {
             <>
               {/* TO_DO__cambiar condicion ""=== true" PARA QUE SOLO SEA VISIBLE A ADMIN */}
               {props.user?.isAdmin === true && (
+                <>
                 <Link to={`/adminView/${productId}`}>
                   <button>Take to CRUD (Admin View)</button>
                 </Link>
+                </>
               )}
             </>
           </div>
@@ -115,6 +118,7 @@ function DetalleProducto(props) {
 }
 const mapDispatchToProps = {
   addToCart: cartAction.addToCart,
+  deleteProduct: productsActions.deleteProduct
 };
 const mapStateToProps = (state) => {
   return {

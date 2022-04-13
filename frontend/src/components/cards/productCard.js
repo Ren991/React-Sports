@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/productCard.css";
 import { Link, useParams } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 
 function ProductCard(props) {

@@ -49,31 +49,21 @@ const productsActions = {
     // }
   },
 
-  deleteProduct: (productId) => {
-    console.log("@productsActions deleteProduct");
-    console.log(productId);
-    // return async(dispatch, getState)=>{
-    //     try{
-    //         const res = await axios.post(`https://mytinerary-viola.herokuapp.com/api/itineraries/comments/${id}`,
-    //             {},
-    //             {headers: {
-    //                 'Authorization': `Bearer ${token}`
-    //             }}
-    //         )
-    //         dispatch({
-    //             type: 'message',
-    //             payload: {
-    //                 view: true,
-    //                 message: res.data.message,
-    //                 success: res.data.success,
-    //             }
-    //         })
-    //         return res
-    //     }catch(error){
-    //         console.log(error)
-    //     }
-    // }
-  },
+  deleteProduct: (id) => {
+    console.log(id)
+    return async (dispatch, getState) => {
+        const res = await axios.delete(`http://localhost:4000/api/allGoodsId/${id}`)  
+        dispatch({
+            type: 'message',
+            payload: {
+                view: true,
+                message: 'The product has been deleted!',
+                success: res.data.success
+            }
+        })
+        return res
+    }
+}
 };
 
 export default productsActions;

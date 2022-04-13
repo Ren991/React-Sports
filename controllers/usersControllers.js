@@ -1,4 +1,4 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' //Fix nodemailer error
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='1' //Fix nodemailer error
 const Users = require("../models/users");
 const bcryptjs = require("bcryptjs");
 const crypto = require("crypto");
