@@ -72,17 +72,17 @@ const Table = (props) => {
         setContador(conta[0].cantidad)
 
     }
-
-    function remove(id) {
-        //console.log(id);
-        //console.log(productosLocalStorage)
-        productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
-        localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
-        console.log(productosLocalStorage);
-        props.setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
-        props.setReload(true)
-        //console.log(props.reload);
-    }
+    /* 
+        function remove(id) {
+            //console.log(id);
+            //console.log(productosLocalStorage)
+            productosLocalStorage = productosLocalStorage.filter(idLocal => idLocal != id)
+            localStorage.setItem('cart', JSON.stringify(productosLocalStorage))
+            console.log(productosLocalStorage);
+            props.setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
+            props.setReload(true)
+            //console.log(props.reload);
+        } */
 
 
     return (

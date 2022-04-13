@@ -3,7 +3,7 @@ import NavBar2 from './components/navbar/navBar2'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Home from './components/pages/home';
 import DetalleProducto from './components/detalleProducto/detalleProducto'
 import BrandsView from './components/pages/brandsView'
@@ -15,13 +15,26 @@ import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 import Header from './components/header/Header'
+import { carrryInitial } from './redux/carrito/carrito'
 
 function App(props) {
 
+  const dispatch = useDispatch
+
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
+      /*       const cart = JSON.parse(localStorage.getItem("cart"))
+            dispatch(carrryInitial(cart)) */
       const token = localStorage.getItem('token')
       props.verifyToken(token)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    if (localStorage.getItem('cart') !== null) {
+      const cart = localStorage.getItem('cart')
+      props.verifyToken(cart)
     }
   }, [])
 
@@ -30,21 +43,21 @@ function App(props) {
     <>
       <BrowserRouter>
         {/* <NavBar2/> */}
-        <Header/>
+        <Header />
         <Routes>
-          <Route path="/home"  element={<Home />}/> 
-          <Route path="*"  element={<Home />}/> 
-          <Route path="/productDetail/:id"  element={<DetalleProducto />}/>
-          {props.user?.isAdmin && <Route path="/adminView"  element={<AdminView />}/> }
-          <Route path="/brands" element={<BrandsView />}/>
-          <Route path="/sports" element={<SportsView />}/>
-          <Route path="/sports/:sport" element={<ProductsView />}/>
-          <Route path="/brands/:brand" element={<ProductsView />}/>
-          <Route path="/gender/:gender" element={<ProductsView />}/>
-          <Route path="/type/:type" element={<ProductsView />}/>
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<Home />} />
+          <Route path="/productDetail/:id" element={<DetalleProducto />} />
+          {props.user?.isAdmin && <Route path="/adminView" element={<AdminView />} />}
+          <Route path="/brands" element={<BrandsView />} />
+          <Route path="/sports" element={<SportsView />} />
+          <Route path="/sports/:sport" element={<ProductsView />} />
+          <Route path="/brands/:brand" element={<ProductsView />} />
+          <Route path="/gender/:gender" element={<ProductsView />} />
+          <Route path="/type/:type" element={<ProductsView />} />
           <Route path="/checkout" element={<CheckOut />} />
-          {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
-          {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
+          {!props.user && <Route path="/signUp" element={<SignUp />} />}
+          {!props.user && <Route path="/signIn" element={<SignIn />} />}
         </Routes>
         <Footer />
       </BrowserRouter>

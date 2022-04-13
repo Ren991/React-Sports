@@ -4,6 +4,7 @@ import Table from './table'
 import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../../redux/productos/productos'
+import Paypal from './Paypal'
 
 var localStorageID = []
 var productosEnArray = []
@@ -74,6 +75,9 @@ function CheckOut(props) {
 
             <div id="CarritoDetalle">
 
+            </div>
+            <div>
+                <Paypal /* productosAMostar={productosAMostar} */ />
             </div>
 
 
