@@ -29,6 +29,7 @@ const NavBar2 = (props) => {
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
+  console.log(allProducts)
 
   const uniqueSports = new Set();
   const uniqueGender = new Set();

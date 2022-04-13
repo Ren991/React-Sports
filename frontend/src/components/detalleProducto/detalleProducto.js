@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 import productsActions from "../../redux/actions/productsActions";
 
+import AddProduct from "./AddProduct"
 function DetalleProducto(props) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   const { id } = useParams();
@@ -26,10 +27,6 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
-            <Link to="/">
-              <a>Inicio</a>
-            </Link>
-            <p> / </p>
             <p>{currentProduct.productName}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
@@ -67,6 +64,7 @@ function DetalleProducto(props) {
             <div className="headerProducto">
               <h2>{currentProduct.productName}</h2>
               <h3>${currentProduct.price}</h3>
+              <p>{currentProduct.stock}</p>
             </div>
             <div className="detallesProducto">
               <p>Color: N/A</p>
