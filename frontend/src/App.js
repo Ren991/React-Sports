@@ -16,9 +16,16 @@ import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 import MySnackbar from './components/snackbar/snackbar'
 import {mantenerEstado} from './redux/carrito/carrito'
+
 function App(props) {
+  const brand =1
   const dispatch = useDispatch()
+  
+  
   useEffect(() => {
+    
+    const estado = localStorage.getItem("carrito") 
+    dispatch(mantenerEstado(estado))
     if (localStorage.getItem('token') !== null) {
       
       const token = localStorage.getItem('token')
@@ -31,6 +38,14 @@ function App(props) {
   }, [])
 
 
+  useEffect(() => {
+    if (localStorage.getItem('cart') !== null) {
+      const cart = localStorage.getItem('cart')
+      props.verifyToken(cart)
+    }
+  }, [])
+ 
+  
   return (
     <>
       <BrowserRouter>
@@ -49,8 +64,8 @@ function App(props) {
           <Route path="/gender/:gender" element={<ProductsView />}/>
           <Route path="/type/:type" element={<ProductsView />}/>
           <Route path="/checkout" element={<CheckOut />} />
-          {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
-          {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
+          {!props.user && <Route path="/signUp" element={<SignUp />} />}
+          {!props.user && <Route path="/signIn" element={<SignIn />} />}
         </Routes>
         <Footer />
       </BrowserRouter>

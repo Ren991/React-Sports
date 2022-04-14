@@ -1,13 +1,14 @@
 
+
+
 const dataInicial = {
   carritoUser:[],
   cantProducts: 0,
-  estadoCarrito:[],
-  reload:false
+  estadoCarrito:[]
 }
 
 export default function carritoReducer(state = dataInicial, action) {
-
+  
   switch (action.type) {
     case AGREGAR_PRODUCTO:
       return {
@@ -19,26 +20,23 @@ export default function carritoReducer(state = dataInicial, action) {
     case MANTENER_ESTADO:
       return{
         ...state,
-        estadoCarrito: action?.payload?.split(" ")
+        estadoCarrito: action.payload
 
       }
-    case CAMBIATE_ESTADO:
-    
-    return{
-      ...state,
-      reload: action.payload
-    }
     default:
-        return state;
-    }
+      return state;
+  }
 }
-  
+
 const AGREGAR_PRODUCTO = "AGREGAR_PRODUCTO"
 const MANTENER_ESTADO = "MANTENER_ESTADO"
-const CAMBIATE_ESTADO = "CAMBIATE_ESTADO"
 export const addOneProduc = (comeProduc) => (dispatch, getState) => {
         
-       
+       /*  localStorage.setItem("productosID", JSON.stringify([comeProduc]))
+        const total = localStorage.getItem("productosID")
+        const elmentoParseado = JSON.parse(total)
+        console.log(elmentoParseado.length) */
+      /*   const elIDAnterior = localStorage.getItem("carrito") */
         if(localStorage.getItem("carrito") !==null){
           const acumular = localStorage.getItem("carrito")
           localStorage.setItem("carrito", comeProduc+ " " + acumular)
@@ -53,13 +51,6 @@ export const mantenerEstado = (unArrayProduct) => (dispatch, getState) => {
         console.log(unArrayProduct)
          
         dispatch({ type: MANTENER_ESTADO, payload: unArrayProduct})
-        
-
-}
-export const setReload = (unCambio) => (dispatch, getState) => {
-     
-         
-        dispatch({ type: CAMBIATE_ESTADO, payload: !unCambio})
         
 
 }

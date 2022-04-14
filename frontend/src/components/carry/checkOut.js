@@ -4,6 +4,12 @@ import Table from './table'
 import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import {mantenerEstado} from '../../redux/carrito/carrito'
+import { getAllProducts } from '../../redux/productos/productos'
+import Paypal from './Paypal'
+
+var localStorageID = []
+var productosEnArray = []
+const productosAMostar = []
 
 function CheckOut(props) {
     const cambio = useSelector(state => state.carritoMain.reload)
@@ -16,37 +22,32 @@ function CheckOut(props) {
     const dispatch = useDispatch() 
     
     useEffect(() => {
+        dispatch(getAllProducts())
+    }, [])
 
-        if (localStorage.getItem('token') !== null) { //usuario ==null
-        const estado = localStorage.getItem("carrito") 
-        dispatch(mantenerEstado(estado))
-        }
-    }, []) 
-    useEffect(() => {
-        const estado = localStorage.getItem("carrito")
-        dispatch(mantenerEstado(estado))
-        
-    }, [cambio]) 
-    
-    
-    
-        const productoss = producAddRenderID?.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId))
-        /* producAddRenderID.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId)) */
-        console.log(productoss)
-  /*   const renderProd =producAddRender?.map((id) => {
+
+
+    /*     console.log(todosLosProductos); */
+
+    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart")))
+
+    /*     useEffect(() => {
+            setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
+        }, [reload]) */
+    console.log(productosDeLocalStorage);
+
+    productosDeLocalStorage?.map((id) => {
         productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
-    }) */
+    }) 
    /*  const renderProd =todosLosProductos.filter(oneIDProd=>producAddRenderID.indexOf(oneIDProd._id) === 1) */
     
 
-    /* //const productos = new Set(productosEnArray); //logica sin repetidos
-    const productos = productosEnArray  // logica repetidos
-    productosAMostar = [...productos]
-     */
-    const clear = () =>{
-        localStorage.removeItem("carrito");
-        dispatch(mantenerEstado(""))
-    }
+    const productosAMostar = useSelector(state => state.carritoMain.carritoUser)
+
+    /*     const productos = new Set(productosEnArray);
+        productosAMostar = [...productos] */
+    console.log(productosAMostar);
+
 
     return (
 
@@ -64,19 +65,20 @@ function CheckOut(props) {
                             </tr>
                        
                         </thead>
-                        { 
-                        productoss?.map((oneProductos) =>
-                            <Table onePro={oneProductos} />)
-                            
-                        }
+                        <TableTwo />
+                        {productosAMostar?.map((productos) =>
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage}  />)}
                     </table>
                 </div>
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" onClick={clear}>Clear</button></div>
+                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
 
             </section>
 
             <div id="CarritoDetalle">
 
+            </div>
+            <div style={{ width: "50%" }}>
+                <Paypal productosAMostar={productosAMostar} />
             </div>
 
 
