@@ -40,7 +40,7 @@ function DetalleProducto(props) {
             <Link to="/">
               <a>HOME</a>
             </Link>
-            <p> > </p>
+            <p> - </p>
             <p>{currentProduct?.productName?.toUpperCase()}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
