@@ -109,6 +109,7 @@ function AdminView(props) {
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                     />
+                <p></p>
                 </div>
                 <button
                   variant="primary"
@@ -160,6 +161,7 @@ function AdminView(props) {
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
+                  <p className="currentProduct">{currentProduct?.productName}</p>
                 </div>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
@@ -172,6 +174,7 @@ function AdminView(props) {
                     aria-label="Type"
                     aria-describedby="basic-addon1"
                   />
+                  <p className="currentProduct">{currentProduct?.type}</p>
                 </div>
 
                 <div className="input-group mb-3">
@@ -185,6 +188,7 @@ function AdminView(props) {
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
+                  <p className="currentProduct">{currentProduct?.sport}</p>
                 </div>
 
                 <div className="input-group mb-3">
@@ -198,6 +202,7 @@ function AdminView(props) {
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
+                  <p className="currentProduct">{currentProduct?.description}</p>
                 </div>
 
                 <div className="input-group mb-3">

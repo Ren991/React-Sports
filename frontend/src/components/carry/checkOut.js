@@ -67,10 +67,10 @@ function CheckOut(props) {
                         </thead>
                         <TableTwo />
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} productsUser={productsUser} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage}  />)}
                     </table>
                 </div>
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" onClick={clear}>Clear</button></div>
+                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
 
             </section>
 
