@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/productCard.css";
 import { Link, useParams } from 'react-router-dom';
-import {useSelector} from 'react-redux'
-import { searchProductById } from "../../redux/productos/productos";
-
 
 function ProductCard(props) {
-
-  /* const [currentProduct, setCurrentProduct] = useState([]);
-
-  useEffect(() => {
-    searchProductById(productId).then((res) => setCurrentProduct(res.response));
-  }, []); */
 
   const prod = props.product
 
@@ -24,8 +15,8 @@ function ProductCard(props) {
             <img src={process.env.PUBLIC_URL + `/img/productImages/${prod.image}`} />
           </div>
           <div className="contentBx">
-            <h2 className='productNameStyle'>{prod.productName}</h2>
-            <h3 className='productNameStyle'>USD ${prod.price}</h3>
+            <h2 className='productNameStyle'>{prod.productName.toUpperCase()}</h2>
+            <h3 className='productPrice'>USD ${prod.price}</h3>
             <div className="size">
               <h3>Size : {prod.size}</h3>
             </div>
@@ -34,7 +25,7 @@ function ProductCard(props) {
               <span style={{backgroundColor:`${prod.color}`}} ></span> 
 
             </div>
-            <Link to={`/productDetail/${prod._id}`} productInfo={prod}>
+            <Link to={`/productDetail/${prod._id}/${prod.brand.brand}`} productInfo={prod}>
               View product
             </Link>
           </div>
