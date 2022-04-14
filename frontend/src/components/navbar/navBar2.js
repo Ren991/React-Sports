@@ -22,7 +22,7 @@ import Swal from 'sweetalert2'
 
 const NavBar2 = (props) => {
   // INICIO Manipuleo para renderizado dinamico de categorias NavBar
-
+  const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
 
@@ -536,7 +536,7 @@ const NavBar2 = (props) => {
                   <img
                     src={process.env.PUBLIC_URL + `../img/carrito.png`}
                   />
-                  <p>1</p>
+                  <p>0</p>
                 </IconButton>
               </Tooltip>
               <Menu

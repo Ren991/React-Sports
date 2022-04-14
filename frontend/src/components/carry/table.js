@@ -97,28 +97,19 @@ export default function Table(props) {
                 <td >
                     <div >
                         <div >
-                            {/* <input id='input' type="string" value={(props.onePro.price * contador)} /> */}
+                           
                         </div>
                     </div>
                 </td>
                 <td className='botonera2'>
 
-                    {/* <button className='restaSuma' onClick={(() => (Resta(props.onePro._id)))}>
-                        -
-                    </button> */}
-                </td>
-                {/* <td className='botonera2'>
-                    {contador}
-                </td> */}
+                                    </td>
+               
                 <td className='botonera2'>
-                    {/* <button className='restaSuma' onClick={(() => (Suma(productos._id)))} >
-                        +
-                    </button> */}
+                    
                 </td>
                 <td className='botonera2'>
-                    {/* <button className='restaSuma' onClick={(() => (remove(productos._id)))}>
-                        x
-                    </button> */}
+                   
 
                 </td>
             </tr>

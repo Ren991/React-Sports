@@ -22,7 +22,7 @@ function CheckOut(props) {
     }, []) 
     /* [1, 2, 5, 10].map(a=> ()=>{return a}) */
     
-        const productoss = producAddRenderID.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId))
+        const productoss = producAddRenderID?.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId))
         /* producAddRenderID.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId)) */
         console.log(productoss)
   /*   const renderProd =producAddRender?.map((id) => {
@@ -55,11 +55,12 @@ function CheckOut(props) {
                                 <th>Precio</th>
                                 <th>Cantidad</th>
                             </tr>
-                        {/* <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} reload={reload} setReload={setReload} />)} */}
+                       
                         </thead>
                         { 
                         productoss?.map((oneProductos) =>
                             <Table onePro={oneProductos} />)
+                            
                         }
                     </table>
                 </div>
