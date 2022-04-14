@@ -94,9 +94,9 @@ function DetalleProducto(props) {
             <div className="detalleProductoCarrito">
               {currentProduct.stock !== 0 && props.user ? (
                 <>
-                  <button id={productId} onClick={addCart}>
+                 {/*  <button id={productId} onClick={addCart}>
                     Add to cart
-                  </button>
+                  </button> */}
                   <button id={productId} onClick={()=>scremProduc(id)}>
                     addWilson
                   </button>

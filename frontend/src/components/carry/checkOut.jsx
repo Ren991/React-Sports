@@ -53,7 +53,7 @@ function CheckOut(props) {
                             <tr>
                                 <th>Producto</th>
                                 <th>Precio</th>
-                                <th>Cantidad</th>
+                                <th>saddsadsa</th>
                             </tr>
                        
                         </thead>

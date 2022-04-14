@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -20,12 +20,19 @@ import userAction from "../../redux/actions/userAction";
 import Counter from "../counterWorldCup/counter";
 import Swal from 'sweetalert2'
 
+
 const NavBar2 = (props) => {
   // INICIO Manipuleo para renderizado dinamico de categorias NavBar
   const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
-
+  const [cantProdut, setCantProduct] = useState(0)
+  const producCont = useSelector(state => state.carritoMain.carritoUser)
+  useEffect(()=>{
+    setCantProduct(localStorage.getItem("carrito")?.split(" ")?.length)
+  },[producCont])
+  
+ 
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
@@ -124,14 +131,14 @@ const NavBar2 = (props) => {
         <div className="boxCup">
         <img
                   className="logoContact"
-                  src={process.env.PUBLIC_URL + `../img/email.png`}
+                  src={process.env.PUBLIC_URL + `/img/email.png`}
                 />
                 <p className="contact">reactsports2022@gmail.com</p>
         </div>
         <div className="boxCup">
         <img
                   className="logoContact"
-                  src={process.env.PUBLIC_URL + `../img/telefono.png`}
+                  src={process.env.PUBLIC_URL + `/img/telefono.png`}
                 />
                 <p className="contact">0800 754 (1568)</p>
         </div>
@@ -143,14 +150,14 @@ const NavBar2 = (props) => {
         <div className="boxCup">
         <img
                   className="logoContact"
-                  src={process.env.PUBLIC_URL + `../img/whatsapp.png`}
+                  src={process.env.PUBLIC_URL + `/img/whatsapp.png`}
                 />
                 <p className="contact">+541163589647</p>
         </div>
         <div className="boxCup">
                 <img
                   className="logoContact"
-                  src={process.env.PUBLIC_URL + `../img/ubicacion.png`}
+                  src={process.env.PUBLIC_URL + `/img/ubicacion.png`}
                 />
                 <p className="contact">308 North Garden USA</p>
           
@@ -170,7 +177,7 @@ const NavBar2 = (props) => {
               <LinkRouter to="/home" className="linkResponsive">
                 <img
                   className="logoReactSports"
-                  src={process.env.PUBLIC_URL + `../img/Logo_react_final.png`}
+                  src={process.env.PUBLIC_URL + `/img/Logo_react_final.png`}
                 />
               </LinkRouter>
             </Typography>
@@ -216,7 +223,7 @@ const NavBar2 = (props) => {
                       >
                         <p className="pDropdown">CATEGORY <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                       </IconButton>
                     </Tooltip>
@@ -253,7 +260,7 @@ const NavBar2 = (props) => {
                       <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
                         <p className="pDropdown">SPORT <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                       </IconButton>
                     </Tooltip>
@@ -290,7 +297,7 @@ const NavBar2 = (props) => {
                       <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
                         <p className="pDropdown">GENDER <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                       </IconButton>
                     </Tooltip>
@@ -327,7 +334,7 @@ const NavBar2 = (props) => {
                       <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
                         <p className="pDropdown">BRAND <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                       </IconButton>
                     </Tooltip>
@@ -372,7 +379,7 @@ const NavBar2 = (props) => {
               <LinkRouter to="/home">
               <img
                 className="logoReactSports"
-                src={process.env.PUBLIC_URL + `../img/Logo_react_final.png`}
+                src={process.env.PUBLIC_URL + `/img/Logo_react_final.png`}
               />
               </LinkRouter>
             </Typography>
@@ -388,7 +395,7 @@ const NavBar2 = (props) => {
                     <IconButton onClick={handleOpenCategoryMenu} sx={{ p: 0 }}>
                       <p className="pDropdown">CATEGORY <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                     </IconButton>
                   </Tooltip>
@@ -425,7 +432,7 @@ const NavBar2 = (props) => {
                     <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
                       <p className="pDropdown">SPORT <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                     </IconButton>
                   </Tooltip>
@@ -462,7 +469,7 @@ const NavBar2 = (props) => {
                     <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
                       <p className="pDropdown">GENDER <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                     </IconButton>
                   </Tooltip>
@@ -499,7 +506,7 @@ const NavBar2 = (props) => {
                     <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
                       <p className="pDropdown">BRAND <img
                   className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `../img/flechaDropdown.png`}
+                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
                 /></p>
                     </IconButton>
                   </Tooltip>
@@ -535,9 +542,11 @@ const NavBar2 = (props) => {
               <Tooltip title="Open shopping cart">
                 <IconButton onClick={handleOpenCarritoMenu} sx={{ p: 0 }}>
                   <img
-                    src={process.env.PUBLIC_URL + `../img/carrito.png`}
+                    src={process.env.PUBLIC_URL + `/img/carrito.png`}
                   />
-                  <p>0</p>
+                  {localStorage.getItem("carrito") !==null 
+                  ? <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProdut}</p>
+                  : <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>0</p>}
                 </IconButton>
               </Tooltip>
               <Menu
@@ -577,7 +586,7 @@ const NavBar2 = (props) => {
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {!props.user ? (
                   <img
-                  src={process.env.PUBLIC_URL + `../img/user.png`}
+                  src={process.env.PUBLIC_URL + `/img/user.png`}
                 /> 
                   ) : (
                     <img

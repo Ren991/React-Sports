@@ -6,6 +6,7 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import {mantenerEstado} from '../../redux/carrito/carrito'
 
 function CheckOut(props) {
+    const cambio = useSelector(state => state.carritoMain.reload)
     const todosLosProductos = useSelector(state => state.productosMain.products)
     const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
     const [renderProd, setRenderProd] = useState()
@@ -21,7 +22,13 @@ function CheckOut(props) {
         dispatch(mantenerEstado(estado))
         }
     }, []) 
-    /* [1, 2, 5, 10].map(a=> ()=>{return a}) */
+    useEffect(() => {
+        const estado = localStorage.getItem("carrito")
+        dispatch(mantenerEstado(estado))
+        
+    }, [cambio]) 
+    
+    
     
         const productoss = producAddRenderID?.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId))
         /* producAddRenderID.map(oneId=> todosLosProductos.find(producto=>producto._id === oneId)) */
@@ -36,16 +43,15 @@ function CheckOut(props) {
     const productos = productosEnArray  // logica repetidos
     productosAMostar = [...productos]
      */
-
+    const clear = () =>{
+        localStorage.removeItem("carrito");
+        dispatch(mantenerEstado(""))
+    }
 
     return (
 
-        <main id="main">
-
+        <main id="main">    
             <section id='general'>
-                {/*                 <div >
-                    <div >
-                        <div > */}
                 <div >
 
 
@@ -54,7 +60,7 @@ function CheckOut(props) {
                             <tr>
                                 <th>Producto</th>
                                 <th>Precio</th>
-                                <th>Cantidad</th>
+                                {/* <th>asdasd</th> */}
                             </tr>
                        
                         </thead>
@@ -65,10 +71,7 @@ function CheckOut(props) {
                         }
                     </table>
                 </div>
-                {/*                        </div>
-                    </div>
-                </div> */}
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
+                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" onClick={clear}>Clear</button></div>
 
             </section>
 
