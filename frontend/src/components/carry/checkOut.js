@@ -35,10 +35,10 @@ function CheckOut(props) {
         productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
     })
 
-    var [productosAMostar, setProductosAMostar] = useState([])
+    const productosAMostar = useSelector(state => state.carritoMain.carritoUser)
 
-    const productos = new Set(productosEnArray);
-    productosAMostar = [...productos]
+    /*     const productos = new Set(productosEnArray);
+        productosAMostar = [...productos] */
     console.log(productosAMostar);
 
 
@@ -63,7 +63,7 @@ function CheckOut(props) {
                         </thead>
                         <TableTwo />
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosAMostar={setProductosAMostar} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} productsUser={productsUser} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} productsUser={productsUser} />)}
                     </table>
                 </div>
                 {/*                        </div>
@@ -76,8 +76,8 @@ function CheckOut(props) {
             <div id="CarritoDetalle">
 
             </div>
-            <div>
-                <Paypal /* productosAMostar={productosAMostar} */ />
+            <div style={{ width: "50%" }}>
+                <Paypal productosAMostar={productosAMostar} />
             </div>
 
 

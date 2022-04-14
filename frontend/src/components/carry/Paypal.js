@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import generateStore from '../../redux/store'
-import { addOneProduc } from '../../redux/carrito/carrito';
+import { getTotal } from '../../redux/reducers/cartReducer';
 
 export default function PayPal(props) {
     const carritoUser = props.productosAMostar
     const [success, setSuccess] = useState(false);
     const [orderID, setOrderID] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
-
+    console.log(carritoUser);
     console.log(1, orderID);
     console.log(2, success);
     console.log(3, ErrorMessage);
@@ -26,13 +26,12 @@ export default function PayPal(props) {
         intent: "capture",
 
     };
-    /*     let productsId = carritoUser.map(items => items.id)
-        //mapeo de id de productos
-    
-    
-        console.log(productsId) //para que????
-    
-     */
+    let productsId = carritoUser.map(items => items.id)
+    //mapeo de id de productos
+
+
+    console.log(productsId) //para que????
+
 
     const createANewOrder = (data, actions) => {
 
@@ -44,7 +43,7 @@ export default function PayPal(props) {
                 {
                     description: "items",
                     amount: {
-                        value: addOneProduc(carritoUser),
+                        value: getTotal(carritoUser),
                     },
 
                 },
@@ -134,9 +133,6 @@ export default function PayPal(props) {
                 }
             }] */
             ////////////////////////////////////////////
-
-
-
 
 
         });
