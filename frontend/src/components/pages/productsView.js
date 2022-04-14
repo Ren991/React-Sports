@@ -14,11 +14,12 @@ function ProductsView() {
   const [filterSelected] = Object.keys(useParams());
   const [filterValue] = Object.values(useParams());
   const filteredProducts = [];
-
+  const {brand}= useParams()
+  /* console.log(brand) */
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
-
+  /* console.log("hola") */
   switch (filterSelected) {
     case "brand":
       filteredProducts.push(
@@ -47,7 +48,7 @@ function ProductsView() {
   // console.log(allProducts.filter(element => element.gender == filterValue))
   // filteredProducts.push(allProducts.filter(element => element.gender == filterValue))
   //TO_DO__COMO EVITAR QUE SE GENERE UN ARRAY CON UNA UNICA POSICION QUE CONTIENE EL ARRAY FILTRADO???
-  // console.log(filteredProducts[0])
+ 
 
   return (
     <main>

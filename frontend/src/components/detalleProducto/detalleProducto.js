@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 import productsActions from "../../redux/actions/productsActions";
 
+import AddProduct from "./AddProduct"
 function DetalleProducto(props) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   console.log(useParams())
@@ -30,11 +31,7 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
-            <Link to="/">
-              <a>HOME</a>
-            </Link>
-            <p> > </p>
-            <p>{currentProduct?.productName?.toUpperCase()}</p>
+            <p>{currentProduct.productName}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
             {<img
@@ -65,15 +62,9 @@ function DetalleProducto(props) {
               )}
             </div>
             <div className="headerProducto">
-              <h2 className="productName">{currentProduct?.productName?.toUpperCase()}</h2>
-              <div className="containerDinero">
-              <h4 className="price">USD ${currentProduct?.price}</h4>
-              </div>
-              <div className="containerMetodosDePago">
-                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/paypal.png"} />
-                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/visa.png"} />
-                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/american_express.png"} />
-              </div>
+              <h2>{currentProduct.productName}</h2>
+              <h3>${currentProduct.price}</h3>
+              <p>{currentProduct.stock}</p>
             </div>
             <div className="colorProducto">
               <p>COLOR:</p>
