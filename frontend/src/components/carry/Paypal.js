@@ -3,12 +3,16 @@ import React, { useEffect, useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import generateStore from '../../redux/store'
 import { getTotal } from '../../redux/reducers/cartReducer';
+import { modificarStock } from "../../redux/productos/productos";
+import { useDispatch } from "react-redux";
 
 export default function PayPal(props) {
     const carritoUser = props.productosAMostar
     const [success, setSuccess] = useState(false);
     const [orderID, setOrderID] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
+    const dispatch = useDispatch
+
     console.log(carritoUser);
     console.log(1, orderID);
     console.log(2, success);
@@ -149,9 +153,15 @@ export default function PayPal(props) {
                 setSuccess(true);
                 console.log('Capture result', details, JSON.stringify(details, null, 2));
                 var transaction = details.purchase_units[0].payments.captures[0];
-                alert('Transaction ' + transaction.status + ': ' + transaction.id + 'See console for all available details');
+                alert('Transaction ' + transaction.status + ': ' + transaction.id + 'See your mail for details');
                 console.log(details)
                 setOrderID(transaction.id)
+                const compraVerificada = details.purchase_units[0].payments.captures[0].status
+                console.log(compraVerificada)
+                console.log(carritoUser);
+                if (compraVerificada == "COMPLETED") {
+                    carritoUser.map((x) => dispatch(modificarStock(x._id, (x.stock - 1))))
+                }
             });
     };
 

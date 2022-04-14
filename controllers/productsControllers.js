@@ -1,3 +1,4 @@
+const { response } = require('express');
 const { ObjectId } = require('mongodb');
 const Products = require('../models/products')
 
@@ -91,14 +92,39 @@ const productsControllers = {
             .catch(error => response.json({ paso: "no existe", error }))
     },
     // tipo un string o arraY?,
+    /*     modifyProduct: async (req, res) => {
+            const id = req.params.id
+            const ProductsLocal = req.body
+            console.log(id)
+            console.log(ProductsLocal);
+    
+            var productLocal
+            productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
+                .then((response) => res.json({ paso: "listo", respuesta: response }))
+                .then((response) => console.log(response))
+                .catch(error => res.json({ error }))
+        }, */
     modifyProduct: async (req, res) => {
-        const id = req.params.id
-        const ProductsLocal = req.body
+        console.log(req.body)
 
-        var productLocal
-        productLocal = await Products.findOneAndUpdate({ _id: id }, ProductsLocal, { new: true })
-            .then((response) => res.json({ paso: "listo", respuesta: response }))
-            .catch(error => res.json({ error }))
+        try {
+            const modifiedProduct = await Products.findOneAndUpdate(
+                { "products._id": req.params.id },
+                { $set: req.body },
+                { new: true }
+            );
+            res.json({
+                success: true,
+                response: { modifiedProduct },
+                message: "Your product has been modified",
+            });
+        } catch (error) {
+            console.log(error);
+            res.json({
+                success: true,
+                message: "Something went wrong please try again in a few seconds",
+            });
+        }
     },
     /*   seeProductForId: async (require, response) => {
           const id = require.params.id
