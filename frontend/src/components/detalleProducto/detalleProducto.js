@@ -27,16 +27,11 @@ function DetalleProducto(props) {
   async function addCart(event) {
     props.addToCart(event.target.id);
   }
-<<<<<<< HEAD
   //boton addWilson
   const scremProduc= (oneID)=>{    
        
     dispatch(addOneProduc(oneID))
   } 
-=======
-
-
->>>>>>> f40c40b06fc6e3573737a8f6e2568482d086f6df
   return (
     <div className="mainHtml">
       <div className="contenedorDetalleProducto">
@@ -97,7 +92,6 @@ function DetalleProducto(props) {
               </div>
           </div>
             <div className="detalleProductoCarrito">
-<<<<<<< HEAD
               {currentProduct.stock !== 0 && props.user ? (
                 <>
                   <button id={productId} onClick={addCart}>
@@ -107,14 +101,6 @@ function DetalleProducto(props) {
                     addWilson
                   </button>
                 </>
-=======
-              {currentProduct?.stock !== 0 && props.user ? (
-                <button className="botonAgregarAlCarrito" id={productId} onClick={addCart}>
-                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/carritoBlanco.png"} />
-                  <p className="addToCart">ADD TO CART</p>
-                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />
-                </button>
->>>>>>> f40c40b06fc6e3573737a8f6e2568482d086f6df
               ) : (
                 <></>
               )}
