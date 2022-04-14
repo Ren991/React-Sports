@@ -3,8 +3,8 @@ import '../../styles/checkOut.css'
 
 var articulo = []
 export default function Table(props) {
-    console.log(props.productos);
-    const productos = props.productos
+    /* console.log(props.onePro); */
+   /*  const productos = props.productos
     var productosLocalStorage = props.productosDeLocalStorage
 
     console.log(typeof productos);
@@ -81,44 +81,44 @@ export default function Table(props) {
         props.setReload(!props.reload)
     }
 
-
+ */
     return (
         <tbody id='cuerpo'>
             <tr>
                 <td id='nombreProducto'>
                     <div >
-                        <img id='imagenProducto' src={process.env.PUBLIC_URL + `/img/productImages/${productos.image}`} />
+                        <img id='imagenProducto' src={process.env.PUBLIC_URL + `/img/productImages/${props.onePro?.image}`} />
                     </div>
                     <div>
-                        <h6>{productos.productName}</h6>
-                        <h5 id="id">$ {productos.price}</h5>
+                        <h6>{props.onePro?.productName}</h6>
+                        <h5 id="id">$ {props.onePro?.price}</h5>
                     </div>
                 </td>
                 <td >
                     <div >
                         <div >
-                            <input id='input' type="string" value={(productos.price * contador)} />
+                            {/* <input id='input' type="string" value={(props.onePro.price * contador)} /> */}
                         </div>
                     </div>
                 </td>
                 <td className='botonera2'>
 
-                    <button className='restaSuma' onClick={(() => (Resta(productos._id)))}>
+                    {/* <button className='restaSuma' onClick={(() => (Resta(props.onePro._id)))}>
                         -
-                    </button>
+                    </button> */}
                 </td>
-                <td className='botonera2'>
+                {/* <td className='botonera2'>
                     {contador}
-                </td>
+                </td> */}
                 <td className='botonera2'>
-                    <button className='restaSuma' onClick={(() => (Suma(productos._id)))} >
+                    {/* <button className='restaSuma' onClick={(() => (Suma(productos._id)))} >
                         +
-                    </button>
+                    </button> */}
                 </td>
                 <td className='botonera2'>
-                    <button className='restaSuma' onClick={(() => (remove(productos._id)))}>
+                    {/* <button className='restaSuma' onClick={(() => (remove(productos._id)))}>
                         x
-                    </button>
+                    </button> */}
 
                 </td>
             </tr>

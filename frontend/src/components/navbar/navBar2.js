@@ -536,6 +536,7 @@ const NavBar2 = (props) => {
                   <img
                     src={process.env.PUBLIC_URL + `../img/carrito.png`}
                   />
+                  <p>1</p>
                 </IconButton>
               </Tooltip>
               <Menu
