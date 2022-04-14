@@ -7,7 +7,11 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.0",
     "@mui/material": "^5.6.0",
+<<<<<<< HEAD
     "animate.css": "^4.1.1",
+=======
+    "@paypal/react-paypal-js": "^7.6.0",
+>>>>>>> b47edcc953a52ff3cb55e2e70e43863a02db9496
     "antd": "^4.19.5",
     "axios": "^0.26.1",
     "bootstrap": "^5.1.3",

@@ -14,6 +14,7 @@ import SignUp from './components/login/signUp'
 import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
+<<<<<<< HEAD
 import MySnackbar from './components/snackbar/snackbar'
 import {mantenerEstado} from './redux/carrito/carrito'
 function App(props) {
@@ -21,6 +22,19 @@ function App(props) {
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       
+=======
+import Header from './components/header/Header'
+import { carrryInitial } from './redux/carrito/carrito'
+
+function App(props) {
+
+  const dispatch = useDispatch
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      /*       const cart = JSON.parse(localStorage.getItem("cart"))
+            dispatch(carrryInitial(cart)) */
+>>>>>>> b47edcc953a52ff3cb55e2e70e43863a02db9496
       const token = localStorage.getItem('token')
       props.verifyToken(token)
 
@@ -31,9 +45,18 @@ function App(props) {
   }, [])
 
 
+  useEffect(() => {
+    if (localStorage.getItem('cart') !== null) {
+      const cart = localStorage.getItem('cart')
+      props.verifyToken(cart)
+    }
+  }, [])
+
+
   return (
     <>
       <BrowserRouter>
+<<<<<<< HEAD
         <NavBar2/>
         <MySnackbar/>
         <Routes>
@@ -48,9 +71,24 @@ function App(props) {
           <Route path="/brands/:brand" element={<ProductsView />}/>
           <Route path="/gender/:gender" element={<ProductsView />}/>
           <Route path="/type/:type" element={<ProductsView />}/>
+=======
+        {/* <NavBar2/> */}
+        <Header />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="*" element={<Home />} />
+          <Route path="/productDetail/:id" element={<DetalleProducto />} />
+          {props.user?.isAdmin && <Route path="/adminView" element={<AdminView />} />}
+          <Route path="/brands" element={<BrandsView />} />
+          <Route path="/sports" element={<SportsView />} />
+          <Route path="/sports/:sport" element={<ProductsView />} />
+          <Route path="/brands/:brand" element={<ProductsView />} />
+          <Route path="/gender/:gender" element={<ProductsView />} />
+          <Route path="/type/:type" element={<ProductsView />} />
+>>>>>>> b47edcc953a52ff3cb55e2e70e43863a02db9496
           <Route path="/checkout" element={<CheckOut />} />
-          {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
-          {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
+          {!props.user && <Route path="/signUp" element={<SignUp />} />}
+          {!props.user && <Route path="/signIn" element={<SignIn />} />}
         </Routes>
         <Footer />
       </BrowserRouter>

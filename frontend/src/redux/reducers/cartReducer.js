@@ -2,21 +2,30 @@ const initialState = {
     cart: [],
 }
 
-const cartReducer = (state = initialState, action)=>{
+export const cartReducer = (state = initialState, action) => {
 
-    switch(action.type){
+    switch (action.type) {
         case 'ADD':
             let cart = [...state.cart]
             cart.push(action.payload)
-            return{
+            return {
                 ...state,
                 cart,
             }
-        
+
         default:
-            return state    
+            return state
     }
 
+
+}
+
+
+export const getTotal = (carritoUser) => {
+    console.log(carritoUser);
+    let Total = carritoUser?.reduce((amount, item) => item.price + amount, 0);
+    console.log(Total);
+    return Total;
 
 }
 
