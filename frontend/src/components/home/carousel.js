@@ -21,7 +21,7 @@ function Carousel() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -38,10 +38,10 @@ function Carousel() {
             <img className="imgCarousel" src={process.env.PUBLIC_URL+ `../img/imagen_carousel_messi.png`}/>
         </SwiperSlide>
         <SwiperSlide>
-            <img className="imgCarousel qatar"  src= {process.env.PUBLIC_URL+ `../img/qatar2022.png`} /> 
+            <img className="imgCarousel coreanos"  src= {process.env.PUBLIC_URL+ `../img/coreanos.jpg`} /> 
         </SwiperSlide>
         <SwiperSlide>
-            <img className="imgCarousel" src="https://www.gameit.es/wp-content/uploads/2022/03/Reebok.jpg"/>
+            <img className="imgCarousel" src="https://media.revistagq.com/photos/615488cc313fc2aeb540ea88/master/w_1600,c_limit/S221_SELL_IN_ML574BA2_Pack_KeyVisual_1_17x11_RGB.jpg"/>
         </SwiperSlide>
       </Swiper>
       

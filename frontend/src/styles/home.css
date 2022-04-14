@@ -42,10 +42,10 @@ body{
   }
 
   .imgCarousel{
-     object-position: cover;
+     object-fit: cover;
   }
-  .qatar{
-      object-position:fill;
+  .coreanos{
+      object-position: 10% 25%;
   }
   /*Fin de carousel*/
 
@@ -88,8 +88,8 @@ body{
   }
 
   .productNameCarousel{
-    font-size: 1.2rem;
-    font-family: 'Abel', sans-serif;
+    font-size: 1.7rem;
+    font-family: 'Roboto Condensed', sans-serif;
   }
 
   .productDescriptionCarousel{
@@ -98,7 +98,8 @@ body{
   }
 
   .productPriceCarousel{
-    color: #F93943;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #7e8287; 
   }
 
   .linksCarousel{

@@ -12,60 +12,64 @@ import {addOneProduc} from '../../redux/carrito/carrito'
 function DetalleProducto(props) {
   const dispatch = useDispatch()
   window.scrollTo({ top: 0, behavior: "smooth" });
-  const { id } = useParams();
+  console.log(useParams())
+  const { id, brand } = useParams();
   const productId = id;
   const [reload, setReload] = useState(false);
   const [currentProduct, setCurrentProduct] = useState([]);
 
+  
   useEffect(() => {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
-
+  
+  console.log(currentProduct)
   async function addCart(event) {
     props.addToCart(event.target.id);
   }
+<<<<<<< HEAD
   //boton addWilson
   const scremProduc= (oneID)=>{    
        
     dispatch(addOneProduc(oneID))
   } 
+=======
+
+
+>>>>>>> f40c40b06fc6e3573737a8f6e2568482d086f6df
   return (
     <div className="mainHtml">
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
             <Link to="/">
-              <a>Inicio</a>
+              <a>HOME</a>
             </Link>
-            <p> / </p>
-            <p>{currentProduct.productName}</p>
+            <p> > </p>
+            <p>{currentProduct?.productName?.toUpperCase()}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
-            <img
+            {<img
               className="logoProducto"
-              src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg"
-            />
+              src={process.env.PUBLIC_URL + `/img/${brand}.png`} />}
             <img
               className="fotoProducto"
               src={
                 process.env.PUBLIC_URL +
-                `/img/productImages/${currentProduct.image}`
+                `/img/productImages/${currentProduct?.image}`
               }
             />
-          </div>
-          <div className="detalleProductoContenedorDescripcion">
-            <p>Description: {currentProduct.description}</p>
           </div>
         </div>
         <div className="detalleProductoDerecha">
           <div>
             <div className="ternarioStockProducto">
-              {currentProduct.stock <= 5 ? (
+              {currentProduct?.stock <= 5 ? (
                 <>
-                  {currentProduct.stock == 0 ? (
-                    <h3 className="outOfStock">Out of stock!</h3>
+                  {currentProduct?.stock == 0 ? (
+                    <h3 className="outOfStock">SOLD OUT</h3>
                   ) : (
-                    <h3 className="fewUnitsRemaining">Few units remaining!</h3>
+                    <h3 className="fewUnitsRemaining">FEW UNITS</h3>
                   )}
                 </>
               ) : (
@@ -73,16 +77,27 @@ function DetalleProducto(props) {
               )}
             </div>
             <div className="headerProducto">
-              <h2>{currentProduct.productName}</h2>
-              <h3>${currentProduct.price}</h3>
+              <h2 className="productName">{currentProduct?.productName?.toUpperCase()}</h2>
+              <div className="containerDinero">
+              <h4 className="price">USD ${currentProduct?.price}</h4>
+              </div>
+              <div className="containerMetodosDePago">
+                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/paypal.png"} />
+                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/visa.png"} />
+                <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/american_express.png"} />
+              </div>
             </div>
-            <div className="detallesProducto">
-              <p>Color: N/A</p>
-              <p>Sizes: {currentProduct.size}</p>
+            <div className="colorProducto">
+              <p>COLOR:</p>
+              <div className="circuloColorYSize" style={{backgroundColor:`${currentProduct?.color}`}} ></div>
             </div>
+            <div className="SizeProducto">
+              <p>SIZE:</p>
+              <div className="circuloColorYSize">{currentProduct?.size}</div>
+              </div>
           </div>
-          <div className="contCaritoComprarBack">
             <div className="detalleProductoCarrito">
+<<<<<<< HEAD
               {currentProduct.stock !== 0 && props.user ? (
                 <>
                   <button id={productId} onClick={addCart}>
@@ -92,39 +107,76 @@ function DetalleProducto(props) {
                     addWilson
                   </button>
                 </>
+=======
+              {currentProduct?.stock !== 0 && props.user ? (
+                <button className="botonAgregarAlCarrito" id={productId} onClick={addCart}>
+                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/carritoBlanco.png"} />
+                  <p className="addToCart">ADD TO CART</p>
+                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />
+                </button>
+>>>>>>> f40c40b06fc6e3573737a8f6e2568482d086f6df
               ) : (
                 <></>
               )}
             </div>
             <div className="divGoToCartOrContinueShopping">
-              {currentProduct.stock !== 0 ? (
+              {currentProduct?.stock !== 0 ? (
                 <>
                   <Link
                     to="/checkout"
-                    // className="linkResponsive userButton"
-                    // onClick={SignOut}
+                    className="contenedorComprarAhora"
                   >
-                    <button>Proceed to check out</button>
+                    <button className="botonComprarAhora">
+                    <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/bolsa.png"} />
+                      <p className="addToCart">BUY NOW</p>
+                      <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />  
+                      </button>
                   </Link>
-                  <p>or</p>
-                  <button onClick={() => window.history.back()}>Go back</button>
+                  <button className="botonAtras" onClick={() => window.history.back()}><img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/atras.png"} /></button>
                 </>
               ) : (
-                <button onClick={() => window.history.back()}>Go Back</button>
+                <button className="botonAtras" onClick={() => window.history.back()}><img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/atras.png"} /></button>
               )}
             </div>
-            <>
+            <div className="containerAdmin">
               {/* TO_DO__cambiar condicion ""=== true" PARA QUE SOLO SEA VISIBLE A ADMIN */}
               {props.user?.isAdmin === true && (
                 <>
-                <Link to={`/adminView/${productId}`}>
-                  <button>Take to CRUD (Admin View)</button>
+                <Link className="rutaAdmin" to={`/adminView/${productId}`}>
+                  <button className="botonAdmin">
+                    <p className="tittleAdmin">ADMIN ACTIONS</p>
+                    <img src={process.env.PUBLIC_URL + "/img/cargar_producto.png"} /> 
+                    <img src={process.env.PUBLIC_URL + "/img/eliminar_producto.png"} /> 
+                    <img src={process.env.PUBLIC_URL + "/img/editar_producto.png"} /> 
+                    </button>
                 </Link>
                 </>
               )}
-            </>
-          </div>
+            </div>
+            <div className="containerEnvios">
+              <div className="containerTextoEnvios">
+                <div className="camionYTitulo">
+                  <img src={process.env.PUBLIC_URL + "/img/camion.png"} /> 
+                  <p>FREE SHIPING TO ANY STATE</p>
+                </div>
+                  <h4 className="precioEnvio">ON ORDERS OVER $59.99</h4>
+              </div>
+            </div>
         </div>
+      </div>
+      <div className="contenedorDescripcionProducto">
+        <div className="contenedorDescriptionIzquierdo">
+          <div className="description">
+          <p>DESCRIPTION:</p>
+          <h4 className="precioEnvio">{currentProduct?.description}</h4>
+
+          </div>
+
+        </div>
+        <div className="contenedorDescriptionDerecho">
+
+        </div>
+
       </div>
     </div>
   );

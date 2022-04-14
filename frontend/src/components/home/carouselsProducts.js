@@ -28,17 +28,40 @@ function CarouselProducts(props) {
   console.log(allProducts)
   //Productos mas vendidos --> 5 o menos || 
   const bestSeller = allProducts.filter(product => product.stock < 7) //Modificar stock base de datos
-  console.log(bestSeller)
-
-  const basquetBall = allProducts.filter(product=>product.sport==="Basketball" )
-  console.log(basquetBall)
-
- 
+  const Qatar = allProducts.filter(product=>product.type==="Qatar 2022" )
    
   return (
     <div className="containerCarouselProducts">
     <div style={{marginTop:15}} className="carouselProducts">
       <p style={{textAlign:"center"}} className="tittlesCarouselProducts">BEST SELLER PRODUCTS</p>
+       <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        slidesPerGroup={3}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiperProducts"
+      >
+        
+        {bestSeller.map((product, index) => (
+          <SwiperSlide key="index" className="carouselProductsSlide">
+            <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
+            <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
+            <h2 className="productNameCarousel">{product.productName.toUpperCase()}</h2>
+            <h3 className="productPriceCarousel">${product.price}</h3>
+            </Link>
+          </SwiperSlide>
+           
+        ))}
+
+        
+      </Swiper>
+    </div>
+      <div style={{marginTop:15}} className="carouselProducts" >
+
+      <p style={{textAlign:"center"}} className="tittlesCarouselProducts">FIFA WORLD CUP QATAR 2022</p>
        <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -53,43 +76,12 @@ function CarouselProducts(props) {
         className="mySwiperProducts"
       >
         
-        {bestSeller.map((product, index) => (
+        {Qatar.map((product, index) => (
           <SwiperSlide key="index" className="carouselProductsSlide">
             <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
             <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
-            <p className="productNameCarousel">{product.productName}</p>
-            <p className="productPriceCarousel">${product.price}</p>
-            </Link>
-          </SwiperSlide>
-           
-        ))}
-
-        
-      </Swiper>
-    </div>
-      <div style={{marginTop:15}} className="carouselProducts" >
-
-      <p style={{textAlign:"center"}} className="tittlesCarouselProducts">BASQUETBALL</p>
-       <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
-        slidesPerGroup={4}
-        loop={true}
-        loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiperProducts"
-      >
-        
-        {basquetBall.map((product, index) => (
-          <SwiperSlide key="index" className="carouselProductsSlide">
-            <img className="imageProductsCarousel" src={process.env.PUBLIC_URL +`/img/productImages/${product.image}`} />
-            <Link to={`/productDetail/${product._id}`} productInfo={product} className="linksCarousel">
-            <p className="productNameCarousel">{product.productName}</p>
-            <p className="productPriceCarousel">${product.price}</p>
+            <h2 className="productNameCarousel">{product.productName}</h2>
+            <h3 className="productPriceCarousel">${product.price}</h3>
             </Link>
           </SwiperSlide>
            

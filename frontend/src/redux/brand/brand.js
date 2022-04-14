@@ -27,9 +27,9 @@ const URLB = "http://localhost:4000/api"
 const GET_ALL_BRAND = "GET_ALL_BRAND"
 
 
-export const getAllbrand = (brand) => async (dispatch, getState) => {
+export const getAllbrand = () => async (dispatch, getState) => {
     /* console.log(brand) */
-    const res = await axios.get(URLB + "/allBrand/",{brand})
+    const res = await axios.get(URLB + "/allBrand")
     /* console.log(res); */
     const brandAll = res.data.respuesta.brandLocal
    

@@ -68,6 +68,7 @@ const productsControllers = {
 
 
 
+        /* ProductsLocal = await Products.findOne({ _id: id }).populate('brand') */
         ProductsLocal = await Products.findOne({ _id: id })
             .then((res) => response.json({ paso: "producto encontrado", respuesta: res }))
             .catch(error => response.json({ paso: "no existe", error }))
