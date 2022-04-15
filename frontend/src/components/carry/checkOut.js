@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/checkOut.css'
-import Table from './table'
 import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
 
@@ -9,14 +8,16 @@ import Paypal from './Paypal'
 
 var localStorageID = []
 var productosEnArray = []
-const productosAMostar = []
+var productosAMostar = []
+var productosBaseDeDatos = []
+var producAddRenderIDArray = ""
 
 function CheckOut(props) {
     const cambio = useSelector(state => state.carritoMain.reload)
     const todosLosProductos = useSelector(state => state.productosMain.products)
     const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
     const [renderProd, setRenderProd] = useState()
-    console.log(todosLosProductos)
+
     console.log(producAddRenderID)
     /* console.log(renderProd) */
     const dispatch = useDispatch()
@@ -24,31 +25,40 @@ function CheckOut(props) {
     useEffect(() => {
         dispatch(getAllProducts())
     }, [])
-
+    console.log(todosLosProductos)
+    const productosTotales = new Set(todosLosProductos);
+    productosBaseDeDatos = [...productosTotales]
 
 
     /*     console.log(todosLosProductos); */
 
-    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart")))
+    /*     const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart"))) */
 
     /*     useEffect(() => {
             setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
         }, [reload]) */
-    console.log(productosDeLocalStorage);
-
-    productosDeLocalStorage?.map((id) => {
-        productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
+    if (producAddRenderID.includes(" ") === true) {
+        producAddRenderIDArray = producAddRenderID.split(" ")
+    } else {
+        producAddRenderIDArray = [...producAddRenderID]
+    }
+    console.log(productosBaseDeDatos);
+    console.log(producAddRenderIDArray);
+    producAddRenderIDArray?.forEach((id) => {
+        productosEnArray.push(...productosBaseDeDatos.filter(productos => productos._id == id))
     })
     /*  const renderProd =todosLosProductos.filter(oneIDProd=>producAddRenderID.indexOf(oneIDProd._id) === 1) */
-
-
-    const productosAMostar = useSelector(state => state.carritoMain.carritoUser)
+    /* 
+        const pruductosObject = new Set(productosEnArray); */
+    /*     const productosAMostar = []
+        productosAMostar.push(productosEnArray) */
 
     /*     const productos = new Set(productosEnArray);
         productosAMostar = [...productos] */
+    console.log(productosEnArray);
+    const soloUno = new Set(productosEnArray);
+    productosAMostar = [...soloUno]
     console.log(productosAMostar);
-
-
     return (
 
         <main id="main">
@@ -65,9 +75,9 @@ function CheckOut(props) {
                             </tr>
 
                         </thead>
-                        <TableTwo />
-                        {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} />)}
+                        {<TableTwo productosAMostar={productosAMostar} />}
+                        {/*                         {productosAMostar?.map((productos) =>
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} />)} */}
                     </table>
                 </div>
                 <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
