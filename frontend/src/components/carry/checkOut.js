@@ -3,7 +3,7 @@ import '../../styles/checkOut.css'
 import Table from './table'
 import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import {mantenerEstado} from '../../redux/carrito/carrito'
+
 import { getAllProducts } from '../../redux/productos/productos'
 import Paypal from './Paypal'
 
@@ -19,8 +19,8 @@ function CheckOut(props) {
     console.log(todosLosProductos)
     console.log(producAddRenderID)
     /* console.log(renderProd) */
-    const dispatch = useDispatch() 
-    
+    const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(getAllProducts())
     }, [])
@@ -38,9 +38,9 @@ function CheckOut(props) {
 
     productosDeLocalStorage?.map((id) => {
         productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
-    }) 
-   /*  const renderProd =todosLosProductos.filter(oneIDProd=>producAddRenderID.indexOf(oneIDProd._id) === 1) */
-    
+    })
+    /*  const renderProd =todosLosProductos.filter(oneIDProd=>producAddRenderID.indexOf(oneIDProd._id) === 1) */
+
 
     const productosAMostar = useSelector(state => state.carritoMain.carritoUser)
 
@@ -51,7 +51,7 @@ function CheckOut(props) {
 
     return (
 
-        <main id="main">    
+        <main id="main">
             <section id='general'>
                 <div >
 
@@ -63,14 +63,14 @@ function CheckOut(props) {
                                 <th>Precio</th>
                                 {/* <th>asdasd</th> */}
                             </tr>
-                       
+
                         </thead>
                         <TableTwo />
                         {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} reload={reload} setReload={setReload} productsUser={productsUser} />)}
+                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} />)}
                     </table>
                 </div>
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" onClick={clear}>Clear</button></div>
+                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" >Clear</button></div>
 
             </section>
 
