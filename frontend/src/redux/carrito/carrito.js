@@ -2,14 +2,13 @@
 
 
 const dataInicial = {
-  carritoUser: [],
+  carritoUser:[],
   cantProducts: 0,
-  carritoParcial: []
-
+  estadoCarrito:[]
 }
 
 export default function carritoReducer(state = dataInicial, action) {
-
+  
   switch (action.type) {
     case AGREGAR_PRODUCTO:
       return {
@@ -18,10 +17,10 @@ export default function carritoReducer(state = dataInicial, action) {
         cantProducts: state.carritoUser.length + 1,
         
       }
-    case "Lista_de_ID_productos":
-      return {
+    case MANTENER_ESTADO:
+      return{
         ...state,
-        carritoParcial: action.payload,
+        estadoCarrito: action.payload
 
       }
     default:
@@ -31,16 +30,28 @@ export default function carritoReducer(state = dataInicial, action) {
 
 const AGREGAR_PRODUCTO = "AGREGAR_PRODUCTO"
 const MANTENER_ESTADO = "MANTENER_ESTADO"
-const CAMBIATE_ESTADO = "CAMBIATE_ESTADO"
 export const addOneProduc = (comeProduc) => (dispatch, getState) => {
-  console.log(comeProduc)
-  dispatch({ type: AGREGAR_PRODUCTO, payload: comeProduc })
+        
+       /*  localStorage.setItem("productosID", JSON.stringify([comeProduc]))
+        const total = localStorage.getItem("productosID")
+        const elmentoParseado = JSON.parse(total)
+        console.log(elmentoParseado.length) */
+      /*   const elIDAnterior = localStorage.getItem("carrito") */
+        if(localStorage.getItem("carrito") !==null){
+          const acumular = localStorage.getItem("carrito")
+          localStorage.setItem("carrito", comeProduc+ " " + acumular)
+        }else{
+          localStorage.setItem("carrito", comeProduc)
+        }
+        dispatch({ type: AGREGAR_PRODUCTO, payload: comeProduc})
 
 }
 
-
-export const carrryInitial = (variable) => (dispatch, getState) => {
-  console.log(variable)
-  dispatch({ type: "Lista_de_ID_productos", payload: variable })
+export const mantenerEstado = (unArrayProduct) => (dispatch, getState) => {
+        console.log(unArrayProduct)
+         
+        dispatch({ type: MANTENER_ESTADO, payload: unArrayProduct})
+        
 
 }
+

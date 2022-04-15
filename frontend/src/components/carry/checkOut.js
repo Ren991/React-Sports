@@ -70,7 +70,7 @@ function CheckOut(props) {
                             <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage} />)}
                     </table>
                 </div>
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear" >Clear</button></div>
+                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
 
             </section>
 

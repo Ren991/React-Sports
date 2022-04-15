@@ -11,21 +11,18 @@ const AddProduct = (props) => {
     const [addProduct, setAddProduct] = useState({})
     const [stock, setStock] = useState()
     const dispatch = useDispatch()
+    
     useEffect(()=>{
         setAddProduct(products?.find(unProduct =>unProduct._id === props.id))
-        setStock(props.stock)
+       /*  setStock(props.stock) */
     },[])
+   
     
-         
-    console.log(props.stock)
     const scremProduc= (oneProduc)=>{
-       
-            dispatch(addOneProduc(oneProduc))
-            setStock(stock -1)
             
-        
+            dispatch(addOneProduc(oneProduc._id))
+             
     }
-    
     return ( <button onClick={()=>scremProduc(addProduct)} >
         Add to cart
       </button> );

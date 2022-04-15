@@ -16,9 +16,16 @@ import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 import MySnackbar from './components/snackbar/snackbar'
 import {mantenerEstado} from './redux/carrito/carrito'
+
 function App(props) {
+  const brand =1
   const dispatch = useDispatch()
+  
+  
   useEffect(() => {
+    
+    const estado = localStorage.getItem("carrito") 
+    dispatch(mantenerEstado(estado))
     if (localStorage.getItem('token') !== null) {
       
       const token = localStorage.getItem('token')
@@ -37,8 +44,8 @@ function App(props) {
       props.verifyToken(cart)
     }
   }, [])
-
-
+ 
+  
   return (
     <>
       <BrowserRouter>
