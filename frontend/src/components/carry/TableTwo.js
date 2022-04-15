@@ -7,7 +7,8 @@ const TableTwo = (props) => {
 
     return (
         <tbody id='cuerpo'>
-            {productsUser.map((productos, index) => {
+            {productsUser.length !== 0 ?
+            productsUser?.map((productos, index) => {
                 return (
                     <tr key={index}>
                         <td id='nombreProducto'>
@@ -25,22 +26,6 @@ const TableTwo = (props) => {
                         </td>
 
                         <td className='botonera2'>
-                            <button className='restaSuma'>
-                                -
-                            </button>
-                        </td>
-
-                        <td className='botonera2'>
-                            unContador
-                        </td>
-
-                        <td className='botonera2'>
-                            <button className='restaSuma'>
-                                +
-                            </button>
-                        </td>
-
-                        <td className='botonera2'>
                             <button className='restaSuma' >
                                 x
                             </button>
@@ -48,10 +33,8 @@ const TableTwo = (props) => {
                     </tr>
                 )
             })
-
+            : <p>Please Add an item to the cart</p>
             }
-
-
         </tbody >
     )
 }
