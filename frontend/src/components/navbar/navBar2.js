@@ -22,6 +22,8 @@ import Swal from 'sweetalert2'
 
 
 const NavBar2 = (props) => {
+
+  
   // INICIO Manipuleo para renderizado dinamico de categorias NavBar
   const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
   const allProducts = useSelector((state) => state.productosMain.products);

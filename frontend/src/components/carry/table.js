@@ -87,7 +87,7 @@ const Table = (props) => {
     }
 } */
 
-    var conta = []
+   /*  var conta = []
     function Resta(id) {
         ;
 
@@ -102,7 +102,7 @@ const Table = (props) => {
 
         setContador(conta[0].cantidad)
 
-    }
+    } */
     /* 
         function remove(id) {
             //console.log(id);
@@ -118,55 +118,10 @@ const Table = (props) => {
 
     return (
         <>
-        <tbody id='cuerpo'>
-            <tr>
-                <td id='nombreProducto'>
-                    <div >
-                        <img id='imagenProducto' src={process.env.PUBLIC_URL + `/img/productImages/${props?.onePro?.image}`} />
-                    </div>
-                    <div>
-                        <h6>{props?.onePro?.productName}</h6>
-                        <button id={props.onePro?._id} /* onClick={remove} */>delete</button>
-                    </div>
-                </td> 
-                <td className='botonera2' style={{fontSize:"25px"}}>
-                ${props.onePro?.price}
-                </td>
-                
-                <td >
-                    <div >
-                        <div >
-                            <input id='input' type="string" value={(productos.price * contador)} />
-                        </div>
-                    </div>
-                </td>
-                <td className='botonera2'>
-
-                    <button className='restaSuma' onClick={(() => (Resta(productos._id)))}>
-                        -
-                    </button>
-                </td>
-                <td className='botonera2'>
-                    {contador}
-                </td>
-                <td className='botonera2'>
-                    <button className='restaSuma' onClick={(() => (Suma(productos._id)))} >
-                        +
-                    </button>
-                </td>
-                <td className='botonera2'>
-                    <button className='restaSuma' /* onClick={(() => (remove(productos._id)))} */>
-                        x
-                    </button>
-
-                </td>
-            </tr>
-
-        </tbody >
-        :
-        <tbody>
+       
+        {/* <tbody> */}
             <h2>Empiece su compra</h2>
-        </tbody> 
+        {/* </tbody>  */}
     
    </>
     )
