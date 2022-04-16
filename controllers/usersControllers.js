@@ -259,7 +259,7 @@ const userController = {
     if (user) {
       user.emailVerify = true;
       await user.save();
-      res.redirect("http://localhost:3000/signIn");
+      res.redirect("https://react-sports-5.herokuapp.com/signIn");
     } else {
       res.json({
         success: false,
