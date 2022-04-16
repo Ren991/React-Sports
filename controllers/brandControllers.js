@@ -9,6 +9,7 @@ const brandControllers = {
 
         try {
             brandLocal = await Brand.find()
+            console.log(brandLocal)
         } catch (err) {
             error = err
             console.log(error);

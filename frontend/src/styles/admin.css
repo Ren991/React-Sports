@@ -22,10 +22,12 @@
     text-align:center;
 }
 
-.form-control{
-    margin: 0 !important;
+.currentProduct{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
 }
 
-.color{
-    height: 2.5rem;
+.idBrand{
+    display: flex;
 }

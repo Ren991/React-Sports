@@ -4,27 +4,24 @@ import "../../styles/admin.css";
 import productsActions from "../../redux/actions/productsActions";
 import { searchProductById } from "../../redux/productos/productos";
 import { useParams } from "react-router-dom";
-import 'animate.css';
-
+import "animate.css";
 
 function AdminView(props) {
   //inicio CRUD
 
   const { id } = useParams();
   const productId = id;
-  console.log(productId)
+  console.log(productId);
   const [currentProduct, setCurrentProduct] = useState([]);
 
   useEffect(() => {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
 
-
   function modProduct(event) {
-    console.log(event)
-    event.preventDefault()
-    const idProd = event.target[11].value
-    const toModifyProduct={
+    event.preventDefault();
+    const idProd = event.target[11].value;
+    const toModifyProduct = {
       productName: event.target[0].value,
       type: event.target[1].value,
       sport: event.target[2].value,
@@ -35,17 +32,17 @@ function AdminView(props) {
       price: Number(event.target[7].value),
       genre: event.target[8].value,
       brand: event.target[9].value,
-      size:  event.target[10].value,
-    }
-    console.log(idProd)
-    console.log(toModifyProduct)
-    props.modifyProduct(idProd,toModifyProduct)
+      size: Number(event.target[10].value),
+    };
+    console.log(idProd);
+    console.log(toModifyProduct);
+    props.modifyProduct(idProd, toModifyProduct);
   }
 
   async function delProduct(event) {
     event.preventDefault();
-    const toDeleteProduct = event.target[0].value
-    props.deleteProduct(toDeleteProduct) 
+    const toDeleteProduct = event.target[0].value;
+    props.deleteProduct(toDeleteProduct);
   }
 
   //FIN CRUD
@@ -63,12 +60,13 @@ function AdminView(props) {
       price: Number(event.target[7].value),
       genre: event.target[8].value,
       brand: event.target[9].value,
-      size: Number(event.target[10].value),
+      size: event.target[10].value,
     };
-    props.loadProduct(uploadProduct)
+    props.loadProduct(uploadProduct);
   };
 
   return (
+    <>
     <div className="adminContainer">
       <div>
         <h1 className="titleAdmin animate__backInDown">Admin Section</h1>
@@ -108,7 +106,8 @@ function AdminView(props) {
                     value={productId}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                    />
+                  />
+                  <p></p>
                 </div>
                 <button
                   variant="primary"
@@ -118,7 +117,6 @@ function AdminView(props) {
                 >
                   DELETE PRODUCT
                 </button>
-                <input type="submit" className="submitButton" placeholder="DELETE PRODUCT"/>     
               </form>
             </div>
           </div>
@@ -149,159 +147,196 @@ function AdminView(props) {
           >
             <div className="accordion-body">
               <form onSubmit={modProduct}>
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Product Name
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.productName}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Product name:
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.productName}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">
+                    {currentProduct?.productName}
+                  </p>
                 </div>
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Type
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Type"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.type}</p>
-                </div>
-
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Sport
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.sport}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Type:
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.type}
+                      aria-label="Type"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.type}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Description
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.description}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Sport
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.sport}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.sport}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Color
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.color}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Description
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.description}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">
+                    {currentProduct?.description}
+                  </p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Stock
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.stock}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Color
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.color}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.color}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Image URL
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.image}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Stock
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.stock}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.stock}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Price $
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.price}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Image name (with extension)
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.image}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.image}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Gender
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.genre}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Price
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.price}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                    <p className="currentProduct">{currentProduct?.price}</p>
+                </div>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Gender
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.genre}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                    <p className="currentProduct">{currentProduct?.genre}</p>
                 </div>
 
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Brand ID
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.brand}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Brand "_id"
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.brand}
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.brand}</p>
                 </div>
-
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Size
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="Size"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?.size}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Size:
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?.size}
+                      aria-label="Size"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p className="currentProduct">{currentProduct?.size}</p>
                 </div>
-
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    Product ID
-                  </span>
-                  <p
-                    type="text"
-                    className="form-control"
-                    contentEditable="true"
-                    aria-label="prodID"
-                    aria-describedby="basic-addon1"
-                  >{currentProduct?._id}</p>
+                <div className="input-group mb-3 currentProduct">
+                  <div className="d-flex">
+                    <span className="input-group-text" id="basic-addon1">
+                      Prod ID:
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={currentProduct?._id}
+                      aria-label="prodID"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <p>{currentProduct?._id}</p>
                 </div>
 
                 <button
@@ -496,13 +531,19 @@ function AdminView(props) {
         {/* END OF UPLOAD PRODUCT */}
       </div>
     </div>
+    <div className="idBrand">
+
+      
+
+    </div>
+    </>
   );
 }
 
 const mapDispatchToProps = {
   modifyProduct: productsActions.modifyProduct,
   deleteProduct: productsActions.deleteProduct,
-  loadProduct: productsActions.addProduct
+  loadProduct: productsActions.addProduct,
 };
 // const mapStateToProps = (state) => {
 //   return {

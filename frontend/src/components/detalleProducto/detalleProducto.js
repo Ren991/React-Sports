@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/detalleProducto.css";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { searchProductById } from "../../redux/productos/productos";
 import { Link, useParams } from "react-router-dom";
 import cartAction from "../../redux/actions/cartAction";
 import productsActions from "../../redux/actions/productsActions";
+//carrito logica redux
+import {addOneProduc} from '../../redux/carrito/carrito'
 
+//componente
 function DetalleProducto(props) {
+  const dispatch = useDispatch()
   window.scrollTo({ top: 0, behavior: "smooth" });
   console.log(useParams())
   const { id, brand } = useParams();
@@ -23,8 +27,11 @@ function DetalleProducto(props) {
   async function addCart(event) {
     props.addToCart(event.target.id);
   }
-
-
+  //boton addWilson
+  const scremProduc= (oneID)=>{    
+       
+    dispatch(addOneProduc(oneID))
+  } 
   return (
     <div className="mainHtml">
       <div className="contenedorDetalleProducto">
@@ -88,12 +95,15 @@ function DetalleProducto(props) {
               </div>
           </div>
             <div className="detalleProductoCarrito">
-              {currentProduct?.stock !== 0 && props.user ? (
-                <button className="botonAgregarAlCarrito" id={productId} onClick={addCart}>
-                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/carritoBlanco.png"} />
-                  <p className="addToCart">ADD TO CART</p>
-                  <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />
-                </button>
+              {currentProduct.stock !== 0 && props.user ? (
+                <>
+                 {/*  <button id={productId} onClick={addCart}>
+                    Add to cart
+                  </button> */}
+                  <button id={productId} onClick={()=>scremProduc(id)}>
+                    addWilson
+                  </button>
+                </>
               ) : (
                 <></>
               )}

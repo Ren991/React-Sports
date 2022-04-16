@@ -146,6 +146,13 @@
   justify-content: center;
   color: #000;
 }
+.menu-items-navbar{
+  text-decoration: none !important;
+}
+.menu-items-navbar a{
+  text-decoration: none !important;
+  border: 1px solid black;
+}
 
 @media (max-width: 400px) { 
   .boxCounter{

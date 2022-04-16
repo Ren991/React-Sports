@@ -3,7 +3,7 @@ import NavBar2 from './components/navbar/navBar2'
 import Footer from './components/footer/Footer'
 import './styles/cardsView.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Home from './components/pages/home';
 import DetalleProducto from './components/detalleProducto/detalleProducto'
 import BrandsView from './components/pages/brandsView'
@@ -15,17 +15,37 @@ import userAction from './redux/actions/userAction';
 import CheckOut from './components/carry/checkOut';
 import AdminView from './components/pages/admin'
 import MySnackbar from './components/snackbar/snackbar'
+import {mantenerEstado} from './redux/carrito/carrito'
 
 function App(props) {
+  const brand =1
+  const dispatch = useDispatch()
+  
   
   useEffect(() => {
+    
+    const estado = localStorage.getItem("carrito") 
+    dispatch(mantenerEstado(estado))
     if (localStorage.getItem('token') !== null) {
+      
       const token = localStorage.getItem('token')
       props.verifyToken(token)
+
+
+      const estado = localStorage.getItem("carrito") 
+      dispatch(mantenerEstado(estado))
     }
   }, [])
 
 
+  useEffect(() => {
+    if (localStorage.getItem('cart') !== null) {
+      const cart = localStorage.getItem('cart')
+      props.verifyToken(cart)
+    }
+  }, [])
+ 
+  
   return (
     <div>
       <BrowserRouter>
@@ -49,8 +69,8 @@ function App(props) {
           <Route path="/gender/:gender" element={<ProductsView />}/>
           <Route path="/type/:type" element={<ProductsView />}/>
           <Route path="/checkout" element={<CheckOut />} />
-          {!props.user &&<Route path="/signUp" element={<SignUp/>}/>}
-          {!props.user &&<Route path="/signIn" element={<SignIn/>}/>} 
+          {!props.user && <Route path="/signUp" element={<SignUp />} />}
+          {!props.user && <Route path="/signIn" element={<SignIn />} />}
         </Routes>
         <Footer />
       </BrowserRouter>
