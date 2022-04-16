@@ -30,16 +30,19 @@ function DetalleProducto(props) {
       <div className="contenedorDetalleProducto">
         <div className="detalleProductoIzquierda">
           <div className="detalleProductoContenedorRuta">
+              <button className="botonAtras" onClick={() => window.history.back()}><img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/atras.png"} /></button> 
             <Link to="/">
               <a>HOME</a>
             </Link>
-            <p> > </p>
+            <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />  
             <p>{currentProduct?.productName?.toUpperCase()}</p>
           </div>
           <div className="detalleProductoContenedorFotosProductos">
+            <div className="contenedorLogoProducto">
             {<img
               className="logoProducto"
               src={process.env.PUBLIC_URL + `/img/${brand}.png`} />}
+              </div>
             <img
               className="fotoProducto"
               src={
@@ -96,7 +99,7 @@ function DetalleProducto(props) {
               )}
             </div>
             <div className="divGoToCartOrContinueShopping">
-              {currentProduct?.stock !== 0 ? (
+              {currentProduct?.stock !== 0 && props.user ? (
                 <>
                   <Link
                     to="/checkout"
@@ -108,10 +111,9 @@ function DetalleProducto(props) {
                       <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />  
                       </button>
                   </Link>
-                  <button className="botonAtras" onClick={() => window.history.back()}><img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/atras.png"} /></button>
                 </>
-              ) : (
-                <button className="botonAtras" onClick={() => window.history.back()}><img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/atras.png"} /></button>
+              ): (
+                <></>
               )}
             </div>
             <div className="containerAdmin">

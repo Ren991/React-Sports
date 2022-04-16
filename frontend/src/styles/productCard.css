@@ -117,7 +117,7 @@
   align-items: center;
   justify-content: center;
   transition: 1s;
-  z-index: 10;
+  z-index: 1;
 }
 
 .container .card:hover .contentBx{
@@ -126,7 +126,7 @@
   align-items: center;
   justify-content: center;
   height: 210px;
-  bottom: 0%;
+  bottom: 3%;
 }
 
 .container .card .contentBx h2{

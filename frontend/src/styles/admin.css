@@ -21,3 +21,11 @@
     margin-top: 1rem;
     text-align:center;
 }
+
+.form-control{
+    margin: 0 !important;
+}
+
+.color{
+    height: 2.5rem;
+}

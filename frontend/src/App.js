@@ -27,9 +27,14 @@ function App(props) {
 
 
   return (
-    <>
+    <div>
       <BrowserRouter>
         <NavBar2/>
+        <div className='containerWhatsappButton'>
+        <a href="https://web.whatsapp.com/">
+        <img className='whatsappButton' src={process.env.PUBLIC_URL + "/img/whatsappButton.png"} />
+        </a>
+        </div>
         <MySnackbar/>
         <Routes>
           <Route path="/home"  element={<Home />}/> 
@@ -49,9 +54,7 @@ function App(props) {
         </Routes>
         <Footer />
       </BrowserRouter>
-
-
-    </>
+    </div>
   );
 }
 

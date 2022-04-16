@@ -22,7 +22,7 @@ function GoogleSignUp(props) {
     return (
         <GoogleLogin
             className="buttonsocial"
-            clientId="230062005644-9ssbcia4jg6pn5v8dctpb8tv6f4fvk8v.apps.googleusercontent.com"
+            clientId="551525785233-6brk2jcbjhp7mk2vrs4qltimicqik0n0.apps.googleusercontent.com"
             buttonText="Sign Up with Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}

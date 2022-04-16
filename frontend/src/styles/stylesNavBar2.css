@@ -9,7 +9,8 @@
 
 .userImage{
   width: 2rem !important;
-  border-radius: 100px;
+  height: 2rem !important;
+  border-radius: 50% !important;
 }
 
 .containerContacts{
@@ -36,7 +37,12 @@
 
 .boxNavBar{
   background-color: white !important;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+  position: sticky !important;
+  z-index: 2;
+  top: 0px !important;
 }
+
 
 /* Nav responsive */
 .linkResponsive{
@@ -114,7 +120,7 @@
   height: 2.8rem;
   padding: 0 1rem;
   background-color: #F93943;
-  z-index: 1;
+  z-index: 3;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;

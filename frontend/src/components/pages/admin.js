@@ -19,9 +19,9 @@ function AdminView(props) {
     searchProductById(productId).then((res) => setCurrentProduct(res.response));
   }, []);
 
- 
 
   function modProduct(event) {
+    console.log(event)
     event.preventDefault()
     const idProd = event.target[11].value
     const toModifyProduct={
@@ -35,7 +35,7 @@ function AdminView(props) {
       price: Number(event.target[7].value),
       genre: event.target[8].value,
       brand: event.target[9].value,
-      size: Number(event.target[10].value),
+      size:  event.target[10].value,
     }
     console.log(idProd)
     console.log(toModifyProduct)
@@ -100,12 +100,12 @@ function AdminView(props) {
               <form onSubmit={delProduct}>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Product ID
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder={productId}
+                    value={productId}
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                     />
@@ -151,156 +151,159 @@ function AdminView(props) {
               <form onSubmit={modProduct}>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Product name:
+                    Product Name
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.productName}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.productName}</p>
                 </div>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Type:
+                    Type
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.type}
+                    contentEditable="true"
                     aria-label="Type"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.type}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     Sport
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.sport}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.sport}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     Description
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.description}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.description}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     Color
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.color}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.color}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     Stock
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.stock}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.stock}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Image name (with extension)
+                    Image URL
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.image}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.image}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Price
+                    Price $
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.price}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.price}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
                     Gender
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.genre}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.genre}</p>
                 </div>
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Brand "_id"
+                    Brand ID
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.brand}
+                    contentEditable="true"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.brand}</p>
                 </div>
+
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Size:
+                    Size
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?.size}
+                    contentEditable="true"
                     aria-label="Size"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?.size}</p>
                 </div>
+
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    Prod ID:
+                    Product ID
                   </span>
-                  <input
+                  <p
                     type="text"
                     className="form-control"
-                    placeholder={currentProduct?._id}
+                    contentEditable="true"
                     aria-label="prodID"
                     aria-describedby="basic-addon1"
-                  />
+                  >{currentProduct?._id}</p>
                 </div>
+
                 <button
                   variant="primary"
                   type="submit"
@@ -339,12 +342,12 @@ function AdminView(props) {
               <form onSubmit={handleSubmit}>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Product Name
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Product`s Name"
+                    placeholder="Hoodie Nike"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -352,12 +355,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Type
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Type"
+                    placeholder="Hoodies"
                     aria-label="Type"
                     aria-describedby="basic-addon1"
                   />
@@ -365,12 +368,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Sport
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Sport"
+                    placeholder="Fitness"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -378,12 +381,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Description
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Description"
+                    placeholder="Description of the product"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -391,11 +394,11 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Color
                   </span>
                   <input
                     type="color"
-                    className="form-control"
+                    className="form-control color"
                     placeholder="Color"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
@@ -404,12 +407,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Stock
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Stock"
+                    placeholder="18"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -417,12 +420,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Image URL
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="image url"
+                    placeholder="https://imageProduct.jpg"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -430,12 +433,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Price $
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Price"
+                    placeholder="70"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -443,12 +446,12 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Gender
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Type male or female"
+                    placeholder="Unisex"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
@@ -456,24 +459,24 @@ function AdminView(props) {
 
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Brand ID
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Brand"
+                    placeholder="6250579e0111b78ea9c27101"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                   />
                 </div>
                 <div className="input-group mb-3">
                   <span className="input-group-text" id="basic-addon1">
-                    @
+                    Size
                   </span>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Size"
+                    placeholder="XL"
                     aria-label="Size"
                     aria-describedby="basic-addon1"
                   />
