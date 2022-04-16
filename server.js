@@ -6,7 +6,10 @@ const passport = require("passport");
 const Router = require("./routes/routes");
 const goodsRouter = require("./routes/goodsRoutes");
 const brandRouter = require("./routes/brandRutes");
-const PORT = 4000;
+const path = require('path')
+const PORT = process.env.PORT ||4000
+const HOST = process.env.HOST ||"0.0.0.0"
+
 const app = express();
 
 //Midleware
@@ -17,4 +20,11 @@ app.use("/api", Router);
 app.use("/api", goodsRouter);
 app.use("/api", brandRouter);
 
-app.listen(PORT, () => console.log("Server ready on PORT " + PORT));
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build/index.html'))
+    })
+}
+
+app.listen(PORT,HOST,() => console.log("Server ready on PORT " + PORT));

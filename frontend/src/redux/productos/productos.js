@@ -40,7 +40,7 @@ export default function productosReducer(state = dataInicial, action) {
   }
 }
 //ruta api
-const URLProductos = "http://localhost:4000/api";
+const URLProductos = "https://react-sports-group-five.herokuapp.com/api";
 //aciones
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 const MARCA = "MARCA";

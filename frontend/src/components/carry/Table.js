@@ -1,4 +1,6 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+import { removeOneProduct } from "../../redux/carrito/carrito";
 const Table = (props) => {
   const reload = props.reload
   const setReload = props.setReload
@@ -7,10 +9,11 @@ const Table = (props) => {
   if (localStorage.getItem("carrito")) {
     lStorage = localStorage.getItem("carrito").split(" ");
   }
-
+  const dispatch = useDispatch();
   function removeItem() {
-    lStorage = lStorage.filter((id) => id !== productsUser[0]._id);
-    localStorage.setItem("carrito", lStorage.join(" ").toString());
+    dispatch(removeOneProduct(productsUser[0]._id))
+    /* lStorage = lStorage.filter((id) => id !== productsUser[0]._id);
+    localStorage.setItem("carrito", lStorage.join(" ").toString()); */
     setReload(!reload)
   }
 

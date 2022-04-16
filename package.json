@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^7.6.0",

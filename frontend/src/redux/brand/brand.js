@@ -15,7 +15,7 @@ export default function brandReducer(state = dataInicial, action) {
       return state;
   }
 }
-const URLB = "http://localhost:4000/api";
+const URLB = "https://react-sports-group-five.herokuapp.com/api";
 const GET_ALL_BRAND = "GET_ALL_BRAND";
 
 export const getAllbrand = () => async (dispatch, getState) => {

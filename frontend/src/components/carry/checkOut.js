@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../../styles/checkOut.css";
 import Table from "./Table";
 import { connect, useDispatch, useSelector } from "react-redux";
-
 import { getAllProducts } from "../../redux/productos/productos";
+import { removeAllProducts } from "../../redux/carrito/carrito";
 import Paypal from "./Paypal";
 
 var localStorageID = [];
@@ -21,7 +21,7 @@ function CheckOut(props) {
   const [reload, setReload] = useState(false)
   
   function clear(params) {
-    localStorage.removeItem("carrito")
+    dispatch(removeAllProducts())
     setCanasta([])
 }
 
