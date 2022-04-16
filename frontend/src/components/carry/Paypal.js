@@ -148,6 +148,7 @@ export default function PayPal(props) {
                 setSuccess(true);
                 console.log('Capture result', details, JSON.stringify(details, null, 2));
                 var transaction = details.purchase_units[0].payments.captures[0];
+                localStorage.removeItem("carrito")
                 alert('Transaction ' + transaction.status + ': ' + transaction.id + 'See your mail for details');
                 console.log(details)
                 setOrderID(transaction.id)
@@ -182,10 +183,11 @@ export default function PayPal(props) {
                     onApprove={checkToApprove}
                     onError={onError}
                     onCancel={aCancel}
-                />
+                    />
             </PayPalScriptProvider>
         )
     }
+    
     return (
         <PayPalCheckOut />
     );

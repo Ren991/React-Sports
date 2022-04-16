@@ -543,9 +543,11 @@ const NavBar2 = (props) => {
                 <IconButton onClick={handleOpenCarritoMenu} sx={{ p: 0 }}>
                   <img
                     src={process.env.PUBLIC_URL + `/img/carrito.png`}
-                  />
-                   <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProduct}</p>
-                </IconButton>
+                  />{props.user?
+                    <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProduct}</p>
+                  :<></>
+                  }                
+              </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: "45px" }}

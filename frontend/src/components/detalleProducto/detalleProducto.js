@@ -115,7 +115,7 @@ function DetalleProducto(props) {
                     to="/checkout"
                     className="contenedorComprarAhora"
                   >
-                    <button className="botonComprarAhora">
+                    <button className="botonComprarAhora" id={productId} onClick={()=>scremProduc(id)}>
                     <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/bolsa.png"} />
                       <p className="addToCart">BUY NOW</p>
                       <img className='logoCarritoBoton' src={process.env.PUBLIC_URL + "/img/siguiente.png"} />  

@@ -32,7 +32,7 @@ function AdminView(props) {
       price: Number(event.target[7].value),
       genre: event.target[8].value,
       brand: event.target[9].value,
-      size: Number(event.target[10].value),
+      size: event.target[10].value,
     };
     console.log(idProd);
     console.log(toModifyProduct);

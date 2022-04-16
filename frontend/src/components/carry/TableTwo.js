@@ -4,7 +4,10 @@ import './tablacss/tableTwo.css'
 const TableTwo = (props) => {
     const productsUser = props.productosAMostar
     console.log(productsUser);
-    var lStorage = localStorage.getItem('carrito').split(" ")
+    var lStorage
+    if(localStorage.getItem('carrito')){
+        lStorage = localStorage.getItem('carrito').split(" ")
+    }
 
 
     function removeItem(){
