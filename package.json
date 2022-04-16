@@ -1,7 +1,14 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "React Sports Backend",
+  "main": "server.js",
+  "engines": {
+    "node": "16.13.0"
+  },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "dependencies": {

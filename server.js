@@ -12,6 +12,8 @@ const HOST = process.env.HOST ||"0.0.0.0"
 
 const app = express();
 
+
+
 //Midleware
 app.use(cors());
 app.use(express.json());
