@@ -26,7 +26,7 @@ const NavBar2 = (props) => {
   const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
-  const [cantProdut, setCantProduct] = useState(0)
+  const [cantProduct, setCantProduct] = useState(0)
   const producCont = useSelector(state => state.carritoMain.carritoUser)
   useEffect(()=>{
     setCantProduct(localStorage.getItem("carrito")?.split(" ")?.length)
@@ -544,9 +544,7 @@ const NavBar2 = (props) => {
                   <img
                     src={process.env.PUBLIC_URL + `/img/carrito.png`}
                   />
-                  {localStorage.getItem("carrito") !==null 
-                  ? <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProdut}</p>
-                  : <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>0</p>}
+                   <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProduct}</p>
                 </IconButton>
               </Tooltip>
               <Menu
@@ -640,10 +638,10 @@ const NavBar2 = (props) => {
                     <MenuItem>
                       {props.user.isAdmin === true ? (
                         <LinkRouter to="/adminView">
-                          <span>I am the Admin</span>
+                          <span>Admin View</span>
                         </LinkRouter>
                       ) : (
-                        <span>Pepito 123</span>
+                        <></>
                       )}
                     </MenuItem>
                   </>

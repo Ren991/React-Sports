@@ -3,7 +3,16 @@ import { useSelector } from 'react-redux'
 import './tablacss/tableTwo.css'
 const TableTwo = (props) => {
     const productsUser = props.productosAMostar
-    console.log(productsUser)
+    console.log(productsUser);
+    var lStorage = localStorage.getItem('carrito').split(" ")
+
+
+    function removeItem(){
+         lStorage = lStorage.filter(id => id !== productsUser[0]._id)
+         console.log(lStorage)
+
+         localStorage.setItem('carrito', lStorage.join(" ").toString())
+    }
 
     return (
         <tbody id='cuerpo'>
@@ -26,7 +35,7 @@ const TableTwo = (props) => {
                         </td>
 
                         <td className='botonera2'>
-                            <button className='restaSuma' >
+                            <button onClick={removeItem} className='restaSuma' >
                                 x
                             </button>
                         </td>
