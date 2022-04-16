@@ -1,9 +1,12 @@
 
 
 body {
+    width: 100%;
+    height: 100vh;
     font-size: 11.5px;
     font-weight: bold;
     color: rgb(80, 80, 80);
+    align-self: flex-end;
 }
 
 .containerFooter{

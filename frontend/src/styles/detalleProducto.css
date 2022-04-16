@@ -8,11 +8,11 @@
 }
 .mainHtml{
     width: 100%;
-    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-grow: 1 !important;
 }
 .contenedorDetalleProducto{
     padding: 0 22rem 0 28rem;
