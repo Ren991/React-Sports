@@ -1,4 +1,4 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED='1' //Fix nodemailer error
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
 const Users = require("../models/users");
 const bcryptjs = require("bcryptjs");
 const crypto = require("crypto");
@@ -118,7 +118,7 @@ const sendEmail = async (email, uniqueString) => {
         
         </head>
         
-        <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #fbeeb8;color: #000000">
+        <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #fff;color: #000000">
           <!--[if IE]><div class="ie-container"><![endif]-->
           <!--[if mso]><div class="mso-container"><![endif]-->
           
@@ -168,7 +168,7 @@ const sendEmail = async (email, uniqueString) => {
         
         
         
-        <div class="u-row-container" style="padding: 0px;background-color: transparent">
+        <div class="u-row-container" style="padding: 0px;background-color: white">
           <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 550px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
             <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
               <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:550px;"><tr style="background-color: #ffffff;"><![endif]-->
@@ -187,7 +187,7 @@ const sendEmail = async (email, uniqueString) => {
           <tr>
             <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
               
-              <img align="center" border="0" src="https://www.bemytravelmuse.com/wp-content/uploads/2018/06/itineraries-1.png" alt="Wrong Email" title="Wrong Email" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
+              <img align="center" border="0" src="https://ourimagehosting.com/images/2022/04/16/Logo_react_final2.png" alt="Wrong Email" title="Wrong Email" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
               
             </td>
           </tr>
@@ -206,8 +206,8 @@ const sendEmail = async (email, uniqueString) => {
           <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
             <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 22px; line-height: 30.8px;">Hello!</span></strong></span></p>
         <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Thank you for registering. Your account is already verified. Please click on the following link to log in. </span></p>
-        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">My Tinerary® </span></p>
+        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Please click on the following button to verify your account. Thank you.</span></p>
+        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">React Sports® </span></p>
         
           </div>
         
@@ -223,7 +223,7 @@ const sendEmail = async (email, uniqueString) => {
                 
         <div class="v-text-align" align="left">
           <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:46px; v-text-anchor:middle; width:456px;" arcsize="6.5%" strokecolor="#ced4d9" strokeweight="3px" fillcolor="#91a5e2"><w:anchorlock/><center style="color:#000000;font-family:arial,helvetica,sans-serif;"><![endif]-->
-            <a href=http://localhost:4000/api/verify/${uniqueString} target="_blank" class="v-size-width" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #91a5e2; border-radius: 3px;-webkit-border-radius: 3px; -moz-border-radius: 3px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #ced4d9; border-top-style: solid; border-top-width: 3px; border-left-color: #ced4d9; border-left-style: solid; border-left-width: 3px; border-right-color: #ced4d9; border-right-style: solid; border-right-width: 3px; border-bottom-color: #ced4d9; border-bottom-style: solid; border-bottom-width: 3px;">
+            <a href=http://localhost:4000/api/verify/${uniqueString} target="_blank" class="v-size-width" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #fff; background-color: #f93943; border-radius: 3px;-webkit-border-radius: 3px; -moz-border-radius: 3px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #ced4d9; border-top-style: solid; border-top-width: 3px; border-left-color: #ced4d9; border-left-style: solid; border-left-width: 3px; border-right-color: #ced4d9; border-right-style: solid; border-right-width: 3px; border-bottom-color: #ced4d9; border-bottom-style: solid; border-bottom-width: 3px;">
               <span class="v-padding" style="display:block;padding:15px 40px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">C L I C K&nbsp; &nbsp;H E R E</span></span>
             </a>
           <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -244,7 +244,6 @@ const sendEmail = async (email, uniqueString) => {
   };
   await transporter.sendMail(mailOptions, function (error, response) {
     if (error) {
-      console.log("ERROOOOOOOOOOOOOOOOOOOOOOR")
       console.log(error);
     } else {
       console.log("Message sent");
@@ -390,7 +389,7 @@ const userController = {
               email: userExist.email,
               image: userExist.image,
               from: userExist.from,
-              isAdmin: userExist.isAdmin
+              isAdmin: userExist.isAdmin,
             };
             await userExist.save();
 
@@ -467,15 +466,14 @@ const userController = {
   },
 
   signOutUser: async (req, res) => {
-    console.log("usuario deslogueado")
+    console.log("usuario deslogueado");
     const email = req.body.userData;
     const user = await Users.findOne({ email });
     await user.save();
     res.json({
       success: true,
-      message:"Your session has been closed"
-    })
-
+      message: "Your session has been closed",
+    });
   },
 
   verifyToken: (req, res) => {
@@ -491,7 +489,7 @@ const userController = {
           adress: req.user.adress,
           city: req.user.city,
           country: req.user.country,
-          isAdmin:req.user.isAdmin,
+          isAdmin: req.user.isAdmin,
           from: "token",
         },
         message: "Welcome again " + req.user.firstName,

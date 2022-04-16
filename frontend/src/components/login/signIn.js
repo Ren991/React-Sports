@@ -9,7 +9,6 @@ import GoogleSignIn from './googleSignIn'
 import Swal from 'sweetalert2'
 import Sweetalert from '../login/sweetalert'
 
-
 const SignIn = (props) => {
   
   const handleSubmit = (event) => {

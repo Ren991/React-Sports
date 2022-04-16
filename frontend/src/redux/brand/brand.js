@@ -1,37 +1,25 @@
-import axios from "axios"
-
-
+import axios from "axios";
 
 const dataInicial = {
-    brand: [],
-
-
-}
+  brand: [],
+};
 
 export default function brandReducer(state = dataInicial, action) {
-
-    switch (action.type) {
-
-        case GET_ALL_BRAND:
-            return {
-                ...state,
-                brand: action.payload
-            }
-        default:
-            return state
-    }
+  switch (action.type) {
+    case GET_ALL_BRAND:
+      return {
+        ...state,
+        brand: action.payload,
+      };
+    default:
+      return state;
+  }
 }
-//ruta api      
-const URLB = "http://localhost:4000/api"
-//aciones
-const GET_ALL_BRAND = "GET_ALL_BRAND"
-
+const URLB = "http://localhost:4000/api";
+const GET_ALL_BRAND = "GET_ALL_BRAND";
 
 export const getAllbrand = () => async (dispatch, getState) => {
-    /* console.log(brand) */
-    const res = await axios.get(URLB + "/allBrand")
-    /* console.log(res); */
-    const brandAll = res.data.respuesta.brandLocal
-   
-    dispatch({ type: GET_ALL_BRAND, payload: brandAll })
-}
+  const res = await axios.get(URLB + "/allBrand");
+  const brandAll = res.data.respuesta.brandLocal;
+  dispatch({ type: GET_ALL_BRAND, payload: brandAll });
+};

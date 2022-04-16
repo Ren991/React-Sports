@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
-.cardBody *{
-  font-family: 'Poppins', sans-serif;
- /*  background-color: violet; */
+.cardBody * {
+  font-family: "Poppins", sans-serif;
+  /*  background-color: violet; */
 }
 
 /* .cardBody{
@@ -15,24 +15,23 @@
   background: #131313;
 } */
 
-.container{
+.container {
   position: relative;
   margin-top: 2rem;
 }
 
-
-.container .card{
+.container .card {
   position: relative;
-  width: 260px!important;
-  height: 365px!important;
+  width: 260px !important;
+  height: 365px !important;
   background: #262626d2 !important;
   /* background-color: red; */
   border-radius: 20px;
   overflow: hidden;
 }
 
-.container .card:before{
-  content: '';
+.container .card:before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -43,15 +42,15 @@
   transition: 0.5s ease-in-out;
 }
 
-.container .card:hover:before{
+.container .card:hover:before {
   clip-path: circle(300px at 80% -20%);
 }
 
-.container .card:after{
+.container .card:after {
   content: "";
-/*   display: flex; */
+  /*   display: flex; */
   position: absolute;
-  
+
   top: 45%;
   left: 1%;
   font-size: 7em;
@@ -60,22 +59,21 @@
   color: #7e8287;
   /* color: #ffffff; */
 }
-.card{
+.card {
   display: flex;
   justify-content: center;
-
 }
-.marcaZapatilla{
+.marcaZapatilla {
   position: absolute;
   top: 5px !important;
   left: 70% !important;
   text-align: center;
   font-size: 3em;
   font-weight: 800;
-  color:rgba(15, 15, 15, 0.651);
+  color: rgba(15, 15, 15, 0.651);
   /* background-color: rgb(241, 241, 240); */
 }
-.container .card .imgBx{
+.container .card .imgBx {
   position: absolute;
   top: 35%;
   left: 0%;
@@ -86,19 +84,18 @@
   transition: 0.5s;
 }
 
-.imgBx>img{
+.imgBx > img {
   width: 220px !important;
   height: 280px !important;
   object-fit: contain !important;
 }
 
-.container .card:hover .imgBx{
+.container .card:hover .imgBx {
   top: 10%;
   transform: translateY(0%);
-    
 }
 
-.container .card .imgBx img{
+.container .card .imgBx img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -106,7 +103,7 @@
   width: 270px;
 }
 
-.container .card .contentBx{
+.container .card .contentBx {
   position: absolute;
   bottom: -10%;
   right: 0;
@@ -120,7 +117,7 @@
   z-index: 1;
 }
 
-.container .card:hover .contentBx{
+.container .card:hover .contentBx {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,52 +126,51 @@
   bottom: 3%;
 }
 
-.container .card .contentBx h2{
+.container .card .contentBx h2 {
   position: relative;
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
   margin: 0;
+  text-align: center;
 }
 
-.container .card .contentBx .size, .container .card .contentBx .color {
+.container .card .contentBx .size,
+.container .card .contentBx .color {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 20px;
-  transition: 0.5s;opacity: 0;
+  transition: 0.5s;
+  opacity: 0;
   visibility: hidden;
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.container .card:hover .contentBx .size{
+.container .card:hover .contentBx .size {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.5s;
 }
 
-.container .card:hover .contentBx .color{
+.container .card:hover .contentBx .color {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.6s;
 }
 
-.container .card .contentBx .size h3, .container .card .contentBx .color h3{
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3 {
   color: #fff;
   font-weight: 300;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0 10px 0 0;
-
 }
 
-/* .contentBx{
-  z-index: 900 !important;
-} */
-
-.container .card .contentBx .size span{
+.container .card .contentBx .size span {
   width: 26px;
   height: 26px;
   text-align: center;
@@ -190,11 +186,7 @@
   cursor: pointer;
 }
 
-/* .container .card .contentBx .size span:hover{
-  background: #9bdc28;
-} */
-
-.container .card .contentBx .color span{
+.container .card .contentBx .color span {
   width: 20px;
   height: 20px;
   background: #ff0;
@@ -203,19 +195,19 @@
   cursor: pointer;
 }
 
-.container .card .contentBx .color span:nth-child(2){
+.container .card .contentBx .color span:nth-child(2) {
   background: #9bdc28;
 }
 
-.container .card .contentBx .color span:nth-child(3){
+.container .card .contentBx .color span:nth-child(3) {
   background: #03a9f4;
 }
 
-.container .card .contentBx .color span:nth-child(4){
+.container .card .contentBx .color span:nth-child(4) {
   background: #e91e63;
 }
 
-.container .card .contentBx a{
+.container .card .contentBx a {
   display: inline-block;
   padding: 10px 20px;
   background: #fff;
@@ -230,7 +222,7 @@
   margin-right: 0;
 }
 
-.container .card:hover .contentBx a{
+.container .card:hover .contentBx a {
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 0.75s;
@@ -238,27 +230,30 @@
   margin-right: 0;
 }
 
-.contentBx>*{
+.contentBx > * {
   margin-top: 5px;
 }
 
-.contentBx>*:hover{
+.contentBx > *:hover {
   margin-top: 5px;
 }
 
-.imgBrands{
+.imgBrands {
   width: 4rem;
   object-fit: cover;
 }
 
-.productNameStyle{
-  font-family: 'Abel', sans-serif;
+.productNameStyle {
+  font-family: "Abel", sans-serif;
   line-height: 2.3rem;
   color: white;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
-.productPrice{
-  font-family: 'Roboto Condensed', sans-serif;
+.productPrice {
+  font-family: "Roboto Condensed", sans-serif;
   line-height: 2.3rem;
   color: white;
 }

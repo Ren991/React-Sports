@@ -1,404 +1,392 @@
-@import url('https://fonts.googleapis.com/css2?family=Akshar&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Akshar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.mainHtml{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1 !important;
+.mainHtml {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1 !important;
 }
-.contenedorDetalleProducto{
-    padding: 0 22rem 0 28rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
+.contenedorDetalleProducto {
+  padding: 0 22rem 0 28rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
-.contenedorDescripcionProducto{
-    width: 100%;
-    margin: 4rem 0;
-    padding: 0 22rem 0 28rem;
+.contenedorDescripcionProducto {
+  width: 100%;
+  margin: 4rem 0;
+  padding: 0 22rem 0 28rem;
 }
-.contenedorDescriptionIzquierdo{
-    width: 50%;
+.contenedorDescriptionIzquierdo {
+  width: 50%;
 }
-.description{
-    margin-right: 1rem;
+.description {
+  margin-right: 1rem;
 }
-.description p{
-    margin-left: .5rem;
-    font-size: 1rem;
+.description p {
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
-.detalleProductoDerecha{
-    width: 50%;
-    padding: 4rem 1rem 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.productName{
-    font-family: 'Akshar', sans-serif;
-    font-size: 2.5rem;
-    color: #0a7bc1;
+.detalleProductoDerecha {
+  width: 50%;
+  padding: 4rem 1rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.containerMetodosDePago{
-    width: 14rem;
-    display: flex;
-    justify-content: space-between;
+.productName {
+  font-family: "Akshar", sans-serif;
+  font-size: 2.5rem;
+  color: #0a7bc1;
 }
 
-.price{
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.5rem;
-    color: #7e8287;
-    margin: 0;
+.containerMetodosDePago {
+  width: 14rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.detalleProductoDerecha p{
-    margin: 0;
-    font-size: 1rem;
-    font-family: 'Akshar', sans-serif;
-    font-size: 1.1rem;
-}
-.circuloColorYSize{
-    margin-top: .5rem;
-    width: 38px !important;
-    height: 38px;
-    border: 2px solid #7e8287;
-    border-radius: 100px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    font-family: 'Abel', sans-serif !important;
-}
-.detalleProductoIzquierda{
-    width: 50%;
-}
-.contCaritoComprarBack{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.detalleProductoContenedorRuta{
-    min-height: auto;
-    display: flex;
-    align-items: center;
-    font-family: 'Roboto Condensed', sans-serif;
-    color: #7e8287; 
-}
-.detalleProductoContenedorRuta>*{
-    margin: 0.5rem 0 0 0.5rem;
-}
-.detalleProductoContenedorRuta a{
-    color: black;
-
-}
-.detalleProductoContenedorFotosProductos{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-.divGoToCartOrContinueShopping{
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    margin-bottom: 1rem;
+.price {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.5rem;
+  color: #7e8287;
+  margin: 0;
 }
 
-.botonAtras{
-    background-color: white;
-    border: none;
+.detalleProductoDerecha p {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Akshar", sans-serif;
+  font-size: 1.1rem;
 }
-.divGoToCartOrContinueShopping button{
-    height: 1.5rem;
+.circuloColorYSize {
+  margin-top: 0.5rem;
+  width: 38px !important;
+  height: 38px;
+  border: 2px solid #7e8287;
+  border-radius: 100px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Abel", sans-serif !important;
 }
-.divGoToCartOrContinueShopping p{
-    margin: 0 0.5rem 0 0.5rem;
+.detalleProductoIzquierda {
+  width: 50%;
 }
-.contenedorLogoProducto{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.contCaritoComprarBack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.logoProducto{
-    width: 80px;
-    object-fit: contain;
+.detalleProductoContenedorRuta {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #7e8287;
 }
-.fotoProducto{
-    height: 400px;
-    width: 400px;
-    object-fit: contain;
-    transition: 500ms;
+.detalleProductoContenedorRuta > * {
+  margin: 0.5rem 0 0 0.5rem;
 }
-
-.fotoProducto:hover{
-    transform: scale(1.25);
+.detalleProductoContenedorRuta a {
+  color: black;
 }
-.outOfStock{
-    width: 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #f93943 ;
-    color: #f93943;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
+.detalleProductoContenedorFotosProductos {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.fewUnitsRemaining{
-    width: 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #f0c808 ;
-    color:#f0c808;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
-}
-.detallesProducto{
-    margin-top: 1rem;
-}
-.detalleProductoCarrito{
-    margin-top: 1rem ;
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-.botonAgregarAlCarrito{
-    width: 15rem;
-    height: 2.5rem;
-    border: solid 1px #329a7f;
-    background-color: #09ae84;
-    color: white;
-    font-size: 1.2rem;
-    transition: 500ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.divGoToCartOrContinueShopping {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  margin-bottom: 1rem;
 }
 
-.botonAgregarAlCarrito:hover{
-    background-color: #329a7f;
+.botonAtras {
+  background-color: white;
+  border: none;
 }
-.contenedorComprarAhora{
-    width: 15rem;
-    height: 2.5rem;
-    border: solid 1px #2b719d;
-    background-color: #0a7bc1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    transition: 500ms;
+.divGoToCartOrContinueShopping button {
+  height: 1.5rem;
 }
-
-.contenedorComprarAhora:hover{
-    background-color: #2b719d;
+.divGoToCartOrContinueShopping p {
+  margin: 0 0.5rem 0 0.5rem;
 }
-.botonComprarAhora{
-    width: 15rem;
-    height: 2.5rem;
-    background-color: #09ae8500;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.contenedorLogoProducto {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logoProducto {
+  width: 80px;
+  object-fit: contain;
+}
+.fotoProducto {
+  height: 400px;
+  width: 400px;
+  object-fit: contain;
+  transition: 500ms;
 }
 
-
-.addToCart{
-    margin: 0 .6rem !important;
+.fotoProducto:hover {
+  transform: scale(1.25);
+}
+.outOfStock {
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #f93943;
+  color: #f93943;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+}
+.fewUnitsRemaining {
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #f0c808;
+  color: #f0c808;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+}
+.detallesProducto {
+  margin-top: 1rem;
+}
+.detalleProductoCarrito {
+  margin-top: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.botonAgregarAlCarrito {
+  width: 15rem;
+  height: 2.5rem;
+  border: solid 1px #329a7f;
+  background-color: #09ae84;
+  color: white;
+  font-size: 1.2rem;
+  transition: 500ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.detalleProductoCarrito>input{
-    width: 50px;
-    height: 2rem;
-    text-align: center;
+.botonAgregarAlCarrito:hover {
+  background-color: #329a7f;
+}
+.contenedorComprarAhora {
+  width: 15rem;
+  height: 2.5rem;
+  border: solid 1px #2b719d;
+  background-color: #0a7bc1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 500ms;
 }
 
-.containerAdmin{
-    position: absolute;
-    top: 250px;
-    right: 15px;
-    transition: 500ms;
+.contenedorComprarAhora:hover {
+  background-color: #2b719d;
+}
+.botonComprarAhora {
+  width: 15rem;
+  height: 2.5rem;
+  background-color: #09ae8500;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-.containerAdmin:hover{
-    transform: scale(1.05);
+.addToCart {
+  margin: 0 0.6rem !important;
 }
 
-.botonAdmin{
-    padding: .5rem 0;
-    width: 50px;
-    height: 250px;
-    background-color: #f93943;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.rutaAdmin{
-    text-decoration: none;
+.detalleProductoCarrito > input {
+  width: 50px;
+  height: 2rem;
+  text-align: center;
 }
 
-.tittleAdmin{
-    color: white;
-    font-family: 'Akshar', sans-serif;
-    font-size: 14px !important;
-    font-style: italic;
-    text-align: center;
+.containerAdmin {
+  position: absolute;
+  top: 250px;
+  right: 15px;
+  transition: 500ms;
 }
 
-.containerEnvios{
-    width: 70%;
-    height: 3.2rem;
-    padding-left: 1rem;
-    background-color: greenyellow;
-    background: linear-gradient(to right, #ebebeb, white);
-    -webkit-transform: skew(-15deg); 
-    -moz-transform: skew(-15deg); 
-    -o-transform: skew(-15deg); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.containerAdmin:hover {
+  transform: scale(1.05);
 }
 
-.containerTextoEnvios{
-    width: 98%;
-    height: 3.2rem;
-    background-color: rgba(92, 24, 24, 0);
-    -webkit-transform: skew(15deg); 
-    -moz-transform: skew(15deg); 
-    -o-transform: skew(15deg); 
+.botonAdmin {
+  padding: 0.5rem 0;
+  width: 50px;
+  height: 250px;
+  background-color: #f93943;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.6);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.rutaAdmin {
+  text-decoration: none;
 }
 
-.containerTextoEnvios p{
-    margin-left: .5rem;
-    color: #0a7bc1;
+.tittleAdmin {
+  color: white;
+  font-family: "Akshar", sans-serif;
+  font-size: 14px !important;
+  font-style: italic;
+  text-align: center;
 }
 
-.camionYTitulo{
-    display: flex;
+.containerEnvios {
+  width: 70%;
+  height: 3.2rem;
+  padding-left: 1rem;
+  background-color: greenyellow;
+  background: linear-gradient(to right, #ebebeb, white);
+  -webkit-transform: skew(-15deg);
+  -moz-transform: skew(-15deg);
+  -o-transform: skew(-15deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.precioEnvio{
-    margin-left: .5rem;
-    font-family: 'Roboto Condensed', sans-serif !important;
-    font-size: 1rem !important;
-    color: #7e8287 !important;
+.containerTextoEnvios {
+  width: 98%;
+  height: 3.2rem;
+  background-color: rgba(92, 24, 24, 0);
+  -webkit-transform: skew(15deg);
+  -moz-transform: skew(15deg);
+  -o-transform: skew(15deg);
+}
+
+.containerTextoEnvios p {
+  margin-left: 0.5rem;
+  color: #0a7bc1;
+}
+
+.camionYTitulo {
+  display: flex;
+}
+
+.precioEnvio {
+  margin-left: 0.5rem;
+  font-family: "Roboto Condensed", sans-serif !important;
+  font-size: 1rem !important;
+  color: #7e8287 !important;
 }
 
 @media (max-width: 1571px) {
-    .contenedorDetalleProducto{
-        padding: 0 15rem 0 21rem;
-    }
-    .contenedorDescripcionProducto{
-        padding: 0 15rem 0 21rem;
-    }
+  .contenedorDetalleProducto {
+    padding: 0 15rem 0 21rem;
+  }
+  .contenedorDescripcionProducto {
+    padding: 0 15rem 0 21rem;
+  }
 }
 
 @media (max-width: 1500px) {
-    .contenedorDetalleProducto{
-        padding: 0 10rem 0 16rem;
-    }
-    .contenedorDescripcionProducto{
-        padding: 0 10rem 0 16rem;
-    }
+  .contenedorDetalleProducto {
+    padding: 0 10rem 0 16rem;
+  }
+  .contenedorDescripcionProducto {
+    padding: 0 10rem 0 16rem;
+  }
 }
 
 @media (max-width: 1310px) {
-    .contenedorDetalleProducto{
-        padding: 0 5rem 0 8rem;
-    }
-    .fotoProducto:hover{
-        transform: scale(1.1);
-    }
-    .contenedorDescripcionProducto{
-        padding: 0 5rem 0 8rem;
-    }
-    
+  .contenedorDetalleProducto {
+    padding: 0 5rem 0 8rem;
+  }
+  .fotoProducto:hover {
+    transform: scale(1.1);
+  }
+  .contenedorDescripcionProducto {
+    padding: 0 5rem 0 8rem;
+  }
 }
 
 @media (max-width: 1130px) {
-    .contenedorDetalleProducto{
-        padding: 0 0 0 5rem;
-    }
-    .contenedorDescripcionProducto{
-        padding: 0 0 0 5rem;
-    }
+  .contenedorDetalleProducto {
+    padding: 0 0 0 5rem;
+  }
+  .contenedorDescripcionProducto {
+    padding: 0 0 0 5rem;
+  }
 }
 
 @media (max-width: 800px) {
-    .text {
-      font-size: 16px;
-    }
-    .contenedorDetalleProducto{
-        flex-direction: column;
-    }
-    .detalleProductoIzquierda{
-        width: 100%;
-    }
-    .detalleProductoDerecha{
-        width: 100%;
-    }
+  .text {
+    font-size: 16px;
+  }
+  .contenedorDetalleProducto {
+    flex-direction: column;
+  }
+  .detalleProductoIzquierda {
+    width: 100%;
+  }
+  .detalleProductoDerecha {
+    width: 100%;
+  }
 }
 
 @media (max-width: 500px) {
-
-    .logoProducto{
-        transform: scale(0.8);
-    }
-    .contenedorDetalleProducto{
-        padding: 0 0 0 2rem;
-    }
-    .contenedorDescripcionProducto{
-        padding: 0 0 0 3rem;
-    }
-    .contenedorDescriptionIzquierdo{
-        width: 80%;
-    }
-    .fotoProducto{
-        width: 100%;
-    }
-    .detalleProductoDerecha{
-        padding-top: 1rem;
-    }
+  .logoProducto {
+    transform: scale(0.8);
+  }
+  .contenedorDetalleProducto {
+    padding: 0 0 0 2rem;
+  }
+  .contenedorDescripcionProducto {
+    padding: 0 0 0 3rem;
+  }
+  .contenedorDescriptionIzquierdo {
+    width: 80%;
+  }
+  .fotoProducto {
+    width: 100%;
+  }
+  .detalleProductoDerecha {
+    padding-top: 1rem;
+  }
 }
 
 @media (max-width: 410px) {
-    .containerEnvios{
-        width: 90%;
-    }
+  .containerEnvios {
+    width: 90%;
+  }
 }
 
 @media (max-width: 350px) {
-    .contenedorDetalleProducto{
-        padding: 0 0 0 .5rem;
-    }
+  .contenedorDetalleProducto {
+    padding: 0 0 0 0.5rem;
+  }
 }
-
-
-
-
-
-  
-
-  

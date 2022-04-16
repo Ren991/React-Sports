@@ -18,25 +18,25 @@ import { Link as LinkRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import userAction from "../../redux/actions/userAction";
 import Counter from "../counterWorldCup/counter";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
-
-const NavBar2 = (props) => {
+const NavBar = (props) => {
   // INICIO Manipuleo para renderizado dinamico de categorias NavBar
-  const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
+  const producAddRenderID = useSelector(
+    (state) => state.carritoMain.estadoCarrito
+  );
   const allProducts = useSelector((state) => state.productosMain.products);
   const dispatch = useDispatch();
-  const [cantProduct, setCantProduct] = useState(0)
-  const producCont = useSelector(state => state.carritoMain.carritoUser)
-  useEffect(()=>{
-    setCantProduct(localStorage.getItem("carrito")?.split(" ")?.length)
-  },[producCont])
-  
- 
+  const [cantProduct, setCantProduct] = useState(0);
+  const producCont = useSelector((state) => state.carritoMain.carritoUser);
+
+  useEffect(() => {
+    setCantProduct(localStorage.getItem("carrito")?.split(" ")?.length);
+  }, [producCont]);
+
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
-  console.log(allProducts)
 
   const uniqueSports = new Set();
   const uniqueGender = new Set();
@@ -59,7 +59,7 @@ const NavBar2 = (props) => {
 
   function SignOut() {
     props.signOutUser(props.user.email);
-    Swal.fire('Session Closed')
+    Swal.fire("Session Closed");
   }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -128,40 +128,39 @@ const NavBar2 = (props) => {
     <>
       <div className="containerCounter">
         <div className="containerContacts">
-        <div className="boxCup">
-        <img
-                  className="logoContact"
-                  src={process.env.PUBLIC_URL + `/img/email.png`}
-                />
-                <p className="contact">reactsports2022@gmail.com</p>
-        </div>
-        <div className="boxCup">
-        <img
-                  className="logoContact"
-                  src={process.env.PUBLIC_URL + `/img/telefono.png`}
-                />
-                <p className="contact">0800 754 (1568)</p>
-        </div>
+          <div className="boxCup">
+            <img
+              className="logoContact"
+              src={process.env.PUBLIC_URL + `/img/email.png`}
+            />
+            <p className="contact">reactsports2022@gmail.com</p>
+          </div>
+          <div className="boxCup">
+            <img
+              className="logoContact"
+              src={process.env.PUBLIC_URL + `/img/telefono.png`}
+            />
+            <p className="contact">0800 754 (1568)</p>
+          </div>
         </div>
         <div className="boxCounter">
           <Counter countDownTimestampMs={1669086060000} />
         </div>
         <div className="containerContacts">
-        <div className="boxCup">
-        <img
-                  className="logoContact"
-                  src={process.env.PUBLIC_URL + `/img/whatsapp.png`}
-                />
-                <p className="contact">+541163589647</p>
-        </div>
-        <div className="boxCup">
-                <img
-                  className="logoContact"
-                  src={process.env.PUBLIC_URL + `/img/ubicacion.png`}
-                />
-                <p className="contact">308 North Garden USA</p>
-          
-        </div>
+          <div className="boxCup">
+            <img
+              className="logoContact"
+              src={process.env.PUBLIC_URL + `/img/whatsapp.png`}
+            />
+            <p className="contact">+541163589647</p>
+          </div>
+          <div className="boxCup">
+            <img
+              className="logoContact"
+              src={process.env.PUBLIC_URL + `/img/ubicacion.png`}
+            />
+            <p className="contact">308 North Garden USA</p>
+          </div>
         </div>
       </div>
       <AppBar position="static" className="boxNavBar">
@@ -221,10 +220,15 @@ const NavBar2 = (props) => {
                         onClick={handleOpenCategoryMenu}
                         sx={{ p: 0 }}
                       >
-                        <p className="pDropdown">CATEGORY <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                        <p className="pDropdown">
+                          CATEGORY{" "}
+                          <img
+                            className="logoFlechita"
+                            src={
+                              process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                            }
+                          />
+                        </p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -246,7 +250,9 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueTypesArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
+                            <LinkRouter to={`/type/${element}`}>
+                              {element}
+                            </LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -258,10 +264,15 @@ const NavBar2 = (props) => {
                   <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Select a Sport">
                       <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
-                        <p className="pDropdown">SPORT <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                        <p className="pDropdown">
+                          SPORT{" "}
+                          <img
+                            className="logoFlechita"
+                            src={
+                              process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                            }
+                          />
+                        </p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -283,7 +294,9 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueSportsArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={`/sports/${element}`}>{element}</LinkRouter>
+                            <LinkRouter to={`/sports/${element}`}>
+                              {element}
+                            </LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -295,10 +308,15 @@ const NavBar2 = (props) => {
                   <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Select a Gender">
                       <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
-                        <p className="pDropdown">GENDER <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                        <p className="pDropdown">
+                          GENDER{" "}
+                          <img
+                            className="logoFlechita"
+                            src={
+                              process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                            }
+                          />
+                        </p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -320,7 +338,9 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueGendersArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={`/gender/${element}`}>{element}</LinkRouter>
+                            <LinkRouter to={`/gender/${element}`}>
+                              {element}
+                            </LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -332,10 +352,15 @@ const NavBar2 = (props) => {
                   <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Select a Brand">
                       <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
-                        <p className="pDropdown">BRAND <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                        <p className="pDropdown">
+                          BRAND{" "}
+                          <img
+                            className="logoFlechita"
+                            src={
+                              process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                            }
+                          />
+                        </p>
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -357,7 +382,9 @@ const NavBar2 = (props) => {
                       <>
                         {uniqueBrandsArray?.map((element) => (
                           <MenuItem>
-                            <LinkRouter to={`/brands/${element}`}>{element}</LinkRouter>
+                            <LinkRouter to={`/brands/${element}`}>
+                              {element}
+                            </LinkRouter>
                           </MenuItem>
                         ))}
                       </>
@@ -377,10 +404,10 @@ const NavBar2 = (props) => {
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
               <LinkRouter to="/home">
-              <img
-                className="logoReactSports"
-                src={process.env.PUBLIC_URL + `/img/Logo_react_final.png`}
-              />
+                <img
+                  className="logoReactSports"
+                  src={process.env.PUBLIC_URL + `/img/Logo_react_final.png`}
+                />
               </LinkRouter>
             </Typography>
             <Box
@@ -393,10 +420,15 @@ const NavBar2 = (props) => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Select a Category">
                     <IconButton onClick={handleOpenCategoryMenu} sx={{ p: 0 }}>
-                      <p className="pDropdown">CATEGORY <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                      <p className="pDropdown">
+                        CATEGORY{" "}
+                        <img
+                          className="logoFlechita"
+                          src={
+                            process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                          }
+                        />
+                      </p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -418,7 +450,9 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueTypesArray?.map((element) => (
                         <MenuItem className="linksNav">
-                        <LinkRouter to={`/type/${element}`}>{element}</LinkRouter>
+                          <LinkRouter to={`/type/${element}`}>
+                            {element}
+                          </LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -430,10 +464,15 @@ const NavBar2 = (props) => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Select a Sport">
                     <IconButton onClick={handleOpenSportMenu} sx={{ p: 0 }}>
-                      <p className="pDropdown">SPORT <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                      <p className="pDropdown">
+                        SPORT{" "}
+                        <img
+                          className="logoFlechita"
+                          src={
+                            process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                          }
+                        />
+                      </p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -455,7 +494,9 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueSportsArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={`/sports/${element}`}>{element}</LinkRouter>
+                          <LinkRouter to={`/sports/${element}`}>
+                            {element}
+                          </LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -467,10 +508,15 @@ const NavBar2 = (props) => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Select a Gender">
                     <IconButton onClick={handleOpenGenderMenu} sx={{ p: 0 }}>
-                      <p className="pDropdown">GENDER <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                      <p className="pDropdown">
+                        GENDER{" "}
+                        <img
+                          className="logoFlechita"
+                          src={
+                            process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                          }
+                        />
+                      </p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -492,7 +538,9 @@ const NavBar2 = (props) => {
                     <>
                       {uniqueGendersArray?.map((element) => (
                         <MenuItem>
-                          <LinkRouter to={`/gender/${element}`}>{element}</LinkRouter>
+                          <LinkRouter to={`/gender/${element}`}>
+                            {element}
+                          </LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -504,10 +552,15 @@ const NavBar2 = (props) => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Select a Brand">
                     <IconButton onClick={handleOpenBrandMenu} sx={{ p: 0 }}>
-                      <p className="pDropdown">BRAND <img
-                  className="logoFlechita"
-                  src={process.env.PUBLIC_URL + `/img/flechaDropdown.png`}
-                /></p>
+                      <p className="pDropdown">
+                        BRAND{" "}
+                        <img
+                          className="logoFlechita"
+                          src={
+                            process.env.PUBLIC_URL + `/img/flechaDropdown.png`
+                          }
+                        />
+                      </p>
                     </IconButton>
                   </Tooltip>
                   <Menu
@@ -528,8 +581,13 @@ const NavBar2 = (props) => {
                   >
                     <>
                       {uniqueBrandsArray?.map((element) => (
-                        <MenuItem >
-                          <LinkRouter className="menu-items-navbar"  to={`/brands/${element}`}>{element}</LinkRouter>
+                        <MenuItem>
+                          <LinkRouter
+                            className="menu-items-navbar"
+                            to={`/brands/${element}`}
+                          >
+                            {element}
+                          </LinkRouter>
                         </MenuItem>
                       ))}
                     </>
@@ -541,13 +599,23 @@ const NavBar2 = (props) => {
             <Box>
               <Tooltip title="Open shopping cart">
                 <IconButton onClick={handleOpenCarritoMenu} sx={{ p: 0 }}>
-                  <img
-                    src={process.env.PUBLIC_URL + `/img/carrito.png`}
-                  />{props.user?
-                    <p className="contPro" style={{backgroundColor:"rgba(255, 0, 0, 0.753)", fontSize:"20px", borderRadius:"30px", width:"30px"}}>{cantProduct}</p>
-                  :<></>
-                  }                
-              </IconButton>
+                  <img src={process.env.PUBLIC_URL + `/img/carrito.png`} />
+                  {props.user ? (
+                    <p
+                      className="contPro"
+                      style={{
+                        backgroundColor: "rgba(255, 0, 0, 0.753)",
+                        fontSize: "20px",
+                        borderRadius: "30px",
+                        width: "30px",
+                      }}
+                    >
+                      {cantProduct}
+                    </p>
+                  ) : (
+                    <></>
+                  )}
+                </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: "45px" }}
@@ -585,9 +653,7 @@ const NavBar2 = (props) => {
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {!props.user ? (
-                  <img
-                  src={process.env.PUBLIC_URL + `/img/user.png`}
-                /> 
+                    <img src={process.env.PUBLIC_URL + `/img/user.png`} />
                   ) : (
                     <img
                       src={props.user.image}
@@ -657,16 +723,15 @@ const NavBar2 = (props) => {
   );
 };
 
-const mapStateToProps = (state) =>{
-  
-  return{
+const mapStateToProps = (state) => {
+  return {
     user: state.userReducer.user,
-    snackbar: state.userReducer.snackbar
-  }
-}
+    snackbar: state.userReducer.snackbar,
+  };
+};
 
 const mapDispatchToProps = {
   signOutUser: userAction.signOutUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar2);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
