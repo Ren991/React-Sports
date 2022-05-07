@@ -97,8 +97,8 @@ function DetalleProducto(props) {
                  {/*  <button id={productId} onClick={addCart}>
                     Add to cart
                   </button> */}
-                  <button id={productId} onClick={()=>scremProduc(id)}>
-                    addWilson
+                  <button className="buttonCart" id={productId} onClick={()=>scremProduc(id)}>
+                    Add to Cart
                   </button>
                 </>
               ) : (

@@ -21,3 +21,13 @@
     margin-top: 1rem;
     text-align:center;
 }
+
+.currentProduct{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+
+.idBrand{
+    display: flex;
+}

@@ -1,57 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/checkOut.css'
-import Table from './table'
 import TableTwo from './TableTwo'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import {mantenerEstado} from '../../redux/carrito/carrito'
+
 import { getAllProducts } from '../../redux/productos/productos'
 import Paypal from './Paypal'
 
 var localStorageID = []
 var productosEnArray = []
-const productosAMostar = []
+var productosAMostar = []
+var productosBaseDeDatos = []
+var producAddRenderIDArray = ""
 
 function CheckOut(props) {
     const cambio = useSelector(state => state.carritoMain.reload)
-    const todosLosProductos = useSelector(state => state.productosMain.products)
-    const producAddRenderID = useSelector(state => state.carritoMain.estadoCarrito)
-    const [renderProd, setRenderProd] = useState()
-    console.log(todosLosProductos)
-    console.log(producAddRenderID)
+    const todosLosProductos = useSelector(state => state.productosMain.products)    //ESTADO CARGADO CON getAllProducts
+    const renderProd = []
+    const [canasta, setCanasta] = useState([])
+
+
     /* console.log(renderProd) */
-    const dispatch = useDispatch() 
-    
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        if(localStorage.getItem("carrito") !== null ){
+        setCanasta(localStorage.getItem("carrito").split(" "))
+        }   
+      },[])
+      console.log(canasta)
+
     useEffect(() => {
         dispatch(getAllProducts())
     }, [])
+    console.log(todosLosProductos)
+
+    canasta?.forEach((id) => {
+        renderProd.push(...todosLosProductos.filter(productos => productos._id == id))
+    })
+
+    console.log(renderProd)
 
 
-
-    /*     console.log(todosLosProductos); */
-
-    const [productosDeLocalStorage, setProductosDeLocalStorage] = useState(JSON.parse(localStorage.getItem("cart")))
-
-    /*     useEffect(() => {
-            setProductosDeLocalStorage(JSON.parse(localStorage.getItem("cart")))
-        }, [reload]) */
-    console.log(productosDeLocalStorage);
-
-    productosDeLocalStorage?.map((id) => {
-        productosEnArray.push(...todosLosProductos.filter(productos => productos._id == id))
-    }) 
-   /*  const renderProd =todosLosProductos.filter(oneIDProd=>producAddRenderID.indexOf(oneIDProd._id) === 1) */
     
-
-    const productosAMostar = useSelector(state => state.carritoMain.carritoUser)
-
-    /*     const productos = new Set(productosEnArray);
-        productosAMostar = [...productos] */
-    console.log(productosAMostar);
-
-
     return (
 
-        <main id="main">    
+        <main id="main">
             <section id='general'>
                 <div >
 
@@ -63,14 +55,13 @@ function CheckOut(props) {
                                 <th>Precio</th>
                                 {/* <th>asdasd</th> */}
                             </tr>
-                       
+
                         </thead>
-                        <TableTwo />
-                        {productosAMostar?.map((productos) =>
-                            <Table productos={productos} productosDeLocalStorage={productosDeLocalStorage} setProductosDeLocalStorage={setProductosDeLocalStorage}  />)}
+                        <TableTwo productosAMostar={renderProd} />
+                         
                     </table>
                 </div>
-                <div id='botones' ><button type="button" id="btncomprar">Comprar</button><button id="clear">Clear</button></div>
+                <div id='botones' ><button onClick={()=>{localStorage.removeItem("carrito")}} id="clear">Clear</button></div>
 
             </section>
 
@@ -78,7 +69,7 @@ function CheckOut(props) {
 
             </div>
             <div style={{ width: "50%" }}>
-                <Paypal productosAMostar={productosAMostar} />
+                <Paypal productosAMostar={renderProd} />
             </div>
 
 

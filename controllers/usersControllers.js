@@ -187,7 +187,7 @@ const sendEmail = async (email, uniqueString) => {
           <tr>
             <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
               
-              <img align="center" border="0" src="https://www.bemytravelmuse.com/wp-content/uploads/2018/06/itineraries-1.png" alt="Wrong Email" title="Wrong Email" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
+           <img align="center" border="0" src="https://www.bemytravelmuse.com/wp-content/uploads/2018/06/itineraries-1.png" alt="Wrong Email" title="Wrong Email" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 159px;" width="159" class="v-src-width v-src-max-width"/>
               
             </td>
           </tr>
@@ -207,7 +207,7 @@ const sendEmail = async (email, uniqueString) => {
             <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 22px; line-height: 30.8px;">Hello!</span></strong></span></p>
         <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
         <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Thank you for registering. Your account is already verified. Please click on the following link to log in. </span></p>
-        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">My Tinerary® </span></p>
+        <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">React Sports® </span></p>
         
           </div>
         

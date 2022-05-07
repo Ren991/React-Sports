@@ -123,8 +123,8 @@
 .botonAtras{
     background-color: white;
     border: none;
-    position: absolute;
-    top: 140px;
+/*     position: absolute;
+ */    top: 140px;
     left: 270px;
 }
 .divGoToCartOrContinueShopping button{
@@ -308,6 +308,7 @@
     font-size: 1rem !important;
     color: #7e8287 !important;
 }
+
 
 
 @media (max-width: 800px) {

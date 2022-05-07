@@ -14,9 +14,9 @@ export default function PayPal(props) {
     const dispatch = useDispatch
 
     console.log(carritoUser);
-    console.log(1, orderID);
+    /* console.log(1, orderID);
     console.log(2, success);
-    console.log(3, ErrorMessage);
+    console.log(3, ErrorMessage); */
 
     useEffect(() => {
 
@@ -30,12 +30,7 @@ export default function PayPal(props) {
         intent: "capture",
 
     };
-    let productsId = carritoUser.map(items => items.id)
-    //mapeo de id de productos
-
-
-    console.log(productsId) //para que????
-
+    
 
     const createANewOrder = (data, actions) => {
 

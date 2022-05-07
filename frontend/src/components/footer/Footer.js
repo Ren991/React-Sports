@@ -24,28 +24,46 @@ const Footer = () => {
             <div className="col-md-2 col-sm-4 col-xs-4">
                 <h5 className="heading" style={{color:"black"}}>Category</h5>
                 <ul>
-                <Link to ="/type/footwear">
-                    <li >Footwear</li>
+                <Link to ="/type/Shoes">
+                    <li style={{color:"black"}}>Shoes</li>
                     </Link>
 
-                    <Link to ="/type/t-shirt">
-                    <li >T-shirts</li>
+                    <Link to ="/type/Shirts">
+                    <li style={{color:"black"}}>T-shirts</li>
                     </Link>
                   
-                    <Link to ="/type/pants">
-                    <li >Pants</li>
+                    <Link to ="/type/Pants">
+                    <li style={{color:"black"}}>Pants</li>
                     </Link>
                    
+                    <Link to ="/type/Hoodies">
+                    <li style={{color:"black"}}>Hoodies</li>
+                    </Link>
+                    <Link to ="/type/Various">
+                    <li style={{color:"black"}}>Various</li>
+                    </Link>
+                    <Link to ="/type/Qatar%202022">
+                    <li style={{color:"black"}}>Qatar 2022</li>
+                    </Link>
                 </ul>
             </div>
             <div className="col-md-2 col-sm-4 col-xs-4">
                 <h5 className="heading" style={{color:"black"}}>Brand</h5>
-                <ul className="card-text">
-                <Link to ="/brands/nike">
-                    <li >Nike</li>
+                <ul className="card-text" >
+                <Link to ="/brands/Nike">
+                    <li style={{color:"black"}}>Nike</li>
                     </Link>
-                    <Link to ="/brands/adidas">
-                    <li >Adidas</li>
+                    <Link to ="/brands/Adidas">
+                    <li style={{color:"black"}}>Adidas</li>
+                    </Link>
+                    <Link to ="/brands/New%20Balance">
+                    <li style={{color:"black"}}>New Balance</li>
+                    </Link>
+                    <Link to ="/brands/Puma">
+                    <li style={{color:"black"}}>Puma</li>
+                    </Link>
+                    <Link to ="/brands/Vans">
+                    <li style={{color:"black"}}>Vans</li>
                     </Link>
                     
               
@@ -56,13 +74,13 @@ const Footer = () => {
                 <h5 className="heading" style={{color:"black"}}>Sport</h5>
                 <ul className="card-text">
                     <Link to ="/sports/football">
-                    <li >Footbal</li>
+                    <li style={{color:"black"}}>Footbal</li>
                     </Link>
                    <Link to="/sports/running">
-                   <li>Running</li>
+                   <li style={{color:"black"}}>Running</li>
                    </Link>
                    <Link to="/sports/basquetball">
-                   <li>Basquetball</li>
+                   <li style={{color:"black"}}>Basquetball</li>
                    </Link>
                     
                     
