@@ -1,21 +1,30 @@
-import React, {useState}from 'react'
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link as LinkRouter } from "react-router-dom";
-import userAction from '../../redux/actions/userAction';
+import userAction from "../../redux/actions/userAction";
 import { connect } from "react-redux";
 import GoogleSignUp from "./googleSignUp";
 import "../../styles/login.css";
 
-
 const SignUp = (props) => {
-  const country = ["Choose...", "Argentina", "Brazil", "Colombia", "Chile", "Uruguay", "United States", "Spain", "China"]
+  const country = [
+    "Choose...",
+    "Argentina",
+    "Brazil",
+    "Colombia",
+    "Chile",
+    "Uruguay",
+    "United States",
+    "Spain",
+    "China",
+  ];
 
-  const [selectCountry, setSelectCountry] = useState("unselected")
+  const [selectCountry, setSelectCountry] = useState("unselected");
 
-      function selected(event) {
-        setSelectCountry(event.target.value)
-      }
+  function selected(event) {
+    setSelectCountry(event.target.value);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,24 +38,25 @@ const SignUp = (props) => {
       city: event.target[6].value,
       country: selectCountry,
       from: "signUp",
-    }
-    props.signUpUser(userData)
-  }
+    };
+    props.signUpUser(userData);
+  };
 
   return (
     <div className="containerSignUp">
-      <h2><span className="nombreLogin">Create a new account!</span></h2>
+      <h2>
+        <span className="nombreLogin">Create a new account!</span>
+      </h2>
       <p>
         ¿Do you already have an account?{" "}
         <LinkRouter to={"/signIn"} className="signUpButton">
           Log In!
         </LinkRouter>
       </p>
-        <div className="containerGoogle">
-        <GoogleSignUp/>
-        </div>
+      <div className="containerGoogle">
+        <GoogleSignUp />
+      </div>
       <Form className="formSignUp" onSubmit={handleSubmit}>
-
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>First Name</Form.Label>
           <Form.Control type="text" placeholder="First Name" name="firstName" />
@@ -78,7 +88,7 @@ const SignUp = (props) => {
           <Form.Label>Url Image</Form.Label>
           <Form.Control type="text" placeholder="URL Image" name="image" />
         </Form.Group>
-        
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Adress</Form.Label>
           <Form.Control type="text" placeholder="Adress" name="adress" />
@@ -91,15 +101,19 @@ const SignUp = (props) => {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Country</Form.Label>
-          <Form.Select aria-label="Default select example" name="country" onChange={selected}>
-            {country.map(country =>
-            <option >{country}</option>
-            )}
+          <Form.Select
+            aria-label="Default select example"
+            name="country"
+            onChange={selected}
+          >
+            {country.map((country) => (
+              <option>{country}</option>
+            ))}
           </Form.Select>
         </Form.Group>
 
         <div className="submitContainer">
-        <input type="submit" className="submitButton" placeholder="Log Up"/>
+          <input type="submit" className="submitButton" placeholder="Log Up" />
         </div>
       </Form>
     </div>

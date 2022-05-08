@@ -1,58 +1,42 @@
 import React, { useEffect, useState } from "react";
-
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import generateStore from '../../redux/store'
-import { getTotal } from '../../redux/reducers/cartReducer';
+import generateStore from "../../redux/store";
+import { getTotal } from "../../redux/reducers/cartReducer";
 import { modificarStock } from "../../redux/productos/productos";
 import { useDispatch } from "react-redux";
 
 export default function PayPal(props) {
-    const carritoUser = props.productosAMostar
-    const [success, setSuccess] = useState(false);
-    const [orderID, setOrderID] = useState(false);
-    const [ErrorMessage, setErrorMessage] = useState("");
-    const dispatch = useDispatch
+  const carritoUser = props.productosAMostar;
+  const [success, setSuccess] = useState(false);
+  const [orderID, setOrderID] = useState(false);
+  const [ErrorMessage, setErrorMessage] = useState("");
+  const dispatch = useDispatch;
 
-    console.log(carritoUser);
-    /* console.log(1, orderID);
-    console.log(2, success);
-    console.log(3, ErrorMessage); */
+  useEffect(() => {
+    PayPalCheckOut();
+  }, [carritoUser]);
 
-    useEffect(() => {
+  const initialOptions = {
+    "client-id":
+      "AcDpda9-r04A8dyg6DEe1VcyBnp46zLMOzggKMS_beirwbd3d9qs3f8BZ1t28NPshl71Z_MDvrz6TM8u",
+    currency: "USD",
+    intent: "capture",
+  };
 
-        PayPalCheckOut()
+  const createANewOrder = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          description: "items",
+          amount: {
+            value: getTotal(carritoUser),
+          },
+        },
+      ],
+      /////////////////////////////////////////////////////////////////////////
 
-    }, [carritoUser]);
-
-    const initialOptions = {
-        "client-id": "AcDpda9-r04A8dyg6DEe1VcyBnp46zLMOzggKMS_beirwbd3d9qs3f8BZ1t28NPshl71Z_MDvrz6TM8u",
-        currency: "USD",
-        intent: "capture",
-
-    };
-    
-
-    const createANewOrder = (data, actions) => {
-
-
-
-        console.log(data)
-        return actions.order.create({
-            purchase_units: [
-                {
-                    description: "items",
-                    amount: {
-                        value: getTotal(carritoUser),
-                    },
-
-                },
-
-
-            ],
-            /////////////////////////////////////////////////////////////////////////
-
-            //opcional!!! Debe hacerse dinamico
-            /* purchase_units: [{
+      //opcional!!! Debe hacerse dinamico
+      /* purchase_units: [{
                 reference_id: "PUHF",
                 description: "Sporting Goods",
 
@@ -131,62 +115,59 @@ export default function PayPal(props) {
                     }
                 }
             }] */
-            ////////////////////////////////////////////
+      ////////////////////////////////////////////
+    });
+  };
+  const checkToApprove = (data, actions) => {
+    return actions.order.capture().then(function (details) {
+      const { payer } = details;
+      /* console.log(payer); */
+      setSuccess(true);
+      console.log("Capture result", details, JSON.stringify(details, null, 2));
+      var transaction = details.purchase_units[0].payments.captures[0];
+      localStorage.removeItem("carrito");
+      alert(
+        "Transaction " +
+          transaction.status +
+          ": " +
+          transaction.id +
+          "See your mail for details"
+      );
+      /* console.log(details) */
+      setOrderID(transaction.id);
+      const compraVerificada =
+        details.purchase_units[0].payments.captures[0].status;
+      /* console.log(compraVerificada)
+                console.log(carritoUser); */
+      if (compraVerificada == "COMPLETED") {
+        carritoUser.map((x) => dispatch(modificarStock(x._id, x.stock - 1)));
+      }
+    });
+  };
 
+  const aCancel = (data) => {
+    console.log("order cancelled!", data);
+  };
 
-        });
-    };
-    const checkToApprove = (data, actions) => {
-
-        console.log(data)
-
-
-        return actions.order.capture()
-            .then(function (details) {
-                const { payer } = details; //para que usar payer???
-                console.log(payer);
-                setSuccess(true);
-                console.log('Capture result', details, JSON.stringify(details, null, 2));
-                var transaction = details.purchase_units[0].payments.captures[0];
-                alert('Transaction ' + transaction.status + ': ' + transaction.id + 'See your mail for details');
-                console.log(details)
-                setOrderID(transaction.id)
-                const compraVerificada = details.purchase_units[0].payments.captures[0].status
-                console.log(compraVerificada)
-                console.log(carritoUser);
-                if (compraVerificada == "COMPLETED") {
-                    carritoUser.map((x) => dispatch(modificarStock(x._id, (x.stock - 1))))
-                }
-            });
-    };
-
-
-
-
-
-    const aCancel = (data) => {
-        console.log('order cancelled!', data);
-    }
-
-    const onError = (data, actions) => {
-        setErrorMessage("An Error occured with your payment. Try again en few hours ");
-    };
-
-    const PayPalCheckOut = () => {
-        return (
-            <PayPalScriptProvider options={initialOptions}>
-
-                {/*Inicializo los botones*/}
-                <PayPalButtons
-                    createOrder={createANewOrder}
-                    onApprove={checkToApprove}
-                    onError={onError}
-                    onCancel={aCancel}
-                />
-            </PayPalScriptProvider>
-        )
-    }
-    return (
-        <PayPalCheckOut />
+  const onError = (data, actions) => {
+    setErrorMessage(
+      "An Error occured with your payment. Try again en few hours "
     );
+  };
+
+  const PayPalCheckOut = () => {
+    return (
+      <PayPalScriptProvider options={initialOptions}>
+        {/*Inicializo los botones*/}
+        <PayPalButtons
+          createOrder={createANewOrder}
+          onApprove={checkToApprove}
+          onError={onError}
+          onCancel={aCancel}
+        />
+      </PayPalScriptProvider>
+    );
+  };
+
+  return <PayPalCheckOut />;
 }
